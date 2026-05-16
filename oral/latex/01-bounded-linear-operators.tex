@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+\input{oral-style}
+\input{../../fa-theorems}
+
+\begin{document}
+
+\OralTitleBlock{1}{$\mathcal L(X)$ is Banach and invertible operators form an open subset}
+
+\section{Question}
+
+Show that the space of linear bounded operators $(\mathcal L(X),\norm{\cdot}_{\mathcal L(X)})$ is a Banach space and the set of invertible operators $GL(X)$ is an open subset of $\mathcal L(X)$.
+
+\section{Definitions}
+
+\begin{defbox}{Bounded linear operators}
+Let $X$ be a normed space over $\K$. Define
+\[
+\mathcal L(X):=\{T:X\to X \text{ linear} : \norm{T}_{\mathcal L(X)}:=\sup_{\norm{x}_X\le 1}\norm{Tx}_X<\infty\}.
+\]
+\end{defbox}
+
+\begin{defbox}{Invertible operators}
+An operator $T\in\mathcal L(X)$ is \textbf{invertible} if there exists $T^{-1}\in\mathcal L(X)$ with $TT^{-1}=T^{-1}T=I$. The set of all such operators is
+\[
+GL(X):=\{T\in\mathcal L(X):T\text{ is invertible}\}.
+\]
+\end{defbox}
+
+\section{Part I: $\mathcal L(X)$ is a Banach space when $X$ is Banach}
+
+\begin{thmbox}{Theorem 3.3}
+If $X$ is a Banach space, then $(\mathcal L(X),\norm{\cdot})$ is a Banach space.
+\end{thmbox}
+
+\paragraph{Proof.}
+Let $(T_n)$ be Cauchy in $\mathcal L(X)$. For each fixed $x\in X$,
+\[
+\norm{T_nx-T_mx}_X\le\norm{T_n-T_m}\norm{x}_X,
+\]
+so $(T_nx)$ is Cauchy in $X$. Since $X$ is Banach, define
+\[
+Tx:=\lim_{n\to\infty}T_nx.
+\]
+
+\emph{Linearity.} $T(\alpha x+\beta y)=\lim T_n(\alpha x+\beta y)=\alpha Tx+\beta Ty$.
+
+\emph{Boundedness.} Since $(T_n)$ is Cauchy, $(\norm{T_n})$ is bounded; say $\norm{T_n}\le C$. Then
+\[
+\norm{Tx}_X=\lim\norm{T_nx}_X\le C\norm{x}_X.
+\]
+
+\emph{Norm convergence.} For $\varepsilon>0$, choose $N$ so that $n,m\ge N\Rightarrow\norm{T_n-T_m}<\varepsilon/2$. Then for $n\ge N$,
+\[
+\norm{(T_n-T)x}_X=\lim_{m\to\infty}\norm{(T_n-T_m)x}_X
+\le\limsup_{m\to\infty}\norm{T_n-T_m}\norm{x}_X
+\le\frac{\varepsilon}{2}\norm{x}_X.
+\]
+Taking the supremum over $\norm{x}\le 1$ gives $\norm{T_n-T}\le\varepsilon/2<\varepsilon$.\hfill$\square$
+
+\section{Part II: $GL(X)$ is open}
+
+\begin{thmbox}{Invertible operators form an open set}
+If $X$ is a Banach space, then $GL(X)$ is open in $\mathcal L(X)$. Moreover, if $T\in GL(X)$ and $\norm{S-T}<1/\norm{T^{-1}}$, then $S\in GL(X)$.
+\end{thmbox}
+
+\paragraph{Proof.}
+Let $T\in GL(X)$ and $S\in\mathcal L(X)$ with $\norm{T-S}<1/\norm{T^{-1}}$. Write
+\[
+S=T-(T-S)=T\bigl(I-T^{-1}(T-S)\bigr).
+\]
+Set $R:=T^{-1}(T-S)$. Then
+\[
+\norm{R}\le\norm{T^{-1}}\norm{T-S}<1,
+\]
+so by the Neumann series (Theorem~\ref{thm:neumann-series}), $I-R$ is invertible with
+\[
+(I-R)^{-1}=\sum_{n=0}^{\infty}R^n.
+\]
+Therefore
+\[
+S^{-1}=(I-R)^{-1}T^{-1},
+\]
+and $S\in GL(X)$. The open ball $B(T,1/\norm{T^{-1}})\subset GL(X)$, so $GL(X)$ is open.\hfill$\square$
+
+\begin{exbox}{Quantitative radius}
+The ball of radius $1/\norm{T^{-1}}$ around any $T\in GL(X)$ is contained in $GL(X)$. The closer $T$ is to being non-invertible (i.e., the larger $\norm{T^{-1}}$), the smaller the stability radius.
+\end{exbox}
+
+\section{Common traps}
+
+\begin{warningbox}{Common trap}
+In Part I, $X$ must be Banach. The completeness of $X$ is essential for defining $Tx=\lim T_nx$.
+\end{warningbox}
+
+\begin{warningbox}{Common trap}
+The Neumann series requires $\norm{R}<1$ in \emph{operator norm}, not just pointwise. Pointwise convergence of $R^n x\to 0$ is not sufficient.
+\end{warningbox}
+
+\begin{warningbox}{Common trap}
+$GL(X)$ is open, but its complement (non-invertible operators) is \emph{not} open in general. The boundary consists of operators that are ``almost invertible.''
+\end{warningbox}
+
+\section{30-second oral summary}
+
+\begin{summarybox}
+$\mathcal L(X)$ is Banach because a Cauchy sequence $T_n$ converges pointwise to a limit $T$, and boundedness plus norm convergence follow from the uniform Cauchy estimate. $GL(X)$ is open because if $T$ is invertible and $S$ is close to $T$, then $S=T(I-T^{-1}(T-S))$ where $\norm{T^{-1}(T-S)}<1$, so the Neumann series gives $(I-T^{-1}(T-S))^{-1}$, hence $S^{-1}$ exists. The stability radius is $1/\norm{T^{-1}}$.
+\end{summarybox}
+
+\end{document}

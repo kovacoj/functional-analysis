@@ -7,6 +7,10 @@ LEC_SRCS    := $(wildcard $(LEC_DIR)/[0-9]*.tex)
 LEC_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(LEC_SRCS))
 APP_SRCS    := $(wildcard $(LEC_DIR)/appendix-*.tex)
 APP_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(APP_SRCS))
+ORAL_DIR    := oral/latex
+ORAL_PDF    := oral/pdf
+ORAL_SRCS   := $(wildcard $(ORAL_DIR)/[0-9]*.tex)
+ORAL_PDFS   := $(patsubst $(ORAL_DIR)/%.tex,$(ORAL_PDF)/%.pdf,$(ORAL_SRCS))
 
 LATEX_AUX_EXTENSIONS = \
 	-name "*.aux" -o \
@@ -19,7 +23,7 @@ LATEX_AUX_EXTENSIONS = \
 	-name "*.fdb_latexmk" -o \
 	-name "*.synctex.gz"
 
-.PHONY: all theorems lectures clean clean-latex
+.PHONY: all theorems lectures oral clean clean-latex
 
 all: theorems lectures
 
@@ -32,6 +36,11 @@ lectures: $(LEC_PDFS) $(APP_PDFS)
 
 $(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex fa-macros.tex fa-theorems.tex
 	$(LATEXMK) -cd -output-directory=$(abspath $(LEC_PDF)) $<
+
+oral: $(ORAL_PDFS)
+
+$(ORAL_PDF)/%.pdf: $(ORAL_DIR)/%.tex $(ORAL_DIR)/oral-style.tex fa-macros.tex fa-theorems.tex
+	$(LATEXMK) -cd -output-directory=$(abspath $(ORAL_PDF)) $<
 
 clean: clean-latex
 
