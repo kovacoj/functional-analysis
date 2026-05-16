@@ -1,11 +1,12 @@
 LATEX       := pdflatex
 LATEXMK     := latexmk -pdf
-NOTES_DIR   := transcribed-notes/latex
-NOTES_PDF   := transcribed-notes/pdf
-NOTES_SRCS  := $(wildcard $(NOTES_DIR)/[0-9]*.tex)
-NOTES_PDFS  := $(patsubst $(NOTES_DIR)/%.tex,$(NOTES_PDF)/%.pdf,$(NOTES_SRCS))
-APPENDIX_SRCS := $(wildcard $(NOTES_DIR)/appendix-*.tex)
-APPENDIX_PDFS := $(patsubst $(NOTES_DIR)/%.tex,$(NOTES_PDF)/%.pdf,$(APPENDIX_SRCS))
+THM_DIR     := theorems
+LEC_DIR     := lectures/latex
+LEC_PDF     := lectures/pdf
+LEC_SRCS    := $(wildcard $(LEC_DIR)/[0-9]*.tex)
+LEC_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(LEC_SRCS))
+APP_SRCS    := $(wildcard $(LEC_DIR)/appendix-*.tex)
+APP_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(APP_SRCS))
 
 LATEX_AUX_EXTENSIONS = \
 	-name "*.aux" -o \
@@ -18,24 +19,23 @@ LATEX_AUX_EXTENSIONS = \
 	-name "*.fdb_latexmk" -o \
 	-name "*.synctex.gz"
 
-.PHONY: all theorems notes clean clean-latex
+.PHONY: all theorems lectures clean clean-latex
 
-all: theorems notes
+all: theorems lectures
 
-theorems: theorems.pdf
+theorems: $(THM_DIR)/theorems.pdf
 
-theorems.pdf: theorems.tex fa-macros.tex fa-theorems.tex
-	$(LATEX) theorems.tex
-	$(LATEX) theorems.tex
+$(THM_DIR)/theorems.pdf: $(THM_DIR)/theorems.tex fa-macros.tex fa-theorems.tex
+	cd $(THM_DIR) && $(LATEX) theorems.tex && $(LATEX) theorems.tex
 
-notes: $(NOTES_PDFS) $(APPENDIX_PDFS)
+lectures: $(LEC_PDFS) $(APP_PDFS)
 
-$(NOTES_PDF)/%.pdf: $(NOTES_DIR)/%.tex $(NOTES_DIR)/study-note-style.tex $(NOTES_DIR)/fa-macros.tex $(NOTES_DIR)/fa-theorems.tex
-	$(LATEXMK) -cd -output-directory=$(abspath $(NOTES_PDF)) $<
+$(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex fa-macros.tex fa-theorems.tex
+	$(LATEXMK) -cd -output-directory=$(abspath $(LEC_PDF)) $<
 
 clean: clean-latex
-	$(RM) theorems.pdf
-	$(RM) -r $(NOTES_PDF)/*.pdf
+	$(RM) $(THM_DIR)/theorems.pdf
+	$(RM) -r $(LEC_PDF)/*.pdf
 
 clean-latex:
 	find . \( $(LATEX_AUX_EXTENSIONS) \) -type f -delete
