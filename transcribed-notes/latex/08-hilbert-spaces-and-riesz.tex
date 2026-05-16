@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 8 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{08}{Lecture 8: Exam Study Notes}{Hilbert spaces, projection theorem, direct sum theorem, Riesz representation, and Lax--Milgram}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This is one of the core exam lectures. It contains the geometry of Hilbert spaces, projection/direct sum, Riesz representation, reflexivity of Hilbert spaces, and the first well-posedness result for solving equations in Hilbert spaces.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Hilbert Space Basics}
+
+\begin{defbox}{Hilbert space}
+A Hilbert space is a complete inner-product space. Its norm is induced by
+\[
+\norm{x}_H:=\sqrt{(x,x)_H}.
+\]
+\end{defbox}
+
+\begin{thmbox}{Theorems 10.1--10.3}
+In a Hilbert space:
+\begin{itemize}
+\item the inner product generates a norm;
+\item Cauchy--Schwarz holds:
+\[
+\abs{(x,y)}\le \norm{x}\norm{y};
+\]
+\item the parallelogram rule holds:
+\[
+\norm{x+y}^2+\norm{x-y}^2=2\norm{x}^2+2\norm{y}^2.
+\]
+\end{itemize}
+\end{thmbox}
+
+\section{Orthogonality, Projection, Direct Sum}
+
+\begin{thmbox}{Theorem 11.1: Projection theorem}
+If $M$ is a closed subspace of a Hilbert space $H$, then every $x\in H$ has a unique nearest point $P_Mx\in M$. Moreover,
+\[
+x-P_Mx\in M^\perp.
+\]
+\end{thmbox}
+
+\begin{thmbox}{Theorem 11.2: Direct sum theorem}
+If $M$ is a closed subspace of a Hilbert space $H$, then
+\[
+H=M\oplus M^\perp.
+\]
+\end{thmbox}
+
+\begin{thmbox}{Theorem 11.3: Least-squares solution in $\R^n$}
+The least-squares problem for $Ax\approx b$ is solved by the normal equations
+\[
+A^TAx=A^Tb.
+\]
+\end{thmbox}
+
+\section{Riesz Representation And Reflexivity}
+
+\begin{thmbox}{Theorem 11.4: Riesz representation theorem}
+For every $\phi\in H^*$ there exists a unique $a\in H$ such that
+\[
+\phi(x)=(a,x)_H \qquad \forall x\in H,
+\]
+and
+\[
+\norm{\phi}_{H^*}=\norm{a}_H.
+\]
+\end{thmbox}
+
+\paragraph{Consequence.}
+Every Hilbert space is reflexive.
+
+\section{Lax--Milgram And Solvability}
+
+\begin{thmbox}{Theorem 12.1: Well-posedness of $Lu=f$ under coercivity}
+If $L\in\mathcal L(H)$ satisfies
+\[
+\operatorname{Re}(Lu,u)_H\ge \beta\norm{u}_H^2
+\qquad \forall u\in H,
+\]
+for some $\beta>0$, then $L$ is invertible and
+\[
+\norm{L^{-1}}\le \frac{1}{\beta}.
+\]
+\end{thmbox}
+
+\begin{thmbox}{Theorem 12.2: Lax--Milgram lemma}
+If $B:H\times H\to\K$ is bounded and coercive, then for every $f\in H^*$ there exists a unique $u\in H$ such that
+\[
+B(u,v)=f(v) \qquad \forall v\in H.
+\]
+\end{thmbox}
+
+\paragraph{Exam use.}
+This is the abstract framework behind weak solutions of elliptic boundary value problems.
+
+\section{Weak Convergence In Hilbert Spaces}
+
+\begin{focusbox}
+In Hilbert spaces, weak convergence can be written more concretely:
+\[
+x_n\rightharpoonup x \quad \Longleftrightarrow \quad (x_n,y)_H\to (x,y)_H \text{ for all } y\in H.
+\]
+This is just Riesz representation applied to all continuous linear functionals.
+\end{focusbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know precisely:
+\begin{enumerate}
+\item the definition of Hilbert space and orthogonal complement;
+\item the projection theorem and direct sum theorem;
+\item the Riesz representation theorem;
+\item why Hilbert spaces are reflexive;
+\item the statements of Theorems \textbf{12.1} and \textbf{12.2};
+\item how these relate to weak solutions and coercive problems.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

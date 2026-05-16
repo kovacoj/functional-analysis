@@ -1,0 +1,104 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 6 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{06}{Lecture 6: Exam Study Notes}{Uniform boundedness, open mapping, bounded inverse, and closed graph}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This lecture is one of the central exam blocks. These are the ``great theorems'' built on Baire's theorem and used everywhere later.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Uniform Boundedness Principle}
+
+\begin{thmbox}{Theorem 8.5: Banach--Steinhaus uniform boundedness principle}
+Let $X$ be Banach, $Y$ normed, and $\mathcal F\subset \mathcal L(X,Y)$. If for every $x\in X$,
+\[
+\sup_{L\in\mathcal F}\norm{Lx}_Y<\infty,
+\]
+then
+\[
+\sup_{L\in\mathcal F}\norm{L}_{\mathcal L(X,Y)}<\infty.
+\]
+\end{thmbox}
+
+\paragraph{Main consequences.}
+\begin{itemize}
+\item weakly convergent and weak-* convergent sequences are bounded;
+\item pointwise bounded families of operators are uniformly bounded;
+\item the pointwise limit of bounded linear operators is bounded (next theorem).
+\end{itemize}
+
+\begin{thmbox}{Theorem 8.6: Pointwise limit of bounded linear operators is bounded}
+Let $X$ be Banach, $Y$ normed, and $(L_n)\subset\mathcal L(X,Y)$. If for every $x\in X$ the limit
+\[
+Lx:=\lim_{n\to\infty}L_nx
+\]
+exists, then $L\in\mathcal L(X,Y)$.
+\end{thmbox}
+
+\section{Open Mapping And Bounded Inverse}
+
+\begin{thmbox}{Theorem 8.7: Open mapping theorem}
+If $X,Y$ are Banach spaces and $L\in\mathcal L(X,Y)$ is surjective, then $L$ maps open sets onto open sets.
+\end{thmbox}
+
+\begin{thmbox}{Theorem 8.8: Bounded inverse theorem}
+If $X,Y$ are Banach spaces and $L\in\mathcal L(X,Y)$ is bijective, then
+\[
+L^{-1}\in\mathcal L(Y,X).
+\]
+\end{thmbox}
+
+\begin{thmbox}{Theorem 8.9: Sufficient condition for equivalence of norms}
+Let $\norm{\cdot}_1$ and $\norm{\cdot}_2$ be norms on the same vector space $X$. If both normed spaces are Banach and one norm dominates the other, then the two norms are equivalent.
+\end{thmbox}
+
+\paragraph{Reason.}
+Apply the bounded inverse theorem to the identity map between the two normed versions of $X$.
+
+\section{Closed Graph Theorem}
+
+\begin{defbox}{Closed linear operator}
+For a linear operator $L:X\to Y$, its graph is
+\[
+\operatorname{Graph}(L)=\{(x,Lx):x\in X\}\subset X\times Y.
+\]
+The operator is \textbf{closed} if its graph is closed.
+\end{defbox}
+
+\begin{thmbox}{Theorem 8.10: Closed graph theorem}
+Let $X,Y$ be Banach spaces and let $L:X\to Y$ be linear. If $\operatorname{Graph}(L)$ is closed in $X\times Y$, then $L\in\mathcal L(X,Y)$.
+\end{thmbox}
+
+\begin{thmbox}{Theorem 8.11: Closedness of operator vs. closedness of its domain/graph}
+The graph viewpoint and the domain viewpoint are equivalent for linear operators. In particular, if an operator is defined on all of a Banach space and is closed, then it is automatically continuous.
+\end{thmbox}
+
+\section{Hellinger--Toeplitz Connection}
+
+\begin{warningbox}{Exam-specific use}
+One oral exam topic asks for the use of the closed graph theorem in the proof of the Hellinger--Toeplitz theorem: an everywhere-defined symmetric operator on a Hilbert space is bounded.
+\end{warningbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+You should know the exact statements and standard consequences of:
+\begin{enumerate}
+\item Theorems \textbf{8.5}, \textbf{8.6}, \textbf{8.7}, \textbf{8.8}, \textbf{8.9}, \textbf{8.10}, \textbf{8.11};
+\item boundedness of weakly convergent sequences from Banach--Steinhaus;
+\item continuity of inverse from the open mapping theorem;
+\item equivalence of norms via the identity map;
+\item the idea of graph norm used in the closed graph theorem.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

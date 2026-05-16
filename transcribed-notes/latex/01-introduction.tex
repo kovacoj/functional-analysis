@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 1 Exam Study Notes}
+
+\input{study-note-style}
+
+\newcommand{\Lp}{L^p}
+
+\begin{document}
+
+\StudyTitleBlock{01}{Lecture 1: Exam Study Notes}{Introduction, norms, metrics, completeness, continuity, and first operator definitions}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This note is an \textbf{exam-focused rewrite} of the first handwritten lecture, filtered using the syllabus, theorem list, and oral-exam documents. It keeps the material you are expected to know and omits non-exam narrative such as historical remarks.
+\end{focusbox}
+
+\tableofcontents
+
+\section{What To Learn From This Lecture}
+
+\begin{focusbox}
+For the exam, the core takeaways from Lecture 1 are:
+\begin{itemize}
+\item what functional analysis studies and why functionals matter;
+\item the basic ambient spaces: vector, pre-Hilbert, normed, metric, and topological spaces;
+\item convergence, Cauchy sequences, completeness, Banach and Hilbert spaces;
+\item standard examples: $\R^d$, $\C^d$, $C^k(\Omega)$, $\ell^p$, $\Lp(\Omega)$, $W^{k,p}(\Omega)$;
+\item Theorems \textbf{2.1--2.4} from the exam theorem list;
+\item the first definitions for linear maps and bounded linear operators.
+\end{itemize}
+\end{focusbox}
+
+\section{Functional Analysis In One Line}
+
+Functional analysis studies mappings
+\[
+L:X\to Y,
+\]
+where $X$ and $Y$ are vector spaces over $\K$, with $\K=\R$ or $\C$, and where the spaces usually carry extra structure that allows one to discuss continuity, convergence, compactness, or solvability.
+
+\begin{defbox}{Functional and ambient structures}
+An important special case is $Y=\K$. Then
+\[
+L:X\to \K
+\]
+is called a \textbf{functional}.
+
+Typical structures on $X$ are:
+\begin{itemize}
+\item a scalar product $(\cdot,\cdot)$: pre-Hilbert / inner-product space;
+\item a norm $\norm{\cdot}$: normed space;
+\item a distance $d$: metric space;
+\item a topology $\mathcal T$: topological space.
+\end{itemize}
+\end{defbox}
+
+\section{Core Examples}
+
+\begin{exbox}{Examples you should recognize immediately}
+\begin{itemize}
+\item $\R^d$ and $\C^d$ with the usual Euclidean norm are finite-dimensional Banach spaces; with the standard inner product they are Hilbert spaces.
+\item $C(\ol\Omega)$ with the sup norm
+\[
+\norm{f}_{\infty}=\max_{x\in\ol\Omega}\abs{f(x)}
+\]
+is Banach.
+\item $\ell^p$ for $1\le p\le \infty$ are Banach spaces; $\ell^2$ is Hilbert.
+\item $\Lp(\Omega)$ for $1\le p\le \infty$ are Banach spaces; $L^2(\Omega)$ is Hilbert.
+\item Sobolev spaces $W^{k,p}(\Omega)$ are Banach; when $p=2$, one writes
+\[
+H^k(\Omega):=W^{k,2}(\Omega),
+\]
+and these are Hilbert spaces.
+\end{itemize}
+\end{exbox}
+
+\begin{warningbox}{Finite vs. infinite dimensional intuition}
+In $\R^d$, the span of the canonical basis is the whole space. In contrast, in $\ell^p$ the span of $e_1,e_2,\dots$ consists only of finitely supported sequences, so it is \emph{not} all of $\ell^p$.
+\end{warningbox}
+
+\section{Norms And Metrics}
+
+\begin{defbox}{Norm}
+Let $X$ be a vector space over $\K$. A map $x\mapsto \norm{x}_X$ is a \textbf{norm} if for all $x,y\in X$ and $\lambda\in\K$:
+\begin{align*}
+\text{(N1)}\quad & \norm{x}_X=0 \iff x=0,
+\\
+\text{(N2)}\quad & \norm{\lambda x}_X=\abs{\lambda}\norm{x}_X,
+\\
+\text{(N3)}\quad & \norm{x+y}_X\le \norm{x}_X+\norm{y}_X.
+\end{align*}
+Then $(X,\norm{\cdot}_X)$ is a \textbf{normed space}.
+\end{defbox}
+
+\begin{thmbox}{Theorem 2.1: A norm generates a metric}
+If $(X,\norm{\cdot}_X)$ is a normed space, then
+\[
+d(x,y):=\norm{x-y}_X
+\]
+defines a metric on $X$.
+\end{thmbox}
+
+\paragraph{Proof.}
+Non-negativity and the implication $d(x,y)=0 \iff x=y$ follow from (N1). Symmetry follows from
+\[
+d(x,y)=\norm{x-y}_X=\norm{(-1)(y-x)}_X=\abs{-1}\norm{y-x}_X=d(y,x).
+\]
+The triangle inequality is exactly (N3):
+\[
+d(x,z)=\norm{x-z}_X=\norm{(x-y)+(y-z)}_X\le \norm{x-y}_X+\norm{y-z}_X=d(x,y)+d(y,z).
+\]
+
+\begin{focusbox}
+The lecture also stresses that the metric induced by a norm is compatible with vector-space structure:
+\[
+d(x+z,y+z)=d(x,y),
+\qquad
+d(\lambda x,\lambda y)=\abs{\lambda}d(x,y),
+\]
+and norm balls are convex.
+\end{focusbox}
+
+\section{Convergence, Completeness, And Closed Subspaces}
+
+\begin{defbox}{Convergence and Cauchy sequence}
+In a normed space $(X,\norm{\cdot}_X)$:
+\begin{itemize}
+\item $x_n\to x$ means $\norm{x_n-x}_X\to 0$;
+\item $(x_n)$ is \textbf{Cauchy} if
+\[
+\forall \varepsilon>0\ \exists n_0\ \forall m,n\ge n_0:\ \norm{x_n-x_m}_X<\varepsilon.
+\]
+\end{itemize}
+\end{defbox}
+
+\begin{defbox}{Completeness}
+\begin{itemize}
+\item A normed space is \textbf{Banach} if every Cauchy sequence converges in the space.
+\item A scalar-product space is \textbf{Hilbert} if it is complete in the induced norm.
+\item More generally, a metric linear space built from a separating sequence of seminorms and complete for that metric is called a \textbf{Fr\'echet space}. In the course this becomes Theorem 5.1 later.
+\end{itemize}
+\end{defbox}
+
+\begin{thmbox}{Theorem 2.2: Characterization of closure and closed sets in a metric space}
+Let $(X,d)$ be a metric space and $A\subset X$ nonempty.
+\begin{itemize}
+\item A point $x$ lies in $\ol A$ if and only if there exists a sequence $(x_n)\subset A$ with $x_n\to x$.
+\item A set $A$ is closed if and only if every convergent sequence in $A$ has its limit in $A$.
+\end{itemize}
+\end{thmbox}
+
+\paragraph{Proof.}
+If $x\in\ol A$, then every ball $B_{1/n}(x)$ meets $A$; choose $x_n\in A\cap B_{1/n}(x)$. Then $x_n\to x$. Conversely, if $x_n\in A$ and $x_n\to x$, every neighborhood of $x$ contains some $x_n$, so $x\in\ol A$.
+
+For the second claim, if $A$ is closed and $x_n\in A$ converges to $x$, then $x\in A=\ol A$. Conversely, if every convergent sequence in $A$ stays in $A$, then the first part shows that every point of $\ol A$ already lies in $A$, hence $A$ is closed.
+
+\begin{thmbox}{Theorem 2.3: A subspace of a Banach space is complete iff it is closed}
+Let $Y$ be a subspace of a Banach space $X$. Then $Y$ is complete in the inherited norm if and only if $Y$ is closed in $X$.
+\end{thmbox}
+
+\paragraph{Proof.}
+If $Y$ is complete and $y_n\in Y$ converges in $X$ to some $x$, then $(y_n)$ is Cauchy in $Y$, hence converges in $Y$ to a point of $Y$; uniqueness of limits gives $x\in Y$. So $Y$ is closed.
+
+Conversely, if $Y$ is closed and $(y_n)$ is Cauchy in $Y$, then it is Cauchy in $X$. Since $X$ is Banach, $y_n\to x$ for some $x\in X$. Closedness of $Y$ gives $x\in Y$, hence $Y$ is complete.
+
+\section{Continuity And Topology}
+
+\begin{defbox}{Continuity at a point}
+Let $(X,\norm{\cdot}_X)$ and $(Y,\norm{\cdot}_Y)$ be normed spaces. A map $f:X\to Y$ is \textbf{continuous at} $x_0\in X$ if
+\[
+\forall \varepsilon>0\ \exists \delta>0\ \forall x\in X:\
+\norm{x-x_0}_X<\delta \implies \norm{f(x)-f(x_0)}_Y<\varepsilon.
+\]
+In metric spaces this is equivalent to sequential continuity:
+\[
+x_n\to x_0 \implies f(x_n)\to f(x_0).
+\]
+\end{defbox}
+
+\begin{thmbox}{Theorem 2.4: Continuity via preimages of open sets}
+Let $f:X\to Y$ be a map between topological spaces. Then $f$ is continuous if and only if for every open set $U\subset Y$, the preimage $f^{-1}(U)$ is open in $X$.
+\end{thmbox}
+
+\paragraph{Proof.}
+If $f$ is continuous and $U$ is open in $Y$, then every point of $f^{-1}(U)$ has a neighborhood mapped into $U$, so $f^{-1}(U)$ is open. Conversely, if preimages of open sets are open, then for every neighborhood $U$ of $f(x)$, the set $f^{-1}(U)$ is an open neighborhood of $x$, which is exactly continuity at $x$.
+
+\section{First Definitions About Linear Operators}
+
+\begin{defbox}{Linear mapping}
+A map
+\[
+L:\operatorname{Dom}(L)\subset X\to Y
+\]
+is \textbf{linear} if for all $x,y\in \operatorname{Dom}(L)$ and all $\alpha\in\K$:
+\[
+L(x+y)=Lx+Ly,
+\qquad
+L(\alpha x)=\alpha Lx.
+\]
+The domain $\operatorname{Dom}(L)$ is a subspace of $X$. We also use:
+\[
+\operatorname{Range}(L)=\operatorname{Im}(L),
+\qquad
+\ker L=\operatorname{Null}(L).
+\]
+\end{defbox}
+
+\begin{defbox}{Bounded linear operator and operator norm}
+If $L:X\to Y$ is linear on all of $X$, we call it \textbf{bounded} if
+\[
+\norm{L}:=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y<\infty.
+\]
+\end{defbox}
+
+\begin{thmbox}{Basic estimate for bounded linear operators}
+If $L:X\to Y$ is linear and bounded, then
+\[
+\norm{Lx}_Y\le \norm{L}\,\norm{x}_X
+\qquad\text{for all }x\in X.
+\]
+Hence bounded subsets of $X$ are mapped into bounded subsets of $Y$.
+\end{thmbox}
+
+\paragraph{Proof.}
+If $x=0$, the claim is trivial. For $x\neq 0$,
+\[
+\norm{Lx}_Y
+=\norm{x}_X\left\|L\left(\frac{x}{\norm{x}_X}\right)\right\|_Y
+\le \norm{x}_X \sup_{\norm{u}_X\le 1}\norm{Lu}_Y
+=\norm{L}\,\norm{x}_X.
+\]
+
+\begin{warningbox}{Exam orientation}
+The \emph{major} operator theorems
+\begin{itemize}
+\item boundedness $\Leftrightarrow$ continuity for linear maps,
+\item $\mathcal L(X,Y)$ is Banach when $Y$ is Banach,
+\item finite-dimensional consequences,
+\end{itemize}
+belong mainly to the next lecture block, even though this first handwritten note already starts defining them.
+\end{warningbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Before the exam, you should be able to state without hesitation:
+\begin{enumerate}
+\item the definitions of normed space, metric space, Banach space, Hilbert space, continuity, linear map, bounded linear operator;
+\item Theorems \textbf{2.1--2.4};
+\item the standard examples $\R^d$, $C(\ol\Omega)$, $\ell^p$, $\Lp(\Omega)$, $W^{k,p}(\Omega)$;
+\item the operator norm formula
+\[
+\norm{L}=\sup_{\norm{x}\le 1}\norm{Lx}
+\]
+and the estimate $\norm{Lx}\le \norm{L}\norm{x}$;
+\item the finite-dimensional vs. infinite-dimensional contrast in sequence spaces.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

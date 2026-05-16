@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 7 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{07}{Lecture 7: Exam Study Notes}{Adjoint operators, compact operators, Arzel\`a--Ascoli, and integral operators}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This lecture builds the compact-operator technology used again in Fredholm theory and spectral theory. It also gives the Banach-space adjoint and the key principle that compact operators turn weak convergence into strong convergence.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Adjoint Operator}
+
+\begin{defbox}{Adjoint operator in Banach spaces}
+If $L\in\mathcal L(X,Y)$, define
+\[
+L^*:Y^*\to X^*,
+\qquad
+L^*\psi:=\psi\circ L.
+\]
+\end{defbox}
+
+\begin{thmbox}{Theorem 9.1: Properties of the adjoint operator}
+For $L\in\mathcal L(X,Y)$:
+\begin{enumerate}
+\item $L^*$ is linear and bounded;
+\item $\norm{L^*}=\norm{L}$;
+\item $(S\circ L)^*=L^*\circ S^*$;
+\item if $L$ is bijective, then $(L^{-1})^*=(L^*)^{-1}$.
+\end{enumerate}
+\end{thmbox}
+
+\section{Compact Operators}
+
+\begin{defbox}{Compact operator}
+An operator $K\in\mathcal L(X,Y)$ is \textbf{compact} if it maps bounded sets in $X$ to relatively compact sets in $Y$.
+\end{defbox}
+
+\begin{thmbox}{Theorem 9.2: Norm limits of compact operators are compact}
+If $K_n\in\mathcal L(X,Y)$ are compact and $K_n\to K$ in operator norm, then $K$ is compact.
+\end{thmbox}
+
+\begin{thmbox}{Theorem 9.3: Compact operators improve weak convergence}
+If $K\in\mathcal L(X,Y)$ is compact and $x_n\rightharpoonup x$ weakly in $X$, then
+\[
+Kx_n\to Kx
+\]
+strongly in $Y$.
+\end{thmbox}
+
+\paragraph{Why this matters.}
+This is one of the most useful compactness principles in the course: compactness converts weak information into strong information after applying the operator.
+
+\section{Arzel\`a--Ascoli And Kolmogorov--Riesz}
+
+\begin{thmbox}{Arzel\`a--Ascoli theorem}
+A subset of $C(K)$ is relatively compact in the sup norm if and only if it is bounded and equicontinuous.
+\end{thmbox}
+
+\begin{thmbox}{Kolmogorov--Riesz theorem}
+For $1\le p<\infty$, a bounded set in $L^p(\R^d)$ is relatively compact if and only if translations are uniformly small and tails are uniformly small.
+\end{thmbox}
+
+\paragraph{Exam use.}
+You are expected to know these as compactness criteria, usually without full proofs in oral form.
+
+\section{Schauder And Integral Operators}
+
+\begin{thmbox}{Theorem 9.4: Schauder theorem}
+A bounded linear operator $K:X\to Y$ is compact if and only if its adjoint $K^*:Y^*\to X^*$ is compact.
+\end{thmbox}
+
+\begin{thmbox}{Theorem 9.5: Integral operator with continuous kernel is compact}
+If $k\in C([a,b]\times[a,b])$ and
+\[
+(Kf)(x)=\int_a^b k(x,y)f(y)\,dy,
+\]
+then $K:C([a,b])\to C([a,b])$ is compact.
+\end{thmbox}
+
+\paragraph{Proof idea.}
+Show that $K$ sends the unit ball of $C([a,b])$ to a bounded and equicontinuous family, then apply Arzel\`a--Ascoli.
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know the exact content of:
+\begin{enumerate}
+\item Theorems \textbf{9.1}, \textbf{9.2}, \textbf{9.3}, \textbf{9.4}, \textbf{9.5};
+\item the definition of compact operator;
+\item the statements of Arzel\`a--Ascoli and Kolmogorov--Riesz;
+\item the slogan: compact operators map weakly convergent sequences to strongly convergent ones.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

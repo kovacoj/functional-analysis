@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 4 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{04}{Lecture 4: Exam Study Notes}{Dual spaces, canonical embedding, reflexivity, weak and weak-* convergence}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This lecture is about what the dual space really is, how $X$ sits inside $X^{**}$, what reflexivity means, and how weak / weak-* convergence behave. These ideas recur throughout the whole exam.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Core Definitions}
+
+\begin{defbox}{Dual and second dual}
+For a normed space $X$, its dual is
+\[
+X^*:=\mathcal L(X,\K).
+\]
+Its second dual is
+\[
+X^{**}:=(X^*)^*.
+\]
+\end{defbox}
+
+\begin{defbox}{Canonical embedding}
+For $x\in X$, define $Jx\in X^{**}$ by
+\[
+(Jx)(\phi):=\phi(x)
+\qquad \forall \phi\in X^*.
+\]
+The map $J:X\to X^{**}$ is called the \textbf{canonical embedding}.
+\end{defbox}
+
+\begin{defbox}{Reflexive Banach space}
+A Banach space $X$ is \textbf{reflexive} if
+\[
+J(X)=X^{**}.
+\]
+Equivalently, every element of $X^{**}$ is evaluation at some $x\in X$.
+\end{defbox}
+
+\begin{defbox}{Weak and weak-* convergence}
+\begin{itemize}
+\item $x_n\rightharpoonup x$ in $X$ if $\phi(x_n)\to \phi(x)$ for every $\phi\in X^*$.
+\item $\phi_n\overset{*}{\rightharpoonup}\phi$ in $X^*$ if $\phi_n(x)\to \phi(x)$ for every $x\in X$.
+\end{itemize}
+\end{defbox}
+
+\section{Canonical Embedding And Reflexivity}
+
+\begin{thmbox}{Canonical embedding is an isometry}
+For every normed space $X$, the canonical embedding $J:X\to X^{**}$ is linear and isometric:
+\[
+\norm{Jx}_{X^{**}}=\norm{x}_X.
+\]
+\end{thmbox}
+
+\paragraph{Proof.}
+For every $\phi\in X^*$ with $\norm{\phi}\le 1$,
+\[
+\abs{(Jx)(\phi)}=\abs{\phi(x)}\le \norm{x}.
+\]
+Hence $\norm{Jx}\le \norm{x}$. The reverse inequality follows from the dual characterization of the norm:
+\[
+\norm{x}=\sup_{\norm{\phi}\le 1}\abs{\phi(x)}=\norm{Jx}.
+\]
+
+\begin{focusbox}
+So every normed space embeds isometrically into its second dual; reflexivity asks whether this embedding is onto.
+\end{focusbox}
+
+\section{Basic Properties Of Weak And Weak-* Convergence}
+
+\begin{thmbox}{Key observations}
+Let $X$ be Banach.
+\begin{enumerate}
+\item Strong convergence implies weak convergence.
+\item Weak limits are unique.
+\item In finite-dimensional spaces, weak and strong convergence coincide.
+\item In a separable Hilbert space, an orthonormal sequence converges weakly to $0$ but not strongly.
+\item If $x_n\rightharpoonup x$, then
+\[
+\norm{x}\le \liminf_{n\to\infty}\norm{x_n}.
+\]
+\item If $\phi_n\overset{*}{\rightharpoonup}\phi$, then
+\[
+\norm{\phi}\le \liminf_{n\to\infty}\norm{\phi_n}.
+\]
+\item Weakly convergent and weak-* convergent sequences are bounded.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Why these matter.}
+These are exactly the properties used later in compactness, weak lower semicontinuity, and existence arguments.
+
+\section{Banach--Alaoglu And Weak Compactness}
+
+\begin{thmbox}{Theorem 7.1: Banach--Alaoglu}
+The closed unit ball of $X^*$ is compact in the weak-* topology. In particular, if $X$ is separable, every bounded sequence in $X^*$ has a weak-* convergent subsequence.
+\end{thmbox}
+
+\paragraph{Proof idea in the separable case.}
+Choose a countable dense set $(x_k)$ in $X$. From any bounded sequence $(\phi_n)$ extract a diagonal subsequence such that $\phi_n(x_k)$ converges for every $k$. Use density and uniform boundedness to extend the limit to a functional on all of $X$.
+
+\begin{thmbox}{Theorem 7.2: Reflexive spaces have weakly convergent bounded subsequences}
+If $X$ is reflexive, then every bounded sequence in $X$ has a weakly convergent subsequence.
+\end{thmbox}
+
+\paragraph{Reason.}
+Reflexivity identifies $X$ with $X^{**}$, and then weak compactness of the closed unit ball follows from Banach--Alaoglu applied in the second dual.
+
+\begin{thmbox}{Banach--Eberlein--\v Smuljan theorem}
+For a Banach space $X$, the following are equivalent:
+\begin{enumerate}
+\item $X$ is reflexive.
+\item The closed unit ball of $X$ is weakly compact.
+\item Every bounded sequence in $X$ has a weakly convergent subsequence.
+\end{enumerate}
+\end{thmbox}
+
+\section{Examples Of Reflexive And Non-Reflexive Spaces}
+
+\begin{exbox}{Standard examples}
+\begin{itemize}
+\item $\ell^p$ and $L^p(\Omega)$ are reflexive for $1<p<\infty$.
+\item Hilbert spaces are reflexive.
+\item $\ell^1$, $\ell^\infty$, $c_0$, and $L^1$ are not reflexive.
+\end{itemize}
+\end{exbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+You should know precisely:
+\begin{enumerate}
+\item the definitions of $X^*$, $X^{**}$, canonical embedding, reflexivity, weak convergence, weak-* convergence;
+\item why the canonical embedding is an isometry;
+\item Theorems \textbf{7.1} and \textbf{7.2};
+\item the boundedness and lower semicontinuity properties of weak / weak-* convergence;
+\item standard examples of reflexive and non-reflexive spaces.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

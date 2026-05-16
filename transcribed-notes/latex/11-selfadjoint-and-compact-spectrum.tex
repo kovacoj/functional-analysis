@@ -1,0 +1,73 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 11 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{11}{Lecture 11: Exam Study Notes}{Spectrum in Hilbert spaces, selfadjoint operators, and Hilbert--Schmidt theorem}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This lecture specializes spectral theory to Hilbert spaces, especially compact and selfadjoint operators. For the exam, this is where the spectral theorem becomes concrete.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Compact Operators On Hilbert Spaces}
+
+\begin{thmbox}{Theorem 14.4}
+If $K\in\mathcal L(H)$ is compact on a Hilbert space $H$, then every nonzero point of $\sigma(K)$ is an eigenvalue. The nonzero spectrum is at most countable, each nonzero eigenvalue has finite multiplicity, and the only possible accumulation point is $0$.
+\end{thmbox}
+
+\section{Selfadjoint Operators}
+
+\begin{defbox}{Selfadjoint operator}
+An operator $T\in\mathcal L(H)$ is \textbf{selfadjoint} if
+\[
+T=T^*.
+\]
+\end{defbox}
+
+\begin{thmbox}{Theorem 14.5: Hellinger--Toeplitz theorem}
+Every everywhere-defined symmetric operator on a Hilbert space is bounded.
+\end{thmbox}
+
+\begin{thmbox}{Theorem 14.6: Spectrum of a selfadjoint bounded operator}
+If $T\in\mathcal L(H)$ is selfadjoint, then
+\[
+\sigma(T)\subset \R.
+\]
+Moreover, the spectrum lies between the lower and upper values of the quadratic form $(Tx,x)$ on the unit sphere.
+\end{thmbox}
+
+\section{Hilbert--Schmidt Theorem}
+
+\begin{thmbox}{Theorem 14.7: Hilbert--Schmidt theorem}
+Let $T\in\mathcal L(H)$ be compact and selfadjoint. Then there exists an orthonormal basis $(e_n)$ of $H$ consisting of eigenvectors of $T$, with real eigenvalues $\lambda_n\to 0$, such that
+\[
+Tx=\sum_{n=1}^{\infty}\lambda_n(x,e_n)e_n.
+\]
+\end{thmbox}
+
+\paragraph{Meaning.}
+Compact selfadjoint operators admit a full diagonalization by an orthonormal basis. This is the infinite-dimensional analogue of diagonalizing a symmetric matrix.
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know precisely:
+\begin{enumerate}
+\item the statements of Theorems \textbf{14.4}, \textbf{14.5}, \textbf{14.6}, \textbf{14.7};
+\item that selfadjoint bounded operators have real spectrum;
+\item that compact selfadjoint operators admit an orthonormal eigenbasis;
+\item the representation
+\[
+Tx=\sum_n \lambda_n(x,e_n)e_n.
+\]
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

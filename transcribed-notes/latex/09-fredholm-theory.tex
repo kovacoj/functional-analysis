@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 9 Exam Study Notes}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{09}{Lecture 9: Exam Study Notes}{Fredholm theory and Fredholm alternative}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This lecture is short in scope but central in logic: it explains why operators of the form $I-K$ with $K$ compact are so important, and how solvability reduces to orthogonality conditions involving the adjoint.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Core Statement}
+
+\begin{thmbox}{Theorem 13.3: Fredholm alternative}
+Let $H$ be a Hilbert space and $K\in\mathcal L(H)$ compact. Then the equation
+\[
+(I-K)u=f
+\]
+is solvable if and only if
+\[
+(f,v)_H=0 \qquad \forall v\in \ker(I-K^*).
+\]
+Moreover, either
+\begin{itemize}
+\item $\ker(I-K)=\{0\}$ and then $(I-K)u=f$ has a unique solution for every $f$, or
+\item the homogeneous equation $(I-K)u=0$ has a nontrivial solution.
+\end{itemize}
+\end{thmbox}
+
+\section{Why Operators Of The Form $I-K$ Matter}
+
+\begin{focusbox}
+Compact operators are not invertible perturbations in general, but the operator
+\[
+I-K
+\]
+behaves in many ways like a finite-dimensional matrix. This is why Fredholm theory feels like an infinite-dimensional version of linear algebra.
+\end{focusbox}
+
+\begin{warningbox}{Finite-dimensional analogy}
+In finite dimensions, injective and surjective are equivalent for linear maps. Fredholm theory recovers a substitute of this equivalence for $I-K$ when $K$ is compact.
+\end{warningbox}
+
+\section{What To Remember About The Proof Structure}
+
+\begin{exbox}{Key ingredients}
+The proof uses:
+\begin{itemize}
+\item compactness of $K$;
+\item the adjoint operator $K^*$;
+\item the fact that compactness controls the structure of kernels and ranges;
+\item orthogonality of the right-hand side to the kernel of the adjoint.
+\end{itemize}
+You are usually expected to know the theorem and its meaning, not the full proof in detail.
+\end{exbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+For the exam, know:
+\begin{enumerate}
+\item the statement of the Fredholm alternative;
+\item the solvability condition involving $\ker(I-K^*)$;
+\item why the special form $I-K$ with $K$ compact is essential;
+\item the finite-dimensional analogy.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

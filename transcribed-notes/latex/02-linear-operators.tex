@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Lecture 2 Exam Study Notes}
+
+\input{study-note-style}
+
+\newcommand{\Lxy}{\mathcal L(X,Y)}
+\newcommand{\Lxx}{\mathcal L(X)}
+
+\begin{document}
+
+\StudyTitleBlock{02}{Lecture 2: Exam Study Notes}{Linear operators, operator spaces, and finite-dimensional normed spaces}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This note condenses the second lecture into exam-facing material only. It covers the items from the theorem list that actually appear here: \textbf{3.1--3.3}, \textbf{4.1--4.3/4.6}, \textbf{4.7}, and \textbf{4.8}, together with the standard examples and operator language used later in the course.
+\end{focusbox}
+
+\tableofcontents
+
+\section{What To Learn From This Lecture}
+
+\begin{focusbox}
+You should be comfortable with:
+\begin{itemize}
+\item the definitions of linear map, bounded linear operator, kernel, image, and operator norm;
+\item the fact that for linear maps, \textbf{boundedness and continuity are equivalent};
+\item the spaces $\mathcal L(X,Y)$, $\mathcal L(X)$, and $X^*$;
+\item why $\mathcal L(X,Y)$ is Banach when $Y$ is Banach;
+\item standard examples of operators: matrices, diagonal operators, shifts, multiplication, integral operators;
+\item finite-dimensional consequences: all linear maps are continuous, all norms are equivalent, finite-dimensional spaces are Banach;
+\item compactness characterizations in metric spaces and why compact unit ball characterizes finite dimension.
+\end{itemize}
+\end{focusbox}
+
+\section{Linear Maps And Bounded Operators}
+
+\begin{defbox}{Linear map}
+Let $X,Y$ be normed spaces over the same field $\K$. A map
+\[
+L:\operatorname{Dom}(L)\subset X\to Y
+\]
+is \textbf{linear} if
+\[
+L(x+y)=Lx+Ly,
+\qquad
+L(\alpha x)=\alpha Lx
+\]
+for all $x,y\in \operatorname{Dom}(L)$ and all $\alpha\in\K$.
+
+The main associated subspaces are
+\[
+\ker L=\{x\in\operatorname{Dom}(L):Lx=0\},
+\qquad
+\operatorname{Range}(L)=\operatorname{Im}(L)=\{Lx:x\in\operatorname{Dom}(L)\}.
+\]
+\end{defbox}
+
+\begin{defbox}{Bounded linear operator}
+If $L:X\to Y$ is linear on all of $X$, we call it \textbf{bounded} if
+\[
+\norm{L}_{\mathcal L(X,Y)}:=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y<\infty.
+\]
+\end{defbox}
+
+\begin{focusbox}
+For linear maps, boundedness is the right quantitative form of continuity. This is the main conceptual point of this lecture block.
+\end{focusbox}
+
+\begin{thmbox}{Theorem 3.1: $\mathcal L(X,Y)$ is a normed space}
+Let $X,Y$ be normed spaces. Then the set of bounded linear maps
+\[
+\mathcal L(X,Y):=\{L:X\to Y:\ L\text{ is linear and bounded}\}
+\]
+is a vector space, and
+\[
+\norm{L}_{\mathcal L(X,Y)}=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y
+\]
+defines a norm on it.
+\end{thmbox}
+
+\paragraph{Proof sketch.}
+Positivity, homogeneity, and the triangle inequality follow directly from the definition of supremum and the norm on $Y$. If $L\neq 0$, choose $x_0$ with $Lx_0\neq 0$; then
+\[
+\norm{L}\ge \left\|L\left(\frac{x_0}{\norm{x_0}}\right)\right\|>0.
+\]
+
+\begin{focusbox}
+Useful shorthand:
+\[
+\mathcal L(X):=\mathcal L(X,X),
+\qquad
+X^*:=\mathcal L(X,\K).
+\]
+\end{focusbox}
+
+\begin{thmbox}{Theorem 3.2: For linear maps, boundedness is equivalent to continuity}
+Let $L:X\to Y$ be linear. Then the following are equivalent:
+\begin{enumerate}
+\item $L$ is bounded.
+\item $L$ is continuous at $0$.
+\item $L$ is continuous at one point of $X$.
+\item $L$ is continuous on all of $X$.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Proof.}
+If $L$ is bounded, then
+\[
+\norm{Lx_1-Lx_2}_Y=\norm{L(x_1-x_2)}_Y\le \norm{L}\norm{x_1-x_2}_X,
+\]
+so $L$ is Lipschitz and hence continuous everywhere.
+
+Continuity everywhere trivially implies continuity at one point, and continuity at one point implies continuity at $0$ by translating with linearity.
+
+Assume now that $L$ is continuous at $0$. For $\varepsilon=1$ there exists $\delta>0$ such that
+\[
+\norm{x}_X<\delta \implies \norm{Lx}_Y<1.
+\]
+If $x\neq 0$, set $y=\frac{\delta}{2\norm{x}_X}x$. Then $\norm{y}_X<\delta$, hence $\norm{Ly}_Y<1$, and so
+\[
+\norm{Lx}_Y=\frac{2\norm{x}_X}{\delta}\norm{Ly}_Y\le \frac{2}{\delta}\norm{x}_X.
+\]
+Thus $L$ is bounded.
+
+\begin{thmbox}{Theorem 3.3: If $Y$ is Banach, then $\mathcal L(X,Y)$ is Banach}
+If $Y$ is Banach, then $\mathcal L(X,Y)$ is complete in the operator norm. In particular, $X^*$ is always Banach.
+\end{thmbox}
+
+\paragraph{Proof.}
+Let $(L_n)$ be Cauchy in $\mathcal L(X,Y)$. For each fixed $x\in X$,
+\[
+\norm{L_nx-L_mx}_Y\le \norm{L_n-L_m}\norm{x}_X,
+\]
+so $(L_nx)$ is Cauchy in $Y$. Since $Y$ is Banach, there exists $Lx\in Y$ such that $L_nx\to Lx$. This defines a linear map $L:X\to Y$.
+
+Because $(L_n)$ is Cauchy in operator norm, the sequence $(\norm{L_n})$ is bounded. Say $\norm{L_n}\le C$. Then
+\[
+\norm{Lx}_Y=\lim_{n\to\infty}\norm{L_nx}_Y\le C\norm{x}_X,
+\]
+so $L$ is bounded. Finally,
+\[
+\norm{(L_n-L)x}_Y=\lim_{m\to\infty}\norm{(L_n-L_m)x}_Y
+\le \limsup_{m\to\infty}\norm{L_n-L_m}\norm{x}_X,
+\]
+which implies $\norm{L_n-L}\to 0$.
+
+\section{Canonical Examples Of Operators}
+
+\begin{exbox}{Examples worth memorizing}
+\begin{enumerate}
+\item \textbf{Matrix operator:} every matrix $A\in\K^{m\times n}$ defines a linear map $x\mapsto Ax$.
+\item \textbf{Diagonal operator on $\ell^p$:}
+\[
+L(x_1,x_2,\dots)=(\lambda_1x_1,\lambda_2x_2,\dots).
+\]
+It is bounded iff $(\lambda_n)$ is bounded, and then
+\[
+\norm{L}=\sup_n \abs{\lambda_n}.
+\]
+\item \textbf{Shift on $\ell^p$:}
+\[
+L_+(x_1,x_2,\dots)=(0,x_1,x_2,\dots),
+\qquad
+L_-(x_1,x_2,\dots)=(x_2,x_3,\dots).
+\]
+Both are bounded and have norm $1$.
+\item \textbf{Multiplication on $L^p$:}
+\[
+(M_gf)(x)=g(x)f(x), \qquad g\in L^\infty(\Omega).
+\]
+Then $M_g$ is bounded and $\norm{M_g}\le \norm{g}_{L^\infty}$.
+\item \textbf{Integral operator on $C([a,b])$:}
+\[
+(Lf)(x)=\int_a^x f(s)\,ds.
+\]
+This is linear and bounded.
+\item \textbf{Differentiation on $C^1$:} with the sup norm on $C^1$, the map $f\mapsto f'$ is linear but not bounded as an operator from $C^1$ with only the $\norm{\cdot}_\infty$ norm to $C$.
+\end{enumerate}
+\end{exbox}
+
+\section{Finite-Dimensional Normed Spaces}
+
+\begin{thmbox}{Theorem 4.1}
+If $\dim X=n<\infty$ and $L:X\to Y$ is linear, then
+\[
+\dim \operatorname{Range}(L)\le n.
+\]
+\end{thmbox}
+
+\paragraph{Proof.}
+Choose a basis $e_1,\dots,e_n$ of $X$. Then every $Lx$ is a linear combination of $Le_1,\dots,Le_n$.
+
+\begin{thmbox}{Theorem 4.2}
+If $\dim X<\infty$, then every linear map $L:X\to Y$ is bounded.
+\end{thmbox}
+
+\paragraph{Proof sketch.}
+Write $x=\sum_{j=1}^n a_je_j$ in a fixed basis. Then
+\[
+\norm{Lx}_Y\le \sum_{j=1}^n \abs{a_j}\norm{Le_j}_Y,
+\]
+and the coordinate coefficients are controlled by any norm on a finite-dimensional space.
+
+\begin{thmbox}{Theorems 4.3 and 4.6: Finite-dimensional spaces are all alike topologically}
+If $\dim X=N<\infty$, then:
+\begin{enumerate}
+\item $X$ is topologically isomorphic to $\K^N$;
+\item $X$ is Banach;
+\item all norms on $X$ are equivalent.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Proof idea.}
+Choose a basis $x_1,\dots,x_N$ and define
+\[
+L:\K^N\to X,
+\qquad
+L(\alpha_1,\dots,\alpha_N)=\alpha_1x_1+\cdots+\alpha_Nx_N.
+\]
+This is bijective. Finite-dimensionality gives boundedness of both $L$ and $L^{-1}$. Since $\K^N$ is complete, so is $X$. Equivalence of norms then follows by applying this to the identity map between two normed versions of $X$.
+
+\begin{warningbox}{Exam note}
+The theorem list also mentions Hamel bases and proper subspaces of finite-dimensional spaces. Those are standard linear algebra facts and fit naturally here, but the handwritten lecture pages are mainly focused on boundedness, equivalence of norms, completeness, and compactness criteria.
+\end{warningbox}
+
+\section{Compactness In Metric And Normed Spaces}
+
+\begin{thmbox}{Theorem 4.7: Characterizations of compactness in metric spaces}
+For a subset $K$ of a metric space, the following are equivalent:
+\begin{enumerate}
+\item $K$ is compact.
+\item Every sequence in $K$ has a convergent subsequence with limit in $K$.
+\item $K$ is complete and totally bounded (equivalently, precompact).
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Why this matters here.}
+In finite-dimensional normed spaces, bounded sets behave compactly. In infinite-dimensional normed spaces this breaks down, and that contrast is central for the rest of functional analysis.
+
+\begin{focusbox}
+One useful consequence emphasized in the lecture: in finite-dimensional normed spaces, every bounded sequence has a convergent subsequence (Bolzano-Weierstrass property).
+\end{focusbox}
+
+\begin{thmbox}{Theorem 4.8: Compact unit ball characterizes finite dimension}
+For a normed space $X$,
+\[
+X \text{ is finite-dimensional } \Longleftrightarrow \ol B_1(0) \text{ is compact.}
+\]
+\end{thmbox}
+
+\paragraph{Proof idea.}
+If $X$ is finite-dimensional, reduce to $\K^N$, where closed and bounded sets are compact. Conversely, if the closed unit ball were compact in an infinite-dimensional normed space, Riesz's lemma would produce a sequence in the unit ball with no convergent subsequence, contradiction.
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Before the exam, make sure you can state and use:
+\begin{enumerate}
+\item the definitions of $\mathcal L(X,Y)$, $\mathcal L(X)$, and $X^*$;
+\item Theorems \textbf{3.1}, \textbf{3.2}, \textbf{3.3};
+\item Theorems \textbf{4.1}, \textbf{4.2}, \textbf{4.3/4.6}, \textbf{4.7}, \textbf{4.8};
+\item the examples of matrix, diagonal, shift, multiplication, integral, and differentiation operators;
+\item the idea that finite-dimensional normed spaces are Banach and all norms there are equivalent;
+\item the contrast: compact unit ball in finite dimension, noncompact behavior in infinite dimension.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}
