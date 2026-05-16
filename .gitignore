@@ -1,0 +1,15 @@
+.venv/
+
+# LaTeX auxiliary/build files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Windows metadata sidecars
+*:Zone.Identifier
