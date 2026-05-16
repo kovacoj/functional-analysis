@@ -46,6 +46,10 @@ The standard spectrum theory in this form is for complex Banach spaces. For real
 \thmNeumannSeries
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Know the geometric-series argument: $(I-T)^{-1}=\sum_{n=0}^\infty T^n$ when $\norm{T}<1$. Verify convergence, check it is a two-sided inverse, and state the norm estimate.
+\end{prooflevelbox}
+
 \paragraph{Why it matters.}
 This is the basic perturbative invertibility criterion and appears directly in an oral-exam question.
 
@@ -54,6 +58,10 @@ This is the basic perturbative invertibility criterion and appears directly in a
 \begin{thmbox}{Theorem 14.2: The resolvent set is open}
 \thmResolventAnalytic
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Write $\lambda I-T=(\lambda_0 I-T)-(\lambda_0-\lambda)I$ and use the Neumann series to invert when $\abs{\lambda-\lambda_0}$ is small.
+\end{prooflevelbox}
 
 \begin{thmbox}{Resolvent identity}
 If $\lambda,\mu\in\rho(T)$, then
@@ -66,6 +74,10 @@ This is one of the standard algebraic identities used throughout spectral theory
 \begin{thmbox}{Theorem 14.3: Basic spectral properties}
 \thmSpectralRadius
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Know the three claims: $\sigma(T)$ is nonempty (Liouville theorem argument), compact, and $r(T)=\lim\norm{T^n}^{1/n}$. The spectral radius formula is the deepest part.
+\end{prooflevelbox}
 
 \section{Types Of Spectrum}
 

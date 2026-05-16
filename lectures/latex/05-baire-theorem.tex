@@ -38,6 +38,10 @@ Baire's theorem says that a complete metric space is of second category in itsel
 \thmCantorIntersection
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Construct $x_n\in F_n$; diameters $\to 0$ makes $(x_n)$ Cauchy. Completeness gives a limit $x$. Nesting and closedness give $x\in\bigcap F_n$. Uniqueness: two points in all $F_n$ become arbitrarily close.
+\end{prooflevelbox}
+
 \paragraph{Proof idea.}
 Pick $x_n\in F_n$. Since diameters go to zero, $(x_n)$ is Cauchy. Completeness gives a limit $x$, and closedness plus nesting give $x\in F_n$ for all $n$. Uniqueness follows because two points in all $F_n$ must become arbitrarily close.
 
@@ -45,9 +49,17 @@ Pick $x_n\in F_n$. Since diameters go to zero, $(x_n)$ is Cauchy. Completeness g
 \thmBaireCategory
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know the nested-ball construction: given dense open sets $G_n$, inductively choose closed balls inside $G_n\cap B_{n-1}$ with shrinking radius. Completeness gives a point in the intersection.
+\end{prooflevelbox}
+
 \begin{thmbox}{Theorem 8.3: Variant of Baire's theorem}
 \thmBaireVariant
 \end{thmbox}
+
+\begin{prooflevelbox}{STATEMENT}
+Know this as a reformulation of Theorem 8.2: a countable intersection of dense open sets is dense.
+\end{prooflevelbox}
 
 \section{Meaning And Applications}
 
@@ -58,6 +70,10 @@ Baire's theorem is powerful because it forces a complete space to be \emph{large
 \begin{thmbox}{Theorem 8.4: No countable Hamel basis in infinite-dimensional Banach spaces}
 \thmNoCountableHamelBasis
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+If $\{e_n\}$ were a countable Hamel basis, the space would be $\bigcup E_n$ where $E_n=\operatorname{span}\{e_1,\dots,e_n\}$. Each $E_n$ is closed with empty interior (proper subspace of infinite-dimensional space), contradicting Baire.
+\end{prooflevelbox}
 
 \paragraph{Idea.}
 If $\{e_n\}$ were a countable Hamel basis, then the space would be a countable union of the finite-dimensional subspaces

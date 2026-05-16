@@ -23,6 +23,10 @@ This lecture specializes spectral theory to Hilbert spaces, especially compact a
 \thmCompactSpectrum
 \end{thmbox}
 
+\begin{prooflevelbox}{STATEMENT}
+Know the statement: nonzero spectral values of a compact operator are eigenvalues with finite-dimensional eigenspaces, and $0$ is the only possible accumulation point. Not the full proof.
+\end{prooflevelbox}
+
 \begin{focusbox}
 For compact operators, $0$ is special: it may belong to the spectrum even when it is not an eigenvalue. The theorem only says that every \emph{nonzero} spectral value is an eigenvalue.
 \end{focusbox}
@@ -60,6 +64,10 @@ Ty=\mu y,
 then $(x,y)_H=0$.
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Reproduce the calculation: $\lambda(x,y)_H=(Tx,y)_H=(x,Ty)_H=\mu(x,y)_H$, so $(\lambda-\mu)(x,y)_H=0$.
+\end{prooflevelbox}
+
 \paragraph{Reason.}
 Since $T=T^*$,
 \[
@@ -71,12 +79,20 @@ Thus $(\lambda-\mu)(x,y)_H=0$, so $(x,y)_H=0$.
 \thmHellingerToeplitz
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know that symmetry implies the graph is closed, then apply the closed graph theorem.
+\end{prooflevelbox}
+
 \paragraph{Connection with Lecture 6.}
 The proof is an application of the closed graph theorem: symmetry is used to show the graph is closed.
 
 \begin{thmbox}{Theorem 14.6: Spectrum of a selfadjoint bounded operator}
 \thmSelfadjointSpectrumReal
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Know the key steps: show $\sigma(T)\subset\R$ by proving $\lambda I-T$ is invertible when $\operatorname{Im}\lambda\neq 0$, and then locate the spectrum inside $[m,M]$ via the Rayleigh quotient.
+\end{prooflevelbox}
 
 \begin{exbox}{Precise interval}
 If
@@ -97,6 +113,10 @@ This is the infinite-dimensional analogue of the fact that eigenvalues of a real
 \begin{thmbox}{Theorem 14.7: Hilbert--Schmidt theorem}
 \thmHilbertSchmidt
 \end{thmbox}
+
+\begin{prooflevelbox}{STATEMENT}
+Know the statement precisely and the representation $Tx=\sum_n\lambda_n(x,e_n)e_n$. Not the full proof, but understand the logical flow: extract eigenvalues via variational principles, diagonalize.
+\end{prooflevelbox}
 
 \paragraph{Meaning.}
 Compact selfadjoint operators admit a full diagonalization by an orthonormal basis. This is the infinite-dimensional analogue of diagonalizing a symmetric matrix.

@@ -23,6 +23,10 @@ This lecture is one of the central exam blocks. These are the ``great theorems''
 \thmBanachSteinhaus
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know the structure: pointwise bounded $\Rightarrow$ there exists a ball on which the family is uniformly bounded (Baire category) $\Rightarrow$ rescale to get a global bound.
+\end{prooflevelbox}
+
 \paragraph{Meaning of the hypothesis.}
 ``Pointwise bounded'' means: fix one $x\in X$ and look at all values $Lx$ with $L\in\mathcal F$; those values stay uniformly bounded. Baire's theorem upgrades this pointwise information to a uniform operator-norm bound.
 
@@ -37,11 +41,19 @@ This lecture is one of the central exam blocks. These are the ``great theorems''
 \thmLimitOperatorBounded
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Apply Banach--Steinhaus to the sequence $(L_n)$, then verify the limit operator is linear and bounded.
+\end{prooflevelbox}
+
 \section{Open Mapping And Bounded Inverse}
 
 \begin{thmbox}{Theorem 8.7: Open mapping theorem}
 \thmOpenMapping
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Know that Baire category gives $B_Y(0,c)\subset \ol{L(B_X(0,1))}$ for some $c>0$, then iterate and scale to show the image contains an open ball.
+\end{prooflevelbox}
 
 \begin{exbox}{Quantitative form}
 The open mapping theorem is often used through the equivalent statement:
@@ -56,9 +68,17 @@ After scaling, this gives a uniform estimate for solving $Lx=y$.
 \thmBoundedInverse
 \end{thmbox}
 
+\begin{prooflevelbox}{STATEMENT}
+Direct consequence of the open mapping theorem applied to a bijective $L$.
+\end{prooflevelbox}
+
 \begin{thmbox}{Theorem 8.9: Sufficient condition for equivalence of norms}
 \thmComparableNorms
 \end{thmbox}
+
+\begin{prooflevelbox}{STATEMENT}
+Apply the bounded inverse theorem to the identity map.
+\end{prooflevelbox}
 
 \paragraph{Reason.}
 Apply the bounded inverse theorem to the identity map between the two normed versions of $X$.
@@ -76,6 +96,10 @@ The operator is \textbf{closed} if its graph is closed.
 \begin{thmbox}{Theorem 8.10: Closed graph theorem}
 \thmClosedGraph
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Know how to define the graph norm and use completeness of the graph to apply the open mapping theorem to the projection onto the first coordinate.
+\end{prooflevelbox}
 
 \paragraph{How to check closedness.}
 To prove that $L$ is closed, one shows:

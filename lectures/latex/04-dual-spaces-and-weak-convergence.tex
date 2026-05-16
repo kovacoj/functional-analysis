@@ -63,6 +63,10 @@ For every normed space $X$, the canonical embedding $J:X\to X^{**}$ is linear an
 \]
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Reproduce both inequalities: $\norm{Jx}\le\norm{x}$ from $\abs{\phi(x)}\le\norm{\phi}\norm{x}$, and the reverse from the dual characterization $\norm{x}=\sup_{\norm{\phi}\le 1}\abs{\phi(x)}$.
+\end{prooflevelbox}
+
 \paragraph{Proof.}
 For every $\phi\in X^*$ with $\norm{\phi}\le 1$,
 \[
@@ -107,12 +111,20 @@ These are exactly the properties used later in compactness, weak lower semiconti
 \thmBanachAlaoglu
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know the diagonal-subsequence argument in the separable case: extract pointwise convergence on a dense countable set, extend by density and uniform boundedness.
+\end{prooflevelbox}
+
 \paragraph{Proof idea in the separable case.}
 Choose a countable dense set $(x_k)$ in $X$. From any bounded sequence $(\phi_n)$ extract a diagonal subsequence such that $\phi_n(x_k)$ converges for every $k$. Use density and uniform boundedness to extend the limit to a functional on all of $X$.
 
 \begin{thmbox}{Theorem 7.2: Reflexive spaces have weakly convergent bounded subsequences}
 \thmReflexiveWeaklyCompact
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Reflexivity identifies $X$ with $X^{**}$; then Banach--Alaoglu in $X^{**}$ gives weak-* compactness of the unit ball, which under reflexivity coincides with weak compactness.
+\end{prooflevelbox}
 
 \paragraph{Reason.}
 Reflexivity identifies $X$ with $X^{**}$, and then weak compactness of the closed unit ball follows from Banach--Alaoglu applied in the second dual.
@@ -125,6 +137,10 @@ For a Banach space $X$, the following are equivalent:
 \item Every bounded sequence in $X$ has a weakly convergent subsequence.
 \end{enumerate}
 \end{thmbox}
+
+\begin{prooflevelbox}{STATEMENT}
+Know the three equivalences and how they connect to Banach--Alaoglu and Theorem 7.2.
+\end{prooflevelbox}
 
 \section{Examples Of Reflexive And Non-Reflexive Spaces}
 

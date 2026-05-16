@@ -54,6 +54,10 @@ A sequence $(p_k)_{k\in\N}$ of seminorms on $X$ is \textbf{separating} if for ev
 \thmFrechetMetric
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know why each axiom holds. The triangle inequality uses subadditivity of $t/(1+t)$. Separation is needed only for $d(x,y)=0\Rightarrow x=y$.
+\end{prooflevelbox}
+
 \paragraph{Proof idea.}
 Non-negativity and symmetry are clear. If $d(x,y)=0$, then $p_k(x-y)=0$ for all $k$, and separation gives $x=y$. The triangle inequality follows because the function
 \[
@@ -76,12 +80,20 @@ p(t x)=t p(x) \text{ for every } t\ge 0.
 \thmHahnBanachReal
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Know the one-step extension (choose $F(x_0)$ inside the interval forced by sublinearity) and that Zorn's lemma finishes the argument.
+\end{prooflevelbox}
+
 \paragraph{Proof idea.}
 Extend first from $V$ to a one-dimensional enlargement $V\oplus \operatorname{span}\{x_0\}$ by choosing the value of $F(x_0)$ inside an interval forced by sublinearity. Then apply Zorn's lemma to the partially ordered family of all admissible extensions.
 
 \begin{thmbox}{Theorem 6.1': Complex Hahn--Banach theorem}
 \thmHahnBanachComplex
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Apply real Hahn--Banach to $\operatorname{Re}f$, then reconstruct the complex extension via $F(x)=U(x)-iU(ix)$.
+\end{prooflevelbox}
 
 \paragraph{Proof idea.}
 Apply the real Hahn--Banach theorem to the real part of $f$ on the underlying real vector space, then reconstruct the complex-linear extension by
@@ -92,6 +104,10 @@ F(x)=U(x)-iU(ix).
 \begin{thmbox}{Theorem 6.2: Topological Hahn--Banach theorem}
 \thmHahnBanachNormed
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+Know how to choose $p(x)=\norm{f}\norm{x}$ and apply the algebraic theorem. Verify that the extension satisfies $\abs{F(x)}\le\norm{f}\norm{x}$ and hence is bounded with the same norm.
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 Apply the algebraic Hahn--Banach theorem with the sublinear functional
@@ -106,6 +122,10 @@ The extension automatically satisfies $\abs{F(x)}\le \norm{f}\norm{x}$, hence is
 \thmHahnBanachSeparating
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Define a functional on $Y+\operatorname{span}\{x_0\}$ by $y+tx_0\mapsto t\,\operatorname{dist}(x_0,Y)$, verify boundedness, then extend via Theorem 6.2.
+\end{prooflevelbox}
+
 \paragraph{Proof idea.}
 Define a linear functional first on $Y+\operatorname{span}\{x_0\}$ by sending $y+tx_0$ to $t\,\operatorname{dist}(x_0,Y)$ and verify it is bounded by the norm. Then extend it with Theorem~\ref{thm:hahn-banach-normed}.
 
@@ -113,12 +133,20 @@ Define a linear functional first on $Y+\operatorname{span}\{x_0\}$ by sending $y
 \thmDualSeparates
 \end{thmbox}
 
+\begin{prooflevelbox}{STATEMENT}
+This is the special case $Y=\{0\}$ of Theorem 6.3.
+\end{prooflevelbox}
+
 \paragraph{Reason.}
 Apply Theorem~\ref{thm:hahn-banach-separating} with $Y=\{0\}$. If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x-y)=0$ for all $\phi\in X^*$, hence $x=y$.
 
 \begin{thmbox}{Theorem 6.5: Dual characterization of the norm}
 \thmNormViaDual
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+One inequality: $\abs{\phi(x)}\le\norm{\phi}\norm{x}$. Reverse: apply Theorem 6.3 to $\{0\}$ to find a norm-one functional attaining $\norm{x}$.
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 One inequality is immediate from
@@ -130,6 +158,10 @@ For the reverse inequality, apply Theorem~\ref{thm:hahn-banach-separating} to th
 \begin{thmbox}{Theorem 6.6: If $X^*$ is separable, then $X$ is separable}
 \thmDualSeparableImpliesSeparable
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Choose dense $(\phi_n)$ in $X^*$ and norm-approaching $(x_n)$ in $X$. Show the closed span of $(x_n)$ is all of $X$; otherwise Hahn--Banach contradicts density.
+\end{prooflevelbox}
 
 \paragraph{Proof idea.}
 Choose a dense sequence $(\phi_n)$ in $X^*$ and points $(x_n)$ that almost realize their norms. The closed span of $(x_n)$ is then all of $X$; otherwise Hahn--Banach separation would contradict density of $(\phi_n)$.

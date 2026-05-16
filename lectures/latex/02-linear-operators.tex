@@ -73,6 +73,10 @@ For linear maps, boundedness is the right quantitative form of continuity. This 
 \thmOperatorNorm
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Positivity and homogeneity are direct from the supremum definition. The triangle inequality uses $\norm{L_1x+L_2x}\le\norm{L_1x}+\norm{L_2x}$ and the sup. For definiteness: if $L\neq 0$, find $x_0$ with $Lx_0\neq 0$ and rescale.
+\end{prooflevelbox}
+
 \paragraph{Proof sketch.}
 Positivity, homogeneity, and the triangle inequality follow directly from the definition of supremum and the norm on $Y$. If $L\neq 0$, choose $x_0$ with $Lx_0\neq 0$; then
 \[
@@ -91,6 +95,10 @@ X^*:=\mathcal L(X,\K).
 \begin{thmbox}{Theorem 3.2: For linear maps, boundedness is equivalent to continuity}
 \thmBoundedIffContinuous
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+Reproduce the three-step argument: bounded $\Rightarrow$ Lipschitz; continuity everywhere $\Rightarrow$ continuity at one point $\Rightarrow$ continuity at $0$; continuity at $0$ $\Rightarrow$ bounded (rescale $x$ to lie in the $\delta$-ball).
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 If $L$ is bounded, then
@@ -114,6 +122,10 @@ Thus $L$ is bounded.
 \begin{thmbox}{Theorem 3.3: If $Y$ is Banach, then $\mathcal L(X,Y)$ is Banach}
 \thmDualIsBanach
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+Reproduce the Cauchy-sequence proof: define $Lx=\lim L_nx$ pointwise (using completeness of $Y$), prove linearity, boundedness (via uniform boundedness of $\norm{L_n}$), and norm convergence $\norm{L_n-L}\to 0$.
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 Let $(L_n)$ be Cauchy in $\mathcal L(X,Y)$. For each fixed $x\in X$,
@@ -173,12 +185,20 @@ This is linear and bounded.
 \thmFiniteDimRange
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Choose a basis $e_1,\dots,e_n$ of $X$; every $Lx$ is a linear combination of $Le_1,\dots,Le_n$.
+\end{prooflevelbox}
+
 \paragraph{Proof.}
 Choose a basis $e_1,\dots,e_n$ of $X$. Then every $Lx$ is a linear combination of $Le_1,\dots,Le_n$.
 
 \begin{thmbox}{Theorem 4.2}
 \thmFiniteDimBounded
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Expand $x=\sum a_je_j$ in a fixed basis; bound $\norm{Lx}_Y\le\sum\abs{a_j}\norm{Le_j}_Y$. Use norm equivalence in finite dimensions to control the coefficients.
+\end{prooflevelbox}
 
 \paragraph{Proof sketch.}
 Write $x=\sum_{j=1}^n a_je_j$ in a fixed basis. Then
@@ -190,6 +210,10 @@ and the coordinate coefficients are controlled by any norm on a finite-dimension
 \begin{thmbox}{Theorems 4.3 and 4.6: Finite-dimensional spaces are all alike topologically}
 \thmFiniteDimProperties
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Define a bijection $L:\K^N\to X$ via a basis; finite-dimensionality gives boundedness of both $L$ and $L^{-1}$. Completeness and norm equivalence follow by composing with the identity map between two norms.
+\end{prooflevelbox}
 
 \paragraph{Proof idea.}
 Choose a basis $x_1,\dots,x_N$ and define
@@ -210,6 +234,10 @@ The theorem list also mentions Hamel bases and proper subspaces of finite-dimens
 \thmCompactEquivSequential
 \end{thmbox}
 
+\begin{prooflevelbox}{STATEMENT}
+Know the equivalences: compact $\Leftrightarrow$ sequentially compact $\Leftrightarrow$ complete and totally bounded.
+\end{prooflevelbox}
+
 \paragraph{Why this matters here.}
 In finite-dimensional normed spaces, bounded sets behave compactly. In infinite-dimensional normed spaces this breaks down, and that contrast is central for the rest of functional analysis.
 
@@ -220,6 +248,10 @@ One useful consequence emphasized in the lecture: in finite-dimensional normed s
 \begin{thmbox}{Theorem 4.8: Compact unit ball characterizes finite dimension}
 \thmUnitBallCompactIffFiniteDim
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Finite dimension $\Rightarrow$ compact unit ball via Heine-Borel. Conversely, Riesz's lemma produces a sequence in the unit ball with no convergent subsequence in infinite dimensions.
+\end{prooflevelbox}
 
 \paragraph{Proof idea.}
 If $X$ is finite-dimensional, reduce to $\K^N$, where closed and bounded sets are compact. Conversely, if the closed unit ball were compact in an infinite-dimensional normed space, Riesz's lemma would produce a sequence in the unit ball with no convergent subsequence, contradiction.

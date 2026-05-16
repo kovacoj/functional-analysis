@@ -99,6 +99,10 @@ Then $(X,\norm{\cdot}_X)$ is a \textbf{normed space}.
 \thmNormInducesMetric
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Know how to derive each metric property from the corresponding norm axiom. The key step is: triangle inequality for $d$ is exactly (N3).
+\end{prooflevelbox}
+
 \paragraph{Proof.}
 Non-negativity and the implication $d(x,y)=0 \iff x=y$ follow from (N1). Symmetry follows from
 \[
@@ -144,6 +148,10 @@ In a normed space $(X,\norm{\cdot}_X)$:
 \thmClosureSequential
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Both directions are short: $\bar A$ meets every ball around $x$, so pick $x_n\in A\cap B_{1/n}(x)$. Conversely, if $x_n\in A\to x$, every neighborhood of $x$ contains some $x_n$.
+\end{prooflevelbox}
+
 \paragraph{Proof.}
 If $x\in\ol A$, then every ball $B_{1/n}(x)$ meets $A$; choose $x_n\in A\cap B_{1/n}(x)$. Then $x_n\to x$. Conversely, if $x_n\in A$ and $x_n\to x$, every neighborhood of $x$ contains some $x_n$, so $x\in\ol A$.
 
@@ -152,6 +160,10 @@ For the second claim, if $A$ is closed and $x_n\in A$ converges to $x$, then $x\
 \begin{thmbox}{Theorem 2.3: A subspace of a Banach space is complete iff it is closed}
 \thmSubspaceCompleteIffClosed
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+Know both directions: complete $\Rightarrow$ closed (Cauchy sequence converges in the subspace, limit must agree with the limit in $X$), and closed $\Rightarrow$ complete (Cauchy in $Y$ converges in $X$, closedness forces the limit back into $Y$).
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 If $Y$ is complete and $y_n\in Y$ converges in $X$ to some $x$, then $(y_n)$ is Cauchy in $Y$, hence converges in $Y$ to a point of $Y$; uniqueness of limits gives $x\in Y$. So $Y$ is closed.
@@ -175,6 +187,10 @@ x_n\to x_0 \implies f(x_n)\to f(x_0).
 \begin{thmbox}{Theorem 2.4: Continuity via preimages of open sets}
 \thmContinuityPreimages
 \end{thmbox}
+
+\begin{prooflevelbox}{FULL}
+Both directions are standard: continuity $\Rightarrow$ preimages of open sets are open (use the $\varepsilon$-$\delta$ definition), and the converse (take $U$ a neighborhood of $f(x)$, then $f^{-1}(U)$ is an open neighborhood of $x$).
+\end{prooflevelbox}
 
 \paragraph{Proof.}
 If $f$ is continuous and $U$ is open in $Y$, then every point of $f^{-1}(U)$ has a neighborhood mapped into $U$, so $f^{-1}(U)$ is open. Conversely, if preimages of open sets are open, then for every neighborhood $U$ of $f(x)$, the set $f^{-1}(U)$ is an open neighborhood of $x$, which is exactly continuity at $x$.

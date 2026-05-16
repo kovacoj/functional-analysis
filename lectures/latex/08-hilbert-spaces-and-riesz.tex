@@ -51,6 +51,10 @@ x-P_Mx\in M^\perp.
 \]
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Minimize $\norm{x-y}$ over $y\in M$. Completeness gives existence of a minimizer; the parallelogram law gives uniqueness. Orthogonality: if $x-P_Mx$ had a nonzero projection onto $M$, you could move closer.
+\end{prooflevelbox}
+
 \paragraph{Broader form.}
 The full projection theorem is first stated for nonempty closed convex sets. The closed-subspace version is the one used most often later, because orthogonality then characterizes the minimizer.
 
@@ -68,6 +72,10 @@ The full projection theorem is first stated for nonempty closed convex sets. The
 \thmRieszRepresentation
 \end{thmbox}
 
+\begin{prooflevelbox}{FULL}
+Know the full proof if the theorem list or oral exam requires it: restrict $\phi$ to $\ker\phi$, use orthogonality to find the Riesz vector $a$, then show $\phi(x)=(x,a)_H$.
+\end{prooflevelbox}
+
 \paragraph{Consequence.}
 Every Hilbert space is reflexive.
 
@@ -80,12 +88,20 @@ The Riesz map $H\to H^*$, $a\mapsto (x\mapsto (x,a)_H)$, is a conjugate-linear i
 \thmCoerciveBijective
 \end{thmbox}
 
+\begin{prooflevelbox}{SKETCH}
+Injectivity follows from coercivity. Surjectivity uses the coercivity estimate to show the range is both dense and closed.
+\end{prooflevelbox}
+
 \begin{thmbox}{Theorem 12.2: Lax--Milgram lemma}
 If $B:H\times H\to\K$ is sesquilinear (linear in the first argument), bounded and coercive, then for every $f\in H^*$ there exists a unique $u\in H$ such that
 \[
 B(v,u)=f(v) \qquad \forall v\in H.
 \]
 \end{thmbox}
+
+\begin{prooflevelbox}{SKETCH}
+Know the Riesz-reduction: define $A$ by $B(v,u)=(v,Au)_H$, use coercivity to apply Theorem 12.1, then solve $Au=g$ where $g$ represents $f$ via Riesz.
+\end{prooflevelbox}
 
 \paragraph{Proof idea.}
 For fixed $u$, the map $v\mapsto B(v,u)$ is in $H^*$ (linear in $v$). By Riesz, there is a unique operator $A\in\mathcal L(H)$ such that
