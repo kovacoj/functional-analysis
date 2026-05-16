@@ -34,11 +34,11 @@ You should know:
 \section{Seminorms And Fr\'echet Spaces}
 
 \begin{defbox}{Seminorm}
-A map $p:X\to\R$ on a vector space $X$ is a \textbf{seminorm} if:
+Let $X$ be a vector space over $\K$, where $\K=\R$ or $\C$. A map $p:X\to\R$ is a \textbf{seminorm} if:
 \begin{align*}
 \text{(SN1)}\quad & p(x)\ge 0,
 \\
-\text{(SN2)}\quad & p(\lambda x)=\abs{\lambda}p(x),
+\text{(SN2)}\quad & p(\lambda x)=\abs{\lambda}p(x) \qquad \forall \lambda\in\K,
 \\
 \text{(SN3)}\quad & p(x+y)\le p(x)+p(y).
 \end{align*}
@@ -67,11 +67,11 @@ is increasing and subadditive on $[0,\infty)$.
 \section{Hahn--Banach Extension}
 
 \begin{defbox}{Sublinear functional}
-A map $p:X\to\R$ is \textbf{sublinear} if
+Let $X$ be a \emph{real} vector space. A map $p:X\to\R$ is \textbf{sublinear} if
 \[
 p(x+y)\le p(x)+p(y),
 \qquad
-p(\lambda x)=\lambda p(x) \text{ for }\lambda\ge 0.
+p(t x)=t p(x) \text{ for every } t\ge 0.
 \]
 \end{defbox}
 
