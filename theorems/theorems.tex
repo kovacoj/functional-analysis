@@ -13,7 +13,6 @@
 
 \input{../fa-macros}
 \input{../fa-theorems}
-\newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
 
 \newenvironment{theoremstmt}[1]{%
   \par\medskip\noindent\textbf{Theorem #1. }\itshape
@@ -30,6 +29,8 @@
 \begin{document}
 
 \maketitle
+
+\textbf{Convention.} The inner product $(\cdot,\cdot)_H$ is linear in the first argument and conjugate-linear in the second (physics convention).
 
 This file follows the numbering from the theorem list in \texttt{exam.pdf}. The wording is as close to the handwritten notes as possible when readable; when a statement in the notes was missing, abbreviated, or hard to OCR, I normalized it to a standard equivalent formulation. I also added proofs or proof sketches throughout.
 
@@ -928,11 +929,11 @@ t=\frac{(x,b)_H}{\norm{b}_H^2}.
 \]
 Hence
 \[
-\phi(x)=\frac{\phi(b)}{\norm{b}_H^2}(x,b)_H=(a,x)_H
+\phi(x)=\frac{\phi(b)}{\norm{b}_H^2}(x,b)_H=(x,a)_H
 \]
 with $a=\ol{\phi(b)}\,b/\norm{b}_H^2$ (or the corresponding real formula). Uniqueness follows because if $(a-a',x)=0$ for all $x$, then in particular $(a-a',a-a')=0$, so $a=a'$. Finally,
 \[
-\abs{\phi(x)}=\abs{(a,x)_H}\le \norm{a}\norm{x},
+\abs{\phi(x)}=\abs{(x,a)_H}\le \norm{a}\norm{x},
 \]
 so $\norm{\phi}\le \norm{a}$, while taking $x=a/\norm{a}$ gives equality.
 \end{proof}
@@ -999,9 +1000,9 @@ Moreover,
 \]
 Thus $A$ satisfies Theorem~\ref{thm:coercive-bijective}, so it is bijective and $\norm{A^{-1}}\le 1/\beta$.
 
-Now let $f\in H^*$. By Riesz there exists $g\in H$ such that $f(v)=(g,v)_H$ for all $v$. Since $A$ is surjective, there exists a unique $u\in H$ with $Au=g$. Then
+Now let $f\in H^*$. By Riesz there exists $g\in H$ such that $f(v)=(v,g)_H$ for all $v$. Since $A$ is surjective, there exists a unique $u\in H$ with $Au=g$. Then
 \[
-B(u,v)=(Au,v)_H=(g,v)_H=f(v)
+B(u,v)=(Au,v)_H=(v,g)_H=f(v)
 \]
 for all $v$. Finally,
 \[

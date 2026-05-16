@@ -13,6 +13,10 @@
 
 \begin{focusbox}
 This is one of the core exam lectures. It contains the geometry of Hilbert spaces, projection/direct sum, Riesz representation, reflexivity of Hilbert spaces, and the first well-posedness result for solving equations in Hilbert spaces.
+
+\medskip
+
+\textbf{Convention.} Throughout these notes, the inner product $(\cdot,\cdot)_H$ is linear in the first argument and conjugate-linear in the second. This is the standard physics convention and the one used in the lectures.
 \end{focusbox}
 
 \tableofcontents
@@ -68,7 +72,7 @@ The full projection theorem is first stated for nonempty closed convex sets. The
 Every Hilbert space is reflexive.
 
 \paragraph{Why.}
-The Riesz map $H\to H^*$ is an isometric isomorphism. Applying the same theorem to $H^*$ identifies $H^{**}$ with $H$, so the canonical embedding is onto.
+The Riesz map $H\to H^*$, $a\mapsto (x\mapsto (x,a)_H)$, is a conjugate-linear isometry for complex scalars (and a linear isometry for real scalars). Applying Riesz to $H^*$ identifies $H^{**}$ with $H$ up to the canonical conjugation, which composes with the Riesz map to give a genuine linear isometry. Hence the canonical embedding $J:H\to H^{**}$ is onto.
 
 \section{Lax--Milgram And Solvability}
 

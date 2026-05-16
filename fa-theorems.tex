@@ -228,7 +228,7 @@ $A^TAx=A^Tb.$\label{thm:least-squares}%
 }
 \newcommand{\thmRieszRepresentation}{%
 Let $H$ be a Hilbert space. For every $\phi\in H^*$ there exists a unique $a\in H$ such that
-$\phi(x)=(a,x)_H \qquad\text{for all }x\in H,$
+$\phi(x)=(x,a)_H \qquad\text{for all }x\in H,$
 and $\norm{\phi}_{H^*}=\norm{a}_H$.\label{thm:riesz-representation}%
 }
 \newcommand{\thmLaxMilgramSymmetric}{%
@@ -261,11 +261,13 @@ Moreover $\norm{T^*}=\norm{T}$ and $(ST)^*=T^*S^*$.\label{thm:hilbert-adjoint}%
 If $K\in\mathcal L(H)$ is compact and $x_n\rightharpoonup x$ weakly in $H$, then $Kx_n\to Kx$ strongly in $H$.\label{thm:compact-weak-to-strong-hilbert}%
 }
 \newcommand{\thmFredholmAlternative}{%
-Let $H$ be a Hilbert space and let $K\in\mathcal L(H)$ be compact. Then the equation
-$(I-K)u=f$
-is solvable if and only if
-$(f,v)_H=0 \qquad\text{for all }v\in\ker(I-K^*).$
-Moreover either $\ker(I-K)=\{0\}$ and the solution exists uniquely for every $f$, or $\ker(I-K)$ is nontrivial.\label{thm:fredholm-alternative}%
+Let $H$ be a Hilbert space and let $K\in\mathcal L(H)$ be compact. Then:
+\begin{enumerate}
+\item $\ker(I-K)$ and $\ker(I-K^*)$ are finite-dimensional;
+\item $\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}$;
+\item $\dim\ker(I-K)=\dim\ker(I-K^*)$;
+\item either $\ker(I-K)=\{0\}$ and $(I-K)^{-1}\in\mathcal L(H)$, or $\ker(I-K)$ is nontrivial and solutions of $(I-K)u=f$ (when they exist) form the affine space $u_0+\ker(I-K)$.
+\end{enumerate}\label{thm:fredholm-alternative}%
 }
 \newcommand{\thmNeumannSeries}{%
 Let $T\in\mathcal L(X)$ with $\norm{T}<1$. Then $I-T$ is invertible and
@@ -295,6 +297,6 @@ If $T\in\mathcal L(H)$ is selfadjoint, then $\sigma(T)\subset\R$. More precisely
 $\sigma(T)\subset [m,M], \quad m:=\inf_{\norm{x}=1}(Tx,x), \quad M:=\sup_{\norm{x}=1}(Tx,x).$\label{thm:selfadjoint-spectrum-real}%
 }
 \newcommand{\thmHilbertSchmidt}{%
-Let $T\in\mathcal L(H)$ be compact and selfadjoint. Then there exists an orthonormal basis $(e_n)$ of $H$ consisting of eigenvectors of $T$, with real eigenvalues $\lambda_n\to 0$, such that
+Let $H$ be a \textbf{separable} Hilbert space and let $T\in\mathcal L(H)$ be compact and selfadjoint. Then there exists an orthonormal basis $(e_n)$ of $H$ consisting of eigenvectors of $T$, with real eigenvalues $\lambda_n\to 0$, such that
 $Tx=\sum_{n=1}^{\infty}\lambda_n(x,e_n)e_n \qquad\text{for all }x\in H.$\label{thm:hilbert-schmidt}%
 }
