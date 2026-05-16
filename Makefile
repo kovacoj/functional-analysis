@@ -34,8 +34,6 @@ $(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex fa-macros.tex
 	$(LATEXMK) -cd -output-directory=$(abspath $(LEC_PDF)) $<
 
 clean: clean-latex
-	$(RM) $(THM_DIR)/theorems.pdf
-	$(RM) -r $(LEC_PDF)/*.pdf
 
 clean-latex:
 	find . \( $(LATEX_AUX_EXTENSIONS) \) -type f -delete
