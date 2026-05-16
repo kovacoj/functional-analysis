@@ -4,4 +4,4 @@
 \LoadClass[11pt]{article}
 
 \input{study-note-style}
-\input{fa-theorems}
+\input{../../fa-theorems}
