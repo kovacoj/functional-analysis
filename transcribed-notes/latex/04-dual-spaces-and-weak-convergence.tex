@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 4 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -103,14 +104,14 @@ These are exactly the properties used later in compactness, weak lower semiconti
 \section{Banach--Alaoglu And Weak Compactness}
 
 \begin{thmbox}{Theorem 7.1: Banach--Alaoglu}
-The closed unit ball of $X^*$ is compact in the weak-* topology. In particular, if $X$ is separable, every bounded sequence in $X^*$ has a weak-* convergent subsequence.
+\thmBanachAlaoglu
 \end{thmbox}
 
 \paragraph{Proof idea in the separable case.}
 Choose a countable dense set $(x_k)$ in $X$. From any bounded sequence $(\phi_n)$ extract a diagonal subsequence such that $\phi_n(x_k)$ converges for every $k$. Use density and uniform boundedness to extend the limit to a functional on all of $X$.
 
 \begin{thmbox}{Theorem 7.2: Reflexive spaces have weakly convergent bounded subsequences}
-If $X$ is reflexive, then every bounded sequence in $X$ has a weakly convergent subsequence.
+\thmReflexiveWeaklyCompact
 \end{thmbox}
 
 \paragraph{Reason.}

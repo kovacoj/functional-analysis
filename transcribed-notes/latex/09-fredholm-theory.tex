@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 9 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -16,25 +17,44 @@ This lecture is short in scope but central in logic: it explains why operators o
 
 \tableofcontents
 
-\section{Core Statement}
+\section{Setting And Main Question}
 
-\begin{thmbox}{Theorem 13.3: Fredholm alternative}
-Let $H$ be a Hilbert space and $K\in\mathcal L(H)$ compact. Then the equation
+\begin{focusbox}
+The central equation is
+\[
+(I-K)u=f,
+\]
+where $K\in\mathcal L(H)$ is compact and $H$ is a Hilbert space. The lecture explains why this equation behaves much more rigidly than a general linear equation in infinite dimensions.
+\end{focusbox}
+
+\begin{defbox}{Homogeneous and inhomogeneous problems}
+Associated with
 \[
 (I-K)u=f
 \]
-is solvable if and only if
-\[
-(f,v)_H=0 \qquad \forall v\in \ker(I-K^*).
-\]
-Moreover, either
+are:
 \begin{itemize}
-\item $\ker(I-K)=\{0\}$ and then $(I-K)u=f$ has a unique solution for every $f$, or
-\item the homogeneous equation $(I-K)u=0$ has a nontrivial solution.
+\item the \textbf{homogeneous equation} $(I-K)u=0$;
+\item the \textbf{inhomogeneous equation} $(I-K)u=f$.
 \end{itemize}
+The Fredholm alternative says that the inhomogeneous equation is solvable exactly when $f$ satisfies orthogonality conditions against solutions of the adjoint homogeneous equation.
+\end{defbox}
+
+\section{Core Statement}
+
+\begin{thmbox}{Theorem 13.3: Fredholm alternative}
+\thmFredholmAlternative
 \end{thmbox}
 
-\section{Why Operators Of The Form $I-K$ Matter}
+\begin{focusbox}
+This is the exact exam slogan:
+\[
+\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}.
+\]
+So solvability is equivalent to orthogonality to all solutions of the adjoint homogeneous equation.
+\end{focusbox}
+
+\section{Why Operators Of The Form I Minus K Matter}
 
 \begin{focusbox}
 Compact operators are not invertible perturbations in general, but the operator
@@ -48,6 +68,91 @@ behaves in many ways like a finite-dimensional matrix. This is why Fredholm theo
 In finite dimensions, injective and surjective are equivalent for linear maps. Fredholm theory recovers a substitute of this equivalence for $I-K$ when $K$ is compact.
 \end{warningbox}
 
+\begin{exbox}{Why compactness is the crucial hypothesis}
+For a general bounded operator $T$, injectivity does \emph{not} imply surjectivity and the range need not be closed. For compact perturbations of the identity, the defect is finite-dimensional and the range has a controlled form.
+\end{exbox}
+
+\section{Structural Facts Behind The Alternative}
+
+\begin{thmbox}{Riesz--Schauder structure for $I-K$}
+If $K\in\mathcal L(H)$ is compact, then:
+\begin{enumerate}
+\item $\ker(I-K)$ is finite-dimensional;
+\item $\ker(I-K^*)$ is finite-dimensional;
+\item $\operatorname{Ran}(I-K)$ is closed;
+\item
+\[
+\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}.
+\]
+\end{enumerate}
+These facts are what make the Fredholm alternative possible.
+\end{thmbox}
+
+\paragraph{Interpretation.}
+The obstruction to solving $(I-K)u=f$ is finite-dimensional: only finitely many orthogonality conditions must be checked.
+
+\begin{thmbox}{Uniqueness versus solvability}
+For compact $K$, the following implications are central:
+\begin{itemize}
+\item if $\ker(I-K)=\{0\}$, then the solution of $(I-K)u=f$ is unique whenever it exists;
+\item if $\ker(I-K^*)=\{0\}$, then every $f\in H$ satisfies the orthogonality condition, so the equation is solvable for every $f\in H$;
+\item in the Fredholm situation, injectivity and surjectivity are tied together much more closely than for general bounded operators.
+\end{itemize}
+\end{thmbox}
+
+\section{Adjoint Formulation Of Solvability}
+
+\begin{defbox}{Adjoint homogeneous equation}
+The adjoint equation is
+\[
+(I-K^*)v=0.
+\]
+Its solution space is $\ker(I-K^*)$.
+\end{defbox}
+
+\begin{thmbox}{Orthogonality criterion}
+The equation
+\[
+(I-K)u=f
+\]
+is solvable if and only if
+\[
+(f,v)_H=0 \qquad \forall v\in \ker(I-K^*).
+\]
+So every adjoint homogeneous solution gives one linear compatibility condition on the right-hand side.
+\end{thmbox}
+
+\begin{exbox}{How to use this in practice}
+To decide whether $(I-K)u=f$ is solvable:
+\begin{enumerate}
+\item solve or understand the adjoint homogeneous problem $(I-K^*)v=0$;
+\item list a basis of $\ker(I-K^*)$;
+\item check the finitely many conditions $(f,v)_H=0$ on that basis.
+\end{enumerate}
+If all conditions hold, then a solution exists.
+\end{exbox}
+
+\section{Role Of The Homogeneous Equation}
+
+\begin{focusbox}
+The homogeneous equation
+\[
+(I-K)u=0
+\]
+asks whether $1$ is an eigenvalue of $K$.
+\end{focusbox}
+
+\begin{thmbox}{Equivalent viewpoint}
+The equation $(I-K)u=0$ has a nonzero solution if and only if there exists $u\neq 0$ such that
+\[
+Ku=u.
+\]
+Thus the failure of uniqueness for $(I-K)u=f$ is exactly the presence of the eigenvalue $1$ for $K$.
+\end{thmbox}
+
+\paragraph{Exam interpretation.}
+Lecture 9 is already preparing Lecture 10: spectral questions about $\lambda I-K$ are closely connected with eigenvalues of compact operators.
+
 \section{What To Remember About The Proof Structure}
 
 \begin{exbox}{Key ingredients}
@@ -56,9 +161,30 @@ The proof uses:
 \item compactness of $K$;
 \item the adjoint operator $K^*$;
 \item the fact that compactness controls the structure of kernels and ranges;
+\item the identity $\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}$;
 \item orthogonality of the right-hand side to the kernel of the adjoint.
 \end{itemize}
-You are usually expected to know the theorem and its meaning, not the full proof in detail.
+You are usually expected to know the theorem, its meaning, and the logical route of the proof, not every technical step in full detail.
+\end{exbox}
+
+\begin{warningbox}{Where compactness enters}
+One of the main ingredients from the previous lecture is that compact operators send weakly convergent sequences to strongly convergent sequences. This is used in the background to show that $I-K$ has much better range properties than a general bounded operator.
+\end{warningbox}
+
+\section{Consequences To State Cleanly In An Exam}
+
+\begin{thmbox}{Standard consequences}
+Let $K\in\mathcal L(H)$ be compact.
+\begin{enumerate}
+\item Either $(I-K)u=f$ has a unique solution for every $f\in H$, or the homogeneous equation $(I-K)u=0$ has a nontrivial solution.
+\item If $\ker(I-K^*)\neq\{0\}$, then solvability requires orthogonality conditions on $f$.
+\item If $\ker(I-K)=\{0\}$, then there is no nontrivial homogeneous solution, hence solutions of the inhomogeneous problem are unique.
+\item If both kernels are trivial, then $(I-K)$ is bijective.
+\end{enumerate}
+\end{thmbox}
+
+\begin{exbox}{Finite-dimensional picture to keep in mind}
+Think of a square matrix $A$. The system $Ax=b$ is solvable exactly when $b$ is orthogonal to all vectors in $\ker(A^*)$, and uniqueness fails exactly when $\ker(A)\neq\{0\}$. Fredholm theory says that $I-K$ with $K$ compact behaves in the same spirit.
 \end{exbox}
 
 \section{What To Memorize Precisely}
@@ -67,7 +193,11 @@ You are usually expected to know the theorem and its meaning, not the full proof
 For the exam, know:
 \begin{enumerate}
 \item the statement of the Fredholm alternative;
+\item the structural facts that $\ker(I-K)$ and $\ker(I-K^*)$ are finite-dimensional and that $\operatorname{Ran}(I-K)$ is closed;
 \item the solvability condition involving $\ker(I-K^*)$;
+\item the identity $\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}$;
+\item why nonuniqueness is equivalent to the homogeneous equation having a nontrivial solution;
+\item that $(I-K)u=0$ means $1$ is an eigenvalue of $K$;
 \item why the special form $I-K$ with $K$ compact is essential;
 \item the finite-dimensional analogy.
 \end{enumerate}

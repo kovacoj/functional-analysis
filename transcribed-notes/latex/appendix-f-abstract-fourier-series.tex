@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Appendix F Exam Study Notes}
+
+\input{study-note-style}
+\input{fa-theorems}
+
+\begin{document}
+
+\StudyTitleBlock{F}{Appendix F: Exam Study Notes}{Abstract Fourier series in Hilbert spaces}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This appendix explains how Hilbert-space vectors are expanded in orthonormal systems. It is the abstract version of Fourier series and underlies the identification of separable Hilbert spaces with $\ell^2$.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Orthonormal Systems}
+
+\begin{defbox}{Orthonormal system}
+A family $(e_k)_{k\ge 1}$ in a Hilbert space $H$ is \textbf{orthonormal} if
+\[
+(e_j,e_k)_H=\delta_{jk}
+\qquad \text{for all } j,k.
+\]
+\end{defbox}
+
+\begin{defbox}{Fourier coefficients}
+For $x\in H$, the numbers
+\[
+(x,e_k)_H
+\]
+are the \textbf{Fourier coefficients} of $x$ with respect to $(e_k)$.
+\end{defbox}
+
+\section{Bessel And Parseval}
+
+\begin{thmbox}{Bessel inequality}
+If $(e_k)$ is orthonormal in $H$, then for every $x\in H$,
+\[
+\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2\le \norm{x}_H^2.
+\]
+\end{thmbox}
+
+\begin{thmbox}{Parseval identity}
+If $(e_k)$ is complete, then for every $x\in H$,
+\[
+x=\sum_{k=1}^{\infty}(x,e_k)_He_k,
+\qquad
+\norm{x}_H^2=\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2.
+\]
+\end{thmbox}
+
+\begin{focusbox}
+Bessel says the Fourier coefficients always lie in $\ell^2$. Parseval says that for a complete orthonormal system, they capture the whole vector with no loss.
+\end{focusbox}
+
+\section{Series From Ell Two Data}
+
+\begin{thmbox}{Series associated with an orthonormal system}
+If $(a_k)\in \ell^2$, then the series
+\[
+\sum_{k=1}^{\infty}a_ke_k
+\]
+converges in $H$, and
+\[
+\Bigl\|\sum_{k=1}^{\infty}a_ke_k\Bigr\|_H^2=\sum_{k=1}^{\infty}\abs{a_k}^2.
+\]
+\end{thmbox}
+
+\paragraph{Meaning.}
+An orthonormal system identifies its closed span with an $\ell^2$ space.
+
+\section{Completeness And Representation}
+
+\begin{thmbox}{Equivalent forms of completeness}
+\thmOrthonormalCompleteEquiv
+\end{thmbox}
+
+\begin{thmbox}{Separable Hilbert spaces are $\ell^2$}
+\thmSeparableHilbertONB
+
+\medskip
+
+\thmSeparableHilbertIsomorphicEllTwo
+\end{thmbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know precisely:
+\begin{enumerate}
+\item the definitions of orthonormal system and Fourier coefficients;
+\item Bessel inequality and Parseval identity;
+\item that $\ell^2$ coefficients produce convergent series in a Hilbert space;
+\item the equivalent characterizations of completeness;
+\item why every separable Hilbert space is isometrically isomorphic to $\ell^2$.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

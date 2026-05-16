@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 6 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -19,15 +20,11 @@ This lecture is one of the central exam blocks. These are the ``great theorems''
 \section{Uniform Boundedness Principle}
 
 \begin{thmbox}{Theorem 8.5: Banach--Steinhaus uniform boundedness principle}
-Let $X$ be Banach, $Y$ normed, and $\mathcal F\subset \mathcal L(X,Y)$. If for every $x\in X$,
-\[
-\sup_{L\in\mathcal F}\norm{Lx}_Y<\infty,
-\]
-then
-\[
-\sup_{L\in\mathcal F}\norm{L}_{\mathcal L(X,Y)}<\infty.
-\]
+\thmBanachSteinhaus
 \end{thmbox}
+
+\paragraph{Meaning of the hypothesis.}
+``Pointwise bounded'' means: fix one $x\in X$ and look at all values $Lx$ with $L\in\mathcal F$; those values stay uniformly bounded. Baire's theorem upgrades this pointwise information to a uniform operator-norm bound.
 
 \paragraph{Main consequences.}
 \begin{itemize}
@@ -37,28 +34,30 @@ then
 \end{itemize}
 
 \begin{thmbox}{Theorem 8.6: Pointwise limit of bounded linear operators is bounded}
-Let $X$ be Banach, $Y$ normed, and $(L_n)\subset\mathcal L(X,Y)$. If for every $x\in X$ the limit
-\[
-Lx:=\lim_{n\to\infty}L_nx
-\]
-exists, then $L\in\mathcal L(X,Y)$.
+\thmLimitOperatorBounded
 \end{thmbox}
 
 \section{Open Mapping And Bounded Inverse}
 
 \begin{thmbox}{Theorem 8.7: Open mapping theorem}
-If $X,Y$ are Banach spaces and $L\in\mathcal L(X,Y)$ is surjective, then $L$ maps open sets onto open sets.
+\thmOpenMapping
 \end{thmbox}
 
-\begin{thmbox}{Theorem 8.8: Bounded inverse theorem}
-If $X,Y$ are Banach spaces and $L\in\mathcal L(X,Y)$ is bijective, then
+\begin{exbox}{Quantitative form}
+The open mapping theorem is often used through the equivalent statement:
+there exists $c>0$ such that
 \[
-L^{-1}\in\mathcal L(Y,X).
+B_Y(0,c)\subset L(B_X(0,1)).
 \]
+After scaling, this gives a uniform estimate for solving $Lx=y$.
+\end{exbox}
+
+\begin{thmbox}{Theorem 8.8: Bounded inverse theorem}
+\thmBoundedInverse
 \end{thmbox}
 
 \begin{thmbox}{Theorem 8.9: Sufficient condition for equivalence of norms}
-Let $\norm{\cdot}_1$ and $\norm{\cdot}_2$ be norms on the same vector space $X$. If both normed spaces are Banach and one norm dominates the other, then the two norms are equivalent.
+\thmComparableNorms
 \end{thmbox}
 
 \paragraph{Reason.}
@@ -75,12 +74,23 @@ The operator is \textbf{closed} if its graph is closed.
 \end{defbox}
 
 \begin{thmbox}{Theorem 8.10: Closed graph theorem}
-Let $X,Y$ be Banach spaces and let $L:X\to Y$ be linear. If $\operatorname{Graph}(L)$ is closed in $X\times Y$, then $L\in\mathcal L(X,Y)$.
+\thmClosedGraph
 \end{thmbox}
 
-\begin{thmbox}{Theorem 8.11: Closedness of operator vs. closedness of its domain/graph}
-The graph viewpoint and the domain viewpoint are equivalent for linear operators. In particular, if an operator is defined on all of a Banach space and is closed, then it is automatically continuous.
+\paragraph{How to check closedness.}
+To prove that $L$ is closed, one shows:
+whenever $x_n\to x$ in $X$ and $Lx_n\to y$ in $Y$, then $y=Lx$.
+
+\begin{thmbox}{Theorem 8.11: Graph norm characterization of closed operators}
+Let $L:D(L)\subset X\to Y$ be linear, where $X,Y$ are Banach spaces. Define the graph norm on $D(L)$ by
+\[
+\norm{x}_{L}:=\norm{x}_X+\norm{Lx}_Y.
+\]
+Then $L$ is closed if and only if $D(L)$ is complete with respect to the graph norm.
 \end{thmbox}
+
+\paragraph{Why this matters.}
+This is the right framework for operators that are not defined on all of $X$. The closed graph theorem is the special case $D(L)=X$.
 
 \section{Hellinger--Toeplitz Connection}
 
@@ -95,9 +105,10 @@ You should know the exact statements and standard consequences of:
 \begin{enumerate}
 \item Theorems \textbf{8.5}, \textbf{8.6}, \textbf{8.7}, \textbf{8.8}, \textbf{8.9}, \textbf{8.10}, \textbf{8.11};
 \item boundedness of weakly convergent sequences from Banach--Steinhaus;
+\item the quantitative ball-image form of the open mapping theorem;
 \item continuity of inverse from the open mapping theorem;
 \item equivalence of norms via the identity map;
-\item the idea of graph norm used in the closed graph theorem.
+\item the graph norm criterion for closed operators.
 \end{enumerate}
 \end{focusbox}
 

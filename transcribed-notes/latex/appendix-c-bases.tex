@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Appendix C Exam Study Notes}
+
+\input{study-note-style}
+\input{fa-theorems}
+
+\begin{document}
+
+\StudyTitleBlock{C}{Appendix C: Exam Study Notes}{Bases in vector spaces, Zorn's lemma, and dimension arguments}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This appendix is mostly algebraic. Its main role in the course is to justify the existence of Hamel bases and dimension arguments used in the Baire-theorem lecture.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Hamel Basis}
+
+\begin{defbox}{Hamel basis}
+A subset $B\subset X$ of a vector space is a \textbf{Hamel basis} if every $x\in X$ can be written uniquely as a finite linear combination of elements of $B$.
+\end{defbox}
+
+\begin{focusbox}
+``Basis'' here always means finite linear combinations. This is different from an orthonormal basis in Hilbert spaces, where infinite series are allowed in the norm limit.
+\end{focusbox}
+
+\section{Existence Of Bases}
+
+\begin{thmbox}{Every vector space has a Hamel basis}
+\thmHamelBasis
+\end{thmbox}
+
+\paragraph{Proof idea.}
+Order the family of linearly independent subsets by inclusion. Every chain has an upper bound given by its union. Zorn's lemma then gives a maximal linearly independent subset, and maximality forces it to span the whole space.
+
+\begin{warningbox}{Important point}
+Existence of a Hamel basis is nonconstructive in general; the proof uses Zorn's lemma.
+\end{warningbox}
+
+\section{Dimension Arguments}
+
+\begin{thmbox}{Basis extension principle}
+Every linearly independent set can be extended to a Hamel basis.
+\end{thmbox}
+
+\begin{thmbox}{Proper subspaces in finite dimensions}
+\thmProperSubspace
+\end{thmbox}
+
+\paragraph{Reason.}
+A basis of $Y$ is linearly independent in $X$, so it can be extended to a basis of $X$. Because $Y\neq X$, at least one extra vector is needed.
+
+\section{Why This Matters In Functional Analysis}
+
+\begin{exbox}{Connection with Baire category}
+Theorem 8.4 says an infinite-dimensional Banach space cannot have a countable Hamel basis. So although every vector space has a basis algebraically, Banach spaces behave very differently topologically.
+\end{exbox}
+
+\begin{exbox}{Finite-dimensional contrast}
+In finite dimensions, all norms are equivalent and the unit ball is compact. In infinite dimensions, Hamel bases still exist algebraically, but they are too large and too discontinuous to control the topology effectively.
+\end{exbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know precisely:
+\begin{enumerate}
+\item the definition of Hamel basis;
+\item that every vector space has a basis, and that the proof uses Zorn's lemma;
+\item that linearly independent sets extend to bases;
+\item the finite-dimensional proper-subspace dimension argument;
+\item why countable Hamel bases are incompatible with infinite-dimensional Banach spaces.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

@@ -12,6 +12,7 @@
 }
 
 \input{fa-macros}
+\input{fa-theorems}
 \newcommand{\ip}[2]{\left\langle #1,#2\right\rangle}
 \newcommand{\Ball}{\overline{B_1(0)}}
 
@@ -105,11 +106,7 @@ So $u$ minimizes $\Phi$.
 \section{Norm, Metric and Topological Spaces}
 
 \begin{theoremstmt}{2.1}
-If $(X,\norm{\cdot})$ is a normed space, then
-\[
-d(x,y):=\norm{x-y}
-\]
-defines a metric on $X$.
+\thmNormInducesMetric
 \end{theoremstmt}
 
 \begin{proof}
@@ -125,11 +122,7 @@ Thus $d$ is a metric.
 \end{proof}
 
 \begin{theoremstmt}{2.2}
-Let $(X,d)$ be a metric space and let $A\subset X$ be nonempty. Then:
-\begin{enumerate}
-\item $x\in\ol A$ if and only if there exists a sequence $(x_n)\subset A$ such that $x_n\to x$;
-\item $A$ is closed if and only if every convergent sequence in $A$ has its limit in $A$.
-\end{enumerate}
+\thmClosureSequential
 \end{theoremstmt}
 
 \begin{proof}
@@ -139,7 +132,7 @@ For the second claim: if $A$ is closed and $x_n\in A$, $x_n\to x$, then $x\in\ol
 \end{proof}
 
 \begin{theoremstmt}{2.3}
-Let $Y$ be a subspace of a Banach space $X$. Then $Y$ is complete with the inherited norm if and only if $Y$ is closed in $X$.
+\thmSubspaceCompleteIffClosed
 \end{theoremstmt}
 
 \begin{proof}
@@ -149,7 +142,7 @@ Conversely, if $Y$ is closed and $(y_n)$ is Cauchy in $Y$, then it is Cauchy in 
 \end{proof}
 
 \begin{theoremstmt}{2.4}
-Let $f:X\to Y$ be a map between topological spaces. Then $f$ is continuous if and only if $f^{-1}(U)$ is open in $X$ for every open set $U\subset Y$.
+\thmContinuityPreimages
 \end{theoremstmt}
 
 \begin{proof}
@@ -159,12 +152,7 @@ This is the standard topological characterization of continuity. If $f$ is conti
 \section{Linear Bounded/Continuous Operators}
 
 \begin{theoremstmt}{3.1}
-Let $X,Y$ be normed spaces. For a linear map $L:X\to Y$, define
-\[
-\norm{L}_{\mathcal L(X,Y)}:=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y
-=\sup_{\norm{x}_X=1}\norm{Lx}_Y.
-\]
-Then this defines a norm on the space $\mathcal L(X,Y)$ of bounded linear maps from $X$ to $Y$.
+\thmOperatorNorm
 \end{theoremstmt}
 
 \begin{proof}
@@ -187,13 +175,7 @@ for every $\norm{x}\le 1$, hence taking the supremum gives
 \end{proof}
 
 \begin{theoremstmt}{3.2}
-For a linear map $L:X\to Y$ between normed spaces, the following are equivalent:
-\begin{enumerate}
-\item $L$ is bounded;
-\item $L$ is continuous at $0$;
-\item $L$ is continuous at one point of $X$;
-\item $L$ is continuous on $X$.
-\end{enumerate}
+\thmBoundedIffContinuous
 \end{theoremstmt}
 
 \begin{proof}
@@ -216,7 +198,7 @@ Thus $L$ is bounded.
 \end{proof}
 
 \begin{theoremstmt}{3.3}
-If $Y$ is Banach, then $\bigl(\mathcal L(X,Y),\norm{\cdot}_{\mathcal L(X,Y)}\bigr)$ is Banach. In particular, for every normed space $X$, its dual $X^*=\mathcal L(X,\K)$ is Banach.
+\thmDualIsBanach
 \end{theoremstmt}
 
 \begin{proof}
@@ -242,7 +224,7 @@ therefore $\norm{L_n-L}\to 0$. So $\mathcal L(X,Y)$ is complete.
 \section{Linear Operators and Finite-Dimensional Spaces}
 
 \begin{theoremstmt}{4.1}
-If $\dim X=n<\infty$ and $L:X\to Y$ is linear, then $\dim \operatorname{Ran}L\le n$.
+\thmFiniteDimRange
 \end{theoremstmt}
 
 \begin{proof}
@@ -254,7 +236,7 @@ So the range of $L$ is contained in $\operatorname{span}\{Le_1,\dots,Le_n\}$, wh
 \end{proof}
 
 \begin{theoremstmt}{4.2}
-If $\dim X<\infty$, then every linear map $L:X\to Y$ is bounded.
+\thmFiniteDimBounded
 \end{theoremstmt}
 
 \begin{proof}
@@ -268,12 +250,7 @@ Thus $L$ is bounded.
 \end{proof}
 
 \begin{theoremstmt}{4.3 and 4.6}
-Let $X$ be a normed space with $\dim X=N<\infty$. Then:
-\begin{enumerate}
-\item $X$ is linearly homeomorphic to $\K^N$;
-\item $X$ is Banach;
-\item any two norms on $X$ are equivalent.
-\end{enumerate}
+\thmFiniteDimProperties
 \end{theoremstmt}
 
 \begin{proof}
@@ -291,7 +268,7 @@ If $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are two norms on $X$, the identity map 
 \end{proof}
 
 \begin{theoremstmt}{4.4}
-Every vector space has a Hamel basis.
+\thmHamelBasis
 \end{theoremstmt}
 
 \begin{proof}
@@ -299,7 +276,7 @@ Consider the family of linearly independent subsets of $X$, ordered by inclusion
 \end{proof}
 
 \begin{theoremstmt}{4.5}
-If $X$ is finite-dimensional and $Y\subsetneq X$ is a proper subspace, then $\dim Y<\dim X$.
+\thmProperSubspace
 \end{theoremstmt}
 
 \begin{proof}
@@ -307,12 +284,7 @@ Any basis of $Y$ is linearly independent in $X$ and can be extended to a basis o
 \end{proof}
 
 \begin{theoremstmt}{4.7}
-For a subset $K$ of a metric space, the following are equivalent:
-\begin{enumerate}
-\item $K$ is compact;
-\item every sequence in $K$ has a convergent subsequence with limit in $K$;
-\item $K$ is complete and totally bounded.
-\end{enumerate}
+\thmCompactEquivSequential
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -322,11 +294,7 @@ Conversely, if $K$ is complete and totally bounded, every sequence in $K$ has a 
 \end{proof}
 
 \begin{theoremstmt}{4.8}
-A normed space $X$ is finite-dimensional if and only if its closed unit ball
-\[
-\Ball=\{x\in X:\norm{x}\le 1\}
-\]
-is compact.
+\thmUnitBallCompactIffFiniteDim
 \end{theoremstmt}
 
 \begin{proof}
@@ -342,11 +310,7 @@ Then $\norm{x_n-x_m}\ge 1/2$ for $n\neq m$, so $(x_n)$ has no convergent subsequ
 \section{Seminorms and Frechet Spaces}
 
 \begin{theoremstmt}{5.1}
-Let $(p_k)_{k\in\N}$ be a separating sequence of seminorms on a vector space $X$. Then
-\[
-d(x,y):=\sum_{k=1}^{\infty}2^{-k}\frac{p_k(x-y)}{1+p_k(x-y)}
-\]
-defines a metric on $X$. If this metric is complete, then $X$ is a Frechet space.
+\thmFrechetMetric
 \end{theoremstmt}
 
 \begin{proof}
@@ -370,7 +334,7 @@ Summing with weights $2^{-k}$ proves the triangle inequality. Completeness is th
 \section{Hahn-Banach Theorem and Its Consequences}
 
 \begin{theoremstmt}{6.1}
-Let $X$ be a real vector space, let $p:X\to\R$ be sublinear, let $V\subset X$ be a subspace, and let $f:V\to\R$ be linear with $f(v)\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\R$ such that $F|_V=f$ and $F(x)\le p(x)$ for all $x\in X$.
+\thmHahnBanachReal
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -388,7 +352,7 @@ These bounds are compatible because $p$ is sublinear. Then consider the family o
 \end{proof}
 
 \begin{theoremstmt}{6.1'}
-Let $X$ be a complex vector space, let $p:X\to\R$ satisfy $p(x+y)\le p(x)+p(y)$ and $p(\lambda x)=\abs{\lambda}p(x)$, let $V\subset X$ be a subspace, and let $f:V\to\C$ be linear with $\abs{f(v)}\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\C$ such that $F|_V=f$ and $\abs{F(x)}\le p(x)$ for all $x\in X$.
+\thmHahnBanachComplex
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -400,7 +364,7 @@ One checks that $F$ is complex-linear, extends $f$, and satisfies $\abs{F(x)}\le
 \end{proof}
 
 \begin{theoremstmt}{6.2}
-Let $V$ be a subspace of a normed space $X$ and let $f\in V^*$. Then there exists $F\in X^*$ such that $F|_V=f$ and $\norm{F}_{X^*}=\norm{f}_{V^*}$.
+\thmHahnBanachNormed
 \end{theoremstmt}
 
 \begin{proof}
@@ -412,14 +376,7 @@ By Theorem 6.1 or 6.1', $f$ extends to some linear $F:X\to\K$ with $\abs{F(x)}\l
 \end{proof}
 
 \begin{theoremstmt}{6.3}
-Let $Y\subset X$ be a closed subspace of a normed space and let $x_0\notin Y$. Then there exists $\phi\in X^*$ such that
-\[
-\phi|_Y=0,
-\qquad
-\phi(x_0)=\operatorname{dist}(x_0,Y),
-\qquad
-\norm{\phi}=1.
-\]
+\thmHahnBanachSeparating
 \end{theoremstmt}
 
 \begin{proof}
@@ -437,7 +394,7 @@ Hence $\norm{f}_{Y_0^*}\le 1$. Since $f(x_0)=\operatorname{dist}(x_0,Y)$, in fac
 \end{proof}
 
 \begin{theoremstmt}{6.4}
-For every nonzero $x\in X$ there exists $\phi\in X^*$ such that $\phi(x)\ne 0$. Consequently weak convergence is well-defined.
+\thmDualSeparates
 \end{theoremstmt}
 
 \begin{proof}
@@ -447,11 +404,7 @@ If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x_n)\to \phi(x)
 \end{proof}
 
 \begin{theoremstmt}{6.5}
-For every $x$ in a normed space $X$,
-\[
-\norm{x}=
-\sup\{\abs{\phi(x)}: \phi\in X^*,\ \norm{\phi}\le 1\}.
-\]
+\thmNormViaDual
 \end{theoremstmt}
 
 \begin{proof}
@@ -459,7 +412,7 @@ The inequality $\abs{\phi(x)}\le \norm{\phi}\norm{x}$ shows the supremum is at m
 \end{proof}
 
 \begin{theoremstmt}{6.6}
-If $X$ is Banach and $X^*$ is separable, then $X$ is separable.
+\thmDualSeparableImpliesSeparable
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -494,7 +447,7 @@ Items 1 and 2 follow immediately from the definition and Theorem 6.4. Item 3 hol
 \end{proof}
 
 \begin{theoremstmt}{7.1}
-\textbf{(Banach-Alaoglu)} Let $X$ be a normed space. The closed unit ball of $X^*$ is compact in the weak-* topology. In particular, if $X$ is separable, every bounded sequence in $X^*$ has a weak-* convergent subsequence.
+\thmBanachAlaoglu
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch, emphasizing the separable case]
@@ -514,7 +467,7 @@ via point evaluations and use Tychonoff's theorem.
 \end{proof}
 
 \begin{theoremstmt}{7.2}
-If $X$ is reflexive, then the closed unit ball of $X$ is weakly compact. Equivalently, every bounded sequence in $X$ has a weakly convergent subsequence.
+\thmReflexiveWeaklyCompact
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -539,7 +492,7 @@ The implication 1 $\Rightarrow$ 2 is Theorem 7.2. The implication 2 $\Rightarrow
 \section{Three Fundamental Theorems Based on Baire's Theorem}
 
 \begin{theoremstmt}{8.1}
-\textbf{(Cantor intersection theorem)} Let $(X,d)$ be complete and let $F_1\supset F_2\supset \cdots$ be nonempty closed sets with $\operatorname{diam}(F_n)\to 0$. Then $\bigcap_{n=1}^{\infty}F_n$ consists of exactly one point.
+\thmCantorIntersection
 \end{theoremstmt}
 
 \begin{proof}
@@ -557,7 +510,7 @@ for all $n$. Letting $n\to\infty$ gives $d(x,y)=0$, hence $x=y$.
 \end{proof}
 
 \begin{theoremstmt}{8.2}
-\textbf{(Baire category theorem)} A complete metric space cannot be a countable union of nowhere dense sets. Equivalently, a countable intersection of dense open sets is dense.
+\thmBaireCategory
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -567,7 +520,7 @@ The formulation with nowhere dense sets follows by taking complements.
 \end{proof}
 
 \begin{theoremstmt}{8.3}
-\textbf{(Variant of Baire)} If a complete metric space is the union of countably many closed sets, then at least one of those closed sets has nonempty interior.
+\thmBaireVariant
 \end{theoremstmt}
 
 \begin{proof}
@@ -575,7 +528,7 @@ If all closed sets $F_n$ had empty interior, then each $F_n$ would be nowhere de
 \end{proof}
 
 \begin{theoremstmt}{8.4}
-An infinite-dimensional Banach space cannot have a countable Hamel basis.
+\thmNoCountableHamelBasis
 \end{theoremstmt}
 
 \begin{proof}
@@ -587,14 +540,7 @@ Each finite-dimensional subspace is closed and has empty interior in an infinite
 \end{proof}
 
 \begin{theoremstmt}{8.5}
-\textbf{(Banach-Steinhaus, uniform boundedness principle)} Let $X$ be Banach, $Y$ normed, and $\mathcal F\subset\mathcal L(X,Y)$. If for every $x\in X$,
-\[
-\sup_{L\in\mathcal F}\norm{Lx}_Y<\infty,
-\]
-then
-\[
-\sup_{L\in\mathcal F}\norm{L}_{\mathcal L(X,Y)}<\infty.
-\]
+\thmBanachSteinhaus
 \end{theoremstmt}
 
 \begin{proof}
@@ -616,11 +562,7 @@ Taking the supremum over $\norm{x}\le 1$ and $L\in\mathcal F$ gives uniform boun
 \end{proof}
 
 \begin{theoremstmt}{8.6}
-Let $X$ be Banach, $Y$ normed, and let $(L_n)\subset \mathcal L(X,Y)$. If for every $x\in X$ the limit
-\[
-Lx:=\lim_{n\to\infty}L_nx
-\]
-exists, then $L\in\mathcal L(X,Y)$.
+\thmLimitOperatorBounded
 \end{theoremstmt}
 
 \begin{proof}
@@ -636,7 +578,7 @@ so $L$ is bounded.
 \end{proof}
 
 \begin{theoremstmt}{8.7}
-\textbf{(Open mapping theorem)} Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be surjective. Then $L$ maps open sets in $X$ onto open sets in $Y$.
+\thmOpenMapping
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -657,7 +599,7 @@ which is open.
 \end{proof}
 
 \begin{theoremstmt}{8.8}
-\textbf{(Bounded inverse theorem)} Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be bijective. Then $L^{-1}\in\mathcal L(Y,X)$.
+\thmBoundedInverse
 \end{theoremstmt}
 
 \begin{proof}
@@ -665,11 +607,7 @@ By the open mapping theorem, $L$ maps open sets in $X$ onto open sets in $Y$. Th
 \end{proof}
 
 \begin{theoremstmt}{8.9}
-Let $\norm{\cdot}_1$ and $\norm{\cdot}_2$ be norms on the same vector space $X$. Assume both $(X,\norm{\cdot}_1)$ and $(X,\norm{\cdot}_2)$ are Banach and that there exists $C>0$ with
-\[
-\norm{x}_2\le C\norm{x}_1 \qquad\text{for all }x\in X.
-\]
-Then the two norms are equivalent.
+\thmComparableNorms
 \end{theoremstmt}
 
 \begin{proof}
@@ -685,11 +623,7 @@ Together with the original inequality, this gives equivalence.
 \end{proof}
 
 \begin{theoremstmt}{8.10}
-\textbf{(Closed graph theorem)} Let $X,Y$ be Banach spaces and let $L:X\to Y$ be linear. If
-\[
-\operatorname{Graph}(L)=\{(x,Lx):x\in X\}
-\]
-is closed in $X\times Y$, then $L\in\mathcal L(X,Y)$.
+\thmClosedGraph
 \end{theoremstmt}
 
 \begin{proof}
@@ -711,12 +645,7 @@ Therefore $\norm{Lx}_Y\le C\norm{x}_X$, so $L$ is bounded.
 \end{proof}
 
 \begin{theoremstmt}{8.11}
-Let $D(L)\subset X$ and let $L:D(L)\to Y$ be linear.
-\begin{enumerate}
-\item $L$ is closed if and only if its graph is closed in $X\times Y$.
-\item If $D(L)$ is closed in $X$ and $L:D(L)\to Y$ is bounded with respect to the inherited norm on $D(L)$, then $L$ is closed.
-\item The assumption $D(L)=X$ is essential in the closed graph theorem.
-\end{enumerate}
+\thmClosedOperatorFacts
 \end{theoremstmt}
 
 \begin{proof}
@@ -728,7 +657,7 @@ For item 3, the derivative on $C^1([0,1])$ viewed as an operator into $C([0,1])$
 \section{Adjoint and Compact Operators}
 
 \begin{theoremstmt}{9.1}
-Let $L\in\mathcal L(X,Y)$ and define $L^*:Y^*\to X^*$ by $L^*\psi=\psi\circ L$. Then $L^*$ is linear and bounded, $\norm{L^*}=\norm{L}$, and $(S\circ L)^*=L^*\circ S^*$ whenever the composition is defined.
+\thmAdjoint
 \end{theoremstmt}
 
 \begin{proof}
@@ -745,7 +674,7 @@ Taking supremum over such $x$ yields $\norm{L^*}=\norm{L}$. The composition iden
 \end{proof}
 
 \begin{theoremstmt}{9.2}
-If $K_n\in\mathcal L(X,Y)$ are compact and $K_n\to K$ in operator norm, then $K$ is compact.
+\thmCompactLimit
 \end{theoremstmt}
 
 \begin{proof}
@@ -760,7 +689,7 @@ Because the sequence $(x_m)$ is bounded, the first and last terms are small unif
 \end{proof}
 
 \begin{theoremstmt}{9.3}
-If $K\in\mathcal L(X,Y)$ is compact and $x_n\rightharpoonup x$ weakly in $X$, then $Kx_n\to Kx$ strongly in $Y$.
+\thmCompactWeakToStrong
 \end{theoremstmt}
 
 \begin{proof}
@@ -795,7 +724,7 @@ Relative compactness implies both properties because translation is continuous i
 \end{proof}
 
 \begin{theoremstmt}{9.4}
-\textbf{(Schauder theorem)} A bounded linear operator $K:X\to Y$ is compact if and only if its adjoint $K^*:Y^*\to X^*$ is compact.
+\thmSchauder
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -805,12 +734,7 @@ Conversely, if $K^*$ is compact, apply the same argument to $K^{**}$ and use the
 \end{proof}
 
 \begin{theoremstmt}{9.5}
-Let $k\in C([a,b]\times[a,b])$ and define
-\[
-(Kf)(x):=\int_a^b k(x,y)f(y)\,dy
-\qquad (f\in C([a,b])).
-\]
-Then $K:C([a,b])\to C([a,b])$ is compact.
+\thmIntegralOperator
 \end{theoremstmt}
 
 \begin{proof}
@@ -830,7 +754,7 @@ Since $k$ is uniformly continuous on the compact square, the right-hand side ten
 \section{Hilbert Spaces}
 
 \begin{theoremstmt}{10.1}
-If $(\cdot,\cdot)_H$ is an inner product on a vector space $H$, then $\norm{x}_H:=\sqrt{(x,x)_H}$ defines a norm.
+\thmInnerProductNorm
 \end{theoremstmt}
 
 \begin{proof}
@@ -842,10 +766,7 @@ Positivity and homogeneity are immediate from the inner-product axioms. The tria
 \end{proof}
 
 \begin{theoremstmt}{10.2}
-\textbf{(Cauchy-Schwarz inequality)} For all $x,y\in H$,
-\[
-\abs{(x,y)_H}\le \norm{x}_H\norm{y}_H.
-\]
+\thmCauchySchwarz
 \end{theoremstmt}
 
 \begin{proof}
@@ -861,10 +782,7 @@ which gives the inequality.
 \end{proof}
 
 \begin{theoremstmt}{10.3}
-\textbf{(Parallelogram rule)} For all $x,y\in H$,
-\[
-\norm{x+y}_H^2+\norm{x-y}_H^2=2\norm{x}_H^2+2\norm{y}_H^2.
-\]
+\thmParallelogram
 \end{theoremstmt}
 
 \begin{proof}
@@ -875,14 +793,7 @@ Expand both squares and add:
 \end{proof}
 
 \begin{theoremstmt}{10.4}
-Let $e_1,\dots,e_n$ be orthonormal in $H$. Then for every $x\in H$ and every scalars $c_1,\dots,c_n$,
-\[
-\norm{x-\sum_{k=1}^n c_ke_k}_H^2
-=
-\norm{x-\sum_{k=1}^n (x,e_k)_He_k}_H^2
-+\sum_{k=1}^n \abs{c_k-(x,e_k)_H}^2.
-\]
-Hence $\sum_{k=1}^n (x,e_k)_He_k$ is the best approximation to $x$ from $\operatorname{span}\{e_1,\dots,e_n\}$.
+\thmBestApprox
 \end{theoremstmt}
 
 \begin{proof}
@@ -894,17 +805,7 @@ The first term is orthogonal to each $e_k$, hence orthogonal to the second term.
 \end{proof}
 
 \begin{theoremstmt}{10.5}
-\textbf{(Bessel inequality and Parseval identity)} If $(e_k)_{k\ge 1}$ is orthonormal in $H$, then
-\[
-\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2\le \norm{x}_H^2
-\qquad\text{for every }x\in H.
-\]
-Equality for every $x$ holds if and only if $(e_k)$ is complete; then
-\[
-x=\sum_{k=1}^{\infty}(x,e_k)_He_k,
-\qquad
-\norm{x}_H^2=\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2.
-\]
+\thmBesselParseval
 \end{theoremstmt}
 
 \begin{proof}
@@ -918,11 +819,7 @@ If the system is complete, the orthogonal remainder must be $0$, so the partial 
 \end{proof}
 
 \begin{theoremstmt}{10.6}
-Let $(e_k)_{k\ge 1}$ be orthonormal in $H$. Then the map
-\[
-\ell^2\ni (a_k)\longmapsto \sum_{k=1}^{\infty} a_ke_k
-\]
-is an isometry onto $\ol{\operatorname{span}}\{e_k:k\in\N\}$.
+\thmEllTwoIsometry
 \end{theoremstmt}
 
 \begin{proof}
@@ -942,13 +839,7 @@ Thus the map is an isometry. Its range clearly contains finite linear combinatio
 \end{proof}
 
 \begin{theoremstmt}{10.7}
-For an orthonormal system $(e_k)$ in $H$, the following are equivalent:
-\begin{enumerate}
-\item $(e_k)$ is complete;
-\item if $(x,e_k)=0$ for all $k$, then $x=0$;
-\item the span of $(e_k)$ is dense in $H$;
-\item Parseval's identity holds for every $x\in H$.
-\end{enumerate}
+\thmOrthonormalCompleteEquiv
 \end{theoremstmt}
 
 \begin{proof}
@@ -956,7 +847,7 @@ Items 1 and 3 are the same statement. If the span is dense and $x$ is orthogonal
 \end{proof}
 
 \begin{theoremstmt}{10.8}
-Every separable Hilbert space has a complete orthonormal system.
+\thmSeparableHilbertONB
 \end{theoremstmt}
 
 \begin{proof}
@@ -964,7 +855,7 @@ Take a countable dense subset and discard zero and linearly dependent vectors. A
 \end{proof}
 
 \begin{theoremstmt}{10.9}
-Every separable Hilbert space is isometrically isomorphic to $\ell^2$.
+\thmSeparableHilbertIsomorphicEllTwo
 \end{theoremstmt}
 
 \begin{proof}
@@ -980,11 +871,7 @@ By Bessel, $Tx\in\ell^2$. By Parseval, $\norm{Tx}_{\ell^2}=\norm{x}_H$, so $T$ i
 \section{Projection, Direct Sum and Riesz Representation Theorems}
 
 \begin{theoremstmt}{11.1}
-\textbf{(Projection theorem)} Let $H$ be a Hilbert space and let $C\subset H$ be nonempty, closed, and convex. Then for every $x\in H$ there exists a unique $y\in C$ such that
-\[
-\norm{x-y}_H=\inf_{z\in C}\norm{x-z}_H.
-\]
-If $C=M$ is a closed subspace, then this minimizer is characterized by $x-y\in M^{\perp}$.
+\thmProjection
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -996,10 +883,7 @@ If $C=M$ is a subspace, consider $t\mapsto \norm{x-(y+tv)}^2$ for $v\in M$. Mini
 \end{proof}
 
 \begin{theoremstmt}{11.2}
-\textbf{(Direct sum theorem)} If $M$ is a closed subspace of a Hilbert space $H$, then
-\[
-H=M\oplus M^{\perp}.
-\]
+\thmDirectSum
 \end{theoremstmt}
 
 \begin{proof}
@@ -1011,10 +895,7 @@ Hence $y_1=y_2$ and $z_1=z_2$. So the sum is direct.
 \end{proof}
 
 \begin{theoremstmt}{11.3}
-\textbf{(Least squares in $\R^n$)} Let $A\in\R^{m\times n}$ and $b\in\R^m$. A vector $x\in\R^n$ minimizes $\norm{Ax-b}_2$ if and only if it solves the normal equations
-\[
-A^TAx=A^Tb.
-\]
+\thmLeastSquares
 \end{theoremstmt}
 
 \begin{proof}
@@ -1030,11 +911,7 @@ Thus $A^TAx=A^Tb$.
 \end{proof}
 
 \begin{theoremstmt}{11.4}
-\textbf{(Riesz representation theorem)} Let $H$ be a Hilbert space. For every $\phi\in H^*$ there exists a unique $a\in H$ such that
-\[
-\phi(x)=(a,x)_H \qquad\text{for all }x\in H,
-\]
-and $\norm{\phi}_{H^*}=\norm{a}_H$.
+\thmRieszRepresentation
 \end{theoremstmt}
 
 \begin{proof}
@@ -1062,20 +939,7 @@ so $\norm{\phi}\le \norm{a}$, while taking $x=a/\norm{a}$ gives equality.
 \end{proof}
 
 \begin{namedstmt}{Lax-Milgram lemma, symmetric case}
-Let $H$ be a real Hilbert space, and let $B:H\times H\to\R$ be bounded, symmetric, and coercive:
-\[
-\abs{B(u,v)}\le C\norm{u}\norm{v},
-\qquad
-B(u,u)\ge \beta\norm{u}^2.
-\]
-Then for every $f\in H^*$ there exists a unique $u\in H$ with
-\[
-B(u,v)=f(v) \qquad \forall v\in H.
-\]
-Moreover $u$ is the unique minimizer of
-\[
-J(v)=\frac12 B(v,v)-f(v).
-\]
+\thmLaxMilgramSymmetric
 \end{namedstmt}
 
 \begin{proof}
@@ -1085,15 +949,7 @@ The existence and uniqueness follow from the general Lax-Milgram theorem in Sect
 \section{Solvability of \texorpdfstring{$Lu=f$}{Lu=f}}
 
 \begin{theoremstmt}{12.1}
-Let $H$ be a Hilbert space and let $L\in\mathcal L(H)$. Assume there exists $\beta>0$ such that
-\[
-\operatorname{Re}(Lu,u)_H\ge \beta\norm{u}_H^2
-\qquad\text{for all }u\in H.
-\]
-Then $L$ is bijective and
-\[
-\norm{L^{-1}}\le \frac{1}{\beta}.
-\]
+\thmCoerciveBijective
 \end{theoremstmt}
 
 \begin{proof}
@@ -1125,17 +981,7 @@ so $\norm{u}\le \beta^{-1}\norm{f}$, i.e. $\norm{L^{-1}}\le 1/\beta$.
 \end{proof}
 
 \begin{theoremstmt}{12.2}
-\textbf{(Lax-Milgram lemma, nonsymmetric case)} Let $H$ be a Hilbert space over $\K$, let $B:H\times H\to\K$ be sesquilinear, bounded, and coercive:
-\[
-\abs{B(u,v)}\le C\norm{u}\norm{v},
-\qquad
-\operatorname{Re}B(u,u)\ge \beta\norm{u}^2.
-\]
-Then for every $f\in H^*$ there exists a unique $u\in H$ such that
-\[
-B(u,v)=f(v) \qquad \forall v\in H,
-\]
-and $\norm{u}\le \beta^{-1}\norm{f}$.
+\thmLaxMilgramGeneral
 \end{theoremstmt}
 
 \begin{proof}
@@ -1167,12 +1013,7 @@ for all $v$. Finally,
 \section{Weak Convergence in \texorpdfstring{$H$}{H}, Hilbert Adjoint and Fredholm Alternative}
 
 \begin{theoremstmt}{13.1}
-Let $H$ be a Hilbert space and let $T\in\mathcal L(H)$. Then there exists a unique $T^*\in\mathcal L(H)$ such that
-\[
-(Tx,y)_H=(x,T^*y)_H
-\qquad\text{for all }x,y\in H.
-\]
-Moreover $\norm{T^*}=\norm{T}$ and $(ST)^*=T^*S^*$.
+\thmHilbertAdjoint
 \end{theoremstmt}
 
 \begin{proof}
@@ -1191,7 +1032,7 @@ So $T^*$ is bounded and $\norm{T^*}\le \norm{T}$. Applying the same to $(T^*)^*$
 \end{proof}
 
 \begin{theoremstmt}{13.2}
-If $K\in\mathcal L(H)$ is compact and $x_n\rightharpoonup x$ weakly in $H$, then $Kx_n\to Kx$ strongly in $H$.
+\thmCompactWeakToStrongHilbert
 \end{theoremstmt}
 
 \begin{proof}
@@ -1199,15 +1040,7 @@ This is Theorem 9.3 specialized to Hilbert spaces.
 \end{proof}
 
 \begin{theoremstmt}{13.3}
-\textbf{(Fredholm alternative)} Let $H$ be a Hilbert space and let $K\in\mathcal L(H)$ be compact. Then the equation
-\[
-(I-K)u=f
-\]
-is solvable if and only if
-\[
-(f,v)_H=0 \qquad\text{for all }v\in\ker(I-K^*).
-\]
-Moreover either $\ker(I-K)=\{0\}$ and the solution exists uniquely for every $f$, or $\ker(I-K)$ is nontrivial.
+\thmFredholmAlternative
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -1229,11 +1062,7 @@ Uniform convexity gives weak compactness of the closed unit ball by showing that
 \section{Spectral Theory and Representation of Operators}
 
 \begin{theoremstmt}{14.1}
-\textbf{(Neumann series)} Let $T\in\mathcal L(X)$ with $\norm{T}<1$. Then $I-T$ is invertible and
-\[
-(I-T)^{-1}=\sum_{n=0}^{\infty}T^n
-\]
-with convergence in operator norm.
+\thmNeumannSeries
 \end{theoremstmt}
 
 \begin{proof}
@@ -1245,11 +1074,7 @@ Letting $N\to\infty$ gives $(I-T)S=I$, because $\norm{T^{N+1}}\le \norm{T}^{N+1}
 \end{proof}
 
 \begin{theoremstmt}{14.2}
-Let $X$ be a complex Banach space and $T\in\mathcal L(X)$. The resolvent set
-\[
-\rho(T)=\{\lambda\in\C: \lambda I-T \text{ is invertible}\}
-\]
-is open, and the resolvent map $\lambda\mapsto R(\lambda,T)=(\lambda I-T)^{-1}$ is analytic on $\rho(T)$.
+\thmResolventAnalytic
 \end{theoremstmt}
 
 \begin{proof}
@@ -1268,15 +1093,7 @@ for $\lambda$ sufficiently close to $\lambda_0$. This power series expansion sho
 \end{proof}
 
 \begin{theoremstmt}{14.3}
-Let $X\neq\{0\}$ be a complex Banach space and let $T\in\mathcal L(X)$. Then $\sigma(T)$ is nonempty and compact, and
-\[
-r(T):=\sup_{\lambda\in\sigma(T)}\abs{\lambda}
-=\lim_{m\to\infty}\norm{T^m}^{1/m}.
-\]
-If $\Gamma$ is a positively oriented contour surrounding $\sigma(T)$, then
-\[
-T^j=\frac{1}{2\pi i}\int_{\Gamma}\lambda^jR(\lambda,T)\,d\lambda.
-\]
+\thmSpectralRadius
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -1296,7 +1113,7 @@ The spectral radius formula follows from the holomorphic functional calculus or 
 \end{proof}
 
 \begin{theoremstmt}{14.4}
-If $K\in\mathcal L(H)$ is compact on a Hilbert space $H$, then every nonzero point of $\sigma(K)$ is an eigenvalue. The set $\sigma(K)\setminus\{0\}$ is at most countable, each nonzero eigenvalue has finite multiplicity, and its only possible accumulation point is $0$.
+\thmCompactSpectrum
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]
@@ -1306,7 +1123,7 @@ If the eigenspace for some nonzero $\lambda$ were infinite-dimensional, we could
 \end{proof}
 
 \begin{theoremstmt}{14.5}
-\textbf{(Hellinger-Toeplitz theorem)} Every everywhere-defined symmetric linear operator on a Hilbert space is bounded.
+\thmHellingerToeplitz
 \end{theoremstmt}
 
 \begin{proof}
@@ -1318,14 +1135,7 @@ Hence $y=Tx$, so the graph is closed. Since the domain is all of $H$ and $H$ is 
 \end{proof}
 
 \begin{theoremstmt}{14.6}
-If $T\in\mathcal L(H)$ is selfadjoint, then $\sigma(T)\subset\R$. More precisely,
-\[
-\sigma(T)\subset [m,M],
-\quad
-m:=\inf_{\norm{x}=1}(Tx,x),
-\quad
-M:=\sup_{\norm{x}=1}(Tx,x).
-\]
+\thmSelfadjointSpectrumReal
 \end{theoremstmt}
 
 \begin{proof}
@@ -1351,11 +1161,7 @@ and the same argument shows invertibility; similarly for $\lambda<m$. Thus $\sig
 \end{proof}
 
 \begin{theoremstmt}{14.7}
-\textbf{(Hilbert-Schmidt theorem)} Let $T\in\mathcal L(H)$ be compact and selfadjoint. Then there exists an orthonormal basis $(e_n)$ of $H$ consisting of eigenvectors of $T$, with real eigenvalues $\lambda_n\to 0$, such that
-\[
-Tx=\sum_{n=1}^{\infty}\lambda_n(x,e_n)e_n
-\qquad\text{for all }x\in H.
-\]
+\thmHilbertSchmidt
 \end{theoremstmt}
 
 \begin{proof}[Proof sketch]

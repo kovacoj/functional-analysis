@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Appendix A Exam Study Notes}
+
+\input{study-note-style}
+\input{fa-theorems}
+
+\begin{document}
+
+\StudyTitleBlock{A}{Appendix A: Exam Study Notes}{Arzel\`a--Ascoli theorem and compactness in spaces of continuous functions}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This appendix gives one of the main compactness criteria in analysis. In the course it is used especially to prove compactness of integral operators on spaces of continuous functions.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Setting}
+
+\begin{defbox}{Space $C(M)$}
+Let $M$ be a compact metric space. Then $C(M)$ denotes the space of continuous scalar-valued functions on $M$ with the sup norm
+\[
+\norm{f}_{\infty}:=\sup_{x\in M}\abs{f(x)}.
+\]
+\end{defbox}
+
+\begin{defbox}{Equicontinuity}
+A family $\mathcal F\subset C(M)$ is \textbf{equicontinuous} if for every $x\in M$ and every $\varepsilon>0$ there exists $\delta>0$ such that
+\[
+d(x,y)<\delta
+\quad\Longrightarrow\quad
+\abs{f(x)-f(y)}<\varepsilon
+\qquad \forall f\in\mathcal F.
+\]
+\end{defbox}
+
+\section{Main Theorem}
+
+\begin{thmbox}{Arzel\`a--Ascoli theorem}
+Let $M$ be a compact metric space and let $\mathcal F\subset C(M)$. Then $\mathcal F$ is relatively compact in $C(M)$ with the sup norm if and only if:
+\begin{enumerate}
+\item $\mathcal F$ is bounded in $\norm{\cdot}_{\infty}$;
+\item $\mathcal F$ is equicontinuous.
+\end{enumerate}
+\end{thmbox}
+
+\begin{focusbox}
+So in $C(M)$, compactness is controlled by two ingredients: no blow-up in size and no wild oscillation.
+\end{focusbox}
+
+\section{Why The Assumptions Are Natural}
+
+\begin{exbox}{Necessity}
+If $\mathcal F$ is relatively compact, then its closure is compact. Compact subsets of a normed space are bounded, so $\mathcal F$ is bounded. Equicontinuity follows because a compact family in the uniform norm cannot develop arbitrarily sharp local oscillations.
+\end{exbox}
+
+\begin{exbox}{Sufficiency: proof idea}
+Assume $\mathcal F$ is bounded and equicontinuous.
+\begin{enumerate}
+\item Choose a countable dense set $(x_n)$ in $M$.
+\item Use diagonal extraction to get pointwise convergence on the dense set.
+\item Use equicontinuity and compactness of $M$ to upgrade this to uniform convergence on all of $M$.
+\end{enumerate}
+Thus every sequence in $\mathcal F$ has a uniformly convergent subsequence, which gives relative compactness.
+\end{exbox}
+
+\section{Course Use}
+
+\begin{thmbox}{Compact integral operator on $C([a,b])$}
+\thmIntegralOperator
+\end{thmbox}
+
+\paragraph{Reason.}
+The image of the unit ball is uniformly bounded and equicontinuous, so Arzel\`a--Ascoli applies.
+
+\begin{warningbox}{What to check in applications}
+When using Arzel\`a--Ascoli, do not try to prove compactness directly. Instead verify exactly two properties for the image family:
+\begin{enumerate}
+\item uniform boundedness;
+\item equicontinuity.
+\end{enumerate}
+\end{warningbox}
+
+\section{What To Memorize Precisely}
+
+\begin{focusbox}
+Know precisely:
+\begin{enumerate}
+\item the definition of equicontinuity;
+\item the statement of the Arzel\`a--Ascoli theorem;
+\item how it is used to prove compactness of integral operators on $C([a,b])$;
+\item the slogan: bounded plus equicontinuous gives precompact in $C(M)$.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 3 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -50,11 +51,7 @@ A sequence $(p_k)_{k\in\N}$ of seminorms on $X$ is \textbf{separating} if for ev
 \end{defbox}
 
 \begin{thmbox}{Theorem 5.1: A separating sequence of seminorms generates a metric}
-If $(p_k)_{k\in\N}$ is a separating sequence of seminorms on $X$, then
-\[
-d(x,y):=\sum_{k=1}^{\infty}2^{-k}\frac{p_k(x-y)}{1+p_k(x-y)}
-\]
-defines a metric on $X$. If this metric is complete, then $X$ is called a \textbf{Fr\'echet space}.
+\thmFrechetMetric
 \end{thmbox}
 
 \paragraph{Proof idea.}
@@ -76,32 +73,14 @@ p(t x)=t p(x) \text{ for every } t\ge 0.
 \end{defbox}
 
 \begin{thmbox}{Theorem 6.1: Real algebraic Hahn--Banach theorem}
-Let $X$ be a real vector space, $p:X\to\R$ sublinear, $V\subset X$ a subspace, and $f:V\to\R$ linear with
-\[
-f(v)\le p(v) \qquad \forall v\in V.
-\]
-Then there exists a linear $F:X\to\R$ such that
-\[
-F|_V=f,
-\qquad
-F(x)\le p(x) \quad \forall x\in X.
-\]
+\thmHahnBanachReal
 \end{thmbox}
 
 \paragraph{Proof idea.}
 Extend first from $V$ to a one-dimensional enlargement $V\oplus \operatorname{span}\{x_0\}$ by choosing the value of $F(x_0)$ inside an interval forced by sublinearity. Then apply Zorn's lemma to the partially ordered family of all admissible extensions.
 
 \begin{thmbox}{Theorem 6.1': Complex Hahn--Banach theorem}
-Let $X$ be a complex vector space, $p:X\to\R$ a seminorm, $V\subset X$ a subspace, and $f:V\to\C$ linear with
-\[
-\abs{f(v)}\le p(v) \qquad \forall v\in V.
-\]
-Then there exists a linear $F:X\to\C$ such that
-\[
-F|_V=f,
-\qquad
-\abs{F(x)}\le p(x) \quad \forall x\in X.
-\]
+\thmHahnBanachComplex
 \end{thmbox}
 
 \paragraph{Proof idea.}
@@ -111,12 +90,7 @@ F(x)=U(x)-iU(ix).
 \]
 
 \begin{thmbox}{Theorem 6.2: Topological Hahn--Banach theorem}
-Let $V$ be a subspace of a normed space $X$ and let $f\in V^*$. Then there exists $F\in X^*$ such that
-\[
-F|_V=f,
-\qquad
-\norm{F}_{X^*}=\norm{f}_{V^*}.
-\]
+\thmHahnBanachNormed
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -129,32 +103,21 @@ The extension automatically satisfies $\abs{F(x)}\le \norm{f}\norm{x}$, hence is
 \section{Separation And Consequences}
 
 \begin{thmbox}{Theorem 6.3: Separation of a point from a closed subspace}
-Let $Y\subset X$ be a closed subspace of a normed space and let $x_0\notin Y$. Then there exists $\phi\in X^*$ such that
-\[
-\phi|_Y=0,
-\qquad
-\norm{\phi}=1,
-\qquad
-\phi(x_0)=\operatorname{dist}(x_0,Y).
-\]
+\thmHahnBanachSeparating
 \end{thmbox}
 
 \paragraph{Proof idea.}
 Define a linear functional first on $Y+\operatorname{span}\{x_0\}$ by sending $y+tx_0$ to $t\,\operatorname{dist}(x_0,Y)$ and verify it is bounded by the norm. Then extend it with Theorem 6.2.
 
 \begin{thmbox}{Theorem 6.4: Separation of a nonzero element from the origin}
-For every nonzero $x\in X$ there exists $\phi\in X^*$ such that $\phi(x)\neq 0$. In particular, weak convergence is well-defined.
+\thmDualSeparates
 \end{thmbox}
 
 \paragraph{Reason.}
 Apply Theorem 6.3 with $Y=\{0\}$. If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x-y)=0$ for all $\phi\in X^*$, hence $x=y$.
 
 \begin{thmbox}{Theorem 6.5: Dual characterization of the norm}
-For every $x\in X$,
-\[
-\norm{x}=
-\sup\{\abs{\phi(x)}:\phi\in X^*,\ \norm{\phi}\le 1\}.
-\]
+\thmNormViaDual
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -165,7 +128,7 @@ One inequality is immediate from
 For the reverse inequality, apply Theorem 6.3 to the one-point subspace $\{0\}$ to get a norm-one functional attaining $\norm{x}$ on $x$.
 
 \begin{thmbox}{Theorem 6.6: If $X^*$ is separable, then $X$ is separable}
-If $X$ is Banach and $X^*$ is separable, then $X$ is separable.
+\thmDualSeparableImpliesSeparable
 \end{thmbox}
 
 \paragraph{Proof idea.}

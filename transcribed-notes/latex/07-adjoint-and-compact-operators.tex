@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 7 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -44,15 +45,11 @@ An operator $K\in\mathcal L(X,Y)$ is \textbf{compact} if it maps bounded sets in
 \end{defbox}
 
 \begin{thmbox}{Theorem 9.2: Norm limits of compact operators are compact}
-If $K_n\in\mathcal L(X,Y)$ are compact and $K_n\to K$ in operator norm, then $K$ is compact.
+\thmCompactLimit
 \end{thmbox}
 
 \begin{thmbox}{Theorem 9.3: Compact operators improve weak convergence}
-If $K\in\mathcal L(X,Y)$ is compact and $x_n\rightharpoonup x$ weakly in $X$, then
-\[
-Kx_n\to Kx
-\]
-strongly in $Y$.
+\thmCompactWeakToStrong
 \end{thmbox}
 
 \paragraph{Why this matters.}
@@ -74,15 +71,11 @@ You are expected to know these as compactness criteria, usually without full pro
 \section{Schauder And Integral Operators}
 
 \begin{thmbox}{Theorem 9.4: Schauder theorem}
-A bounded linear operator $K:X\to Y$ is compact if and only if its adjoint $K^*:Y^*\to X^*$ is compact.
+\thmSchauder
 \end{thmbox}
 
 \begin{thmbox}{Theorem 9.5: Integral operator with continuous kernel is compact}
-If $k\in C([a,b]\times[a,b])$ and
-\[
-(Kf)(x)=\int_a^b k(x,y)f(y)\,dy,
-\]
-then $K:C([a,b])\to C([a,b])$ is compact.
+\thmIntegralOperator
 \end{thmbox}
 
 \paragraph{Proof idea.}

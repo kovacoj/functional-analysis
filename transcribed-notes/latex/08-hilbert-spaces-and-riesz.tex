@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 8 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -26,18 +27,15 @@ A Hilbert space is a complete inner-product space. Its norm is induced by
 \end{defbox}
 
 \begin{thmbox}{Theorems 10.1--10.3}
-In a Hilbert space:
-\begin{itemize}
-\item the inner product generates a norm;
-\item Cauchy--Schwarz holds:
-\[
-\abs{(x,y)}\le \norm{x}\norm{y};
-\]
-\item the parallelogram rule holds:
-\[
-\norm{x+y}^2+\norm{x-y}^2=2\norm{x}^2+2\norm{y}^2.
-\]
-\end{itemize}
+\thmInnerProductNorm
+
+\medskip
+
+\thmCauchySchwarz
+
+\medskip
+
+\thmParallelogram
 \end{thmbox}
 
 \section{Orthogonality, Projection, Direct Sum}
@@ -49,48 +47,33 @@ x-P_Mx\in M^\perp.
 \]
 \end{thmbox}
 
+\paragraph{Broader form.}
+The full projection theorem is first stated for nonempty closed convex sets. The closed-subspace version is the one used most often later, because orthogonality then characterizes the minimizer.
+
 \begin{thmbox}{Theorem 11.2: Direct sum theorem}
-If $M$ is a closed subspace of a Hilbert space $H$, then
-\[
-H=M\oplus M^\perp.
-\]
+\thmDirectSum
 \end{thmbox}
 
 \begin{thmbox}{Theorem 11.3: Least-squares solution in $\R^n$}
-The least-squares problem for $Ax\approx b$ is solved by the normal equations
-\[
-A^TAx=A^Tb.
-\]
+\thmLeastSquares
 \end{thmbox}
 
 \section{Riesz Representation And Reflexivity}
 
 \begin{thmbox}{Theorem 11.4: Riesz representation theorem}
-For every $\phi\in H^*$ there exists a unique $a\in H$ such that
-\[
-\phi(x)=(a,x)_H \qquad \forall x\in H,
-\]
-and
-\[
-\norm{\phi}_{H^*}=\norm{a}_H.
-\]
+\thmRieszRepresentation
 \end{thmbox}
 
 \paragraph{Consequence.}
 Every Hilbert space is reflexive.
 
+\paragraph{Why.}
+The Riesz map $H\to H^*$ is an isometric isomorphism. Applying the same theorem to $H^*$ identifies $H^{**}$ with $H$, so the canonical embedding is onto.
+
 \section{Lax--Milgram And Solvability}
 
 \begin{thmbox}{Theorem 12.1: Well-posedness of $Lu=f$ under coercivity}
-If $L\in\mathcal L(H)$ satisfies
-\[
-\operatorname{Re}(Lu,u)_H\ge \beta\norm{u}_H^2
-\qquad \forall u\in H,
-\]
-for some $\beta>0$, then $L$ is invertible and
-\[
-\norm{L^{-1}}\le \frac{1}{\beta}.
-\]
+\thmCoerciveBijective
 \end{thmbox}
 
 \begin{thmbox}{Theorem 12.2: Lax--Milgram lemma}
@@ -99,6 +82,17 @@ If $B:H\times H\to\K$ is bounded and coercive, then for every $f\in H^*$ there e
 B(u,v)=f(v) \qquad \forall v\in H.
 \]
 \end{thmbox}
+
+\paragraph{Proof idea.}
+For fixed $u$, the map $v\mapsto B(u,v)$ is in $H^*$. By Riesz, there is a unique operator $A\in\mathcal L(H)$ such that
+\[
+B(u,v)=(Au,v)_H.
+\]
+Coercivity gives
+\[
+\operatorname{Re}(Au,u)_H\ge \beta\norm{u}_H^2,
+\]
+so Theorem \textbf{12.1} implies $A$ is invertible. Then solve $Au=g$, where $g\in H$ represents $f$ by Riesz.
 
 \paragraph{Exam use.}
 This is the abstract framework behind weak solutions of elliptic boundary value problems.

@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 2 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \newcommand{\Lxy}{\mathcal L(X,Y)}
 \newcommand{\Lxx}{\mathcal L(X)}
@@ -69,15 +70,7 @@ For linear maps, boundedness is the right quantitative form of continuity. This 
 \end{focusbox}
 
 \begin{thmbox}{Theorem 3.1: $\mathcal L(X,Y)$ is a normed space}
-Let $X,Y$ be normed spaces. Then the set of bounded linear maps
-\[
-\mathcal L(X,Y):=\{L:X\to Y:\ L\text{ is linear and bounded}\}
-\]
-is a vector space, and
-\[
-\norm{L}_{\mathcal L(X,Y)}=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y
-\]
-defines a norm on it.
+\thmOperatorNorm
 \end{thmbox}
 
 \paragraph{Proof sketch.}
@@ -96,13 +89,7 @@ X^*:=\mathcal L(X,\K).
 \end{focusbox}
 
 \begin{thmbox}{Theorem 3.2: For linear maps, boundedness is equivalent to continuity}
-Let $L:X\to Y$ be linear. Then the following are equivalent:
-\begin{enumerate}
-\item $L$ is bounded.
-\item $L$ is continuous at $0$.
-\item $L$ is continuous at one point of $X$.
-\item $L$ is continuous on all of $X$.
-\end{enumerate}
+\thmBoundedIffContinuous
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -125,7 +112,7 @@ If $x\neq 0$, set $y=\frac{\delta}{2\norm{x}_X}x$. Then $\norm{y}_X<\delta$, hen
 Thus $L$ is bounded.
 
 \begin{thmbox}{Theorem 3.3: If $Y$ is Banach, then $\mathcal L(X,Y)$ is Banach}
-If $Y$ is Banach, then $\mathcal L(X,Y)$ is complete in the operator norm. In particular, $X^*$ is always Banach.
+\thmDualIsBanach
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -183,17 +170,14 @@ This is linear and bounded.
 \section{Finite-Dimensional Normed Spaces}
 
 \begin{thmbox}{Theorem 4.1}
-If $\dim X=n<\infty$ and $L:X\to Y$ is linear, then
-\[
-\dim \operatorname{Range}(L)\le n.
-\]
+\thmFiniteDimRange
 \end{thmbox}
 
 \paragraph{Proof.}
 Choose a basis $e_1,\dots,e_n$ of $X$. Then every $Lx$ is a linear combination of $Le_1,\dots,Le_n$.
 
 \begin{thmbox}{Theorem 4.2}
-If $\dim X<\infty$, then every linear map $L:X\to Y$ is bounded.
+\thmFiniteDimBounded
 \end{thmbox}
 
 \paragraph{Proof sketch.}
@@ -204,12 +188,7 @@ Write $x=\sum_{j=1}^n a_je_j$ in a fixed basis. Then
 and the coordinate coefficients are controlled by any norm on a finite-dimensional space.
 
 \begin{thmbox}{Theorems 4.3 and 4.6: Finite-dimensional spaces are all alike topologically}
-If $\dim X=N<\infty$, then:
-\begin{enumerate}
-\item $X$ is topologically isomorphic to $\K^N$;
-\item $X$ is Banach;
-\item all norms on $X$ are equivalent.
-\end{enumerate}
+\thmFiniteDimProperties
 \end{thmbox}
 
 \paragraph{Proof idea.}
@@ -228,12 +207,7 @@ The theorem list also mentions Hamel bases and proper subspaces of finite-dimens
 \section{Compactness In Metric And Normed Spaces}
 
 \begin{thmbox}{Theorem 4.7: Characterizations of compactness in metric spaces}
-For a subset $K$ of a metric space, the following are equivalent:
-\begin{enumerate}
-\item $K$ is compact.
-\item Every sequence in $K$ has a convergent subsequence with limit in $K$.
-\item $K$ is complete and totally bounded (equivalently, precompact).
-\end{enumerate}
+\thmCompactEquivSequential
 \end{thmbox}
 
 \paragraph{Why this matters here.}
@@ -244,10 +218,7 @@ One useful consequence emphasized in the lecture: in finite-dimensional normed s
 \end{focusbox}
 
 \begin{thmbox}{Theorem 4.8: Compact unit ball characterizes finite dimension}
-For a normed space $X$,
-\[
-X \text{ is finite-dimensional } \Longleftrightarrow \ol B_1(0) \text{ is compact.}
-\]
+\thmUnitBallCompactIffFiniteDim
 \end{thmbox}
 
 \paragraph{Proof idea.}

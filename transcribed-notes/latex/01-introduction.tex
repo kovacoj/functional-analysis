@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 1 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \newcommand{\Lp}{L^p}
 
@@ -95,11 +96,7 @@ Then $(X,\norm{\cdot}_X)$ is a \textbf{normed space}.
 \end{defbox}
 
 \begin{thmbox}{Theorem 2.1: A norm generates a metric}
-If $(X,\norm{\cdot}_X)$ is a normed space, then
-\[
-d(x,y):=\norm{x-y}_X
-\]
-defines a metric on $X$.
+\thmNormInducesMetric
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -144,11 +141,7 @@ In a normed space $(X,\norm{\cdot}_X)$:
 \end{defbox}
 
 \begin{thmbox}{Theorem 2.2: Characterization of closure and closed sets in a metric space}
-Let $(X,d)$ be a metric space and $A\subset X$ nonempty.
-\begin{itemize}
-\item A point $x$ lies in $\ol A$ if and only if there exists a sequence $(x_n)\subset A$ with $x_n\to x$.
-\item A set $A$ is closed if and only if every convergent sequence in $A$ has its limit in $A$.
-\end{itemize}
+\thmClosureSequential
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -157,7 +150,7 @@ If $x\in\ol A$, then every ball $B_{1/n}(x)$ meets $A$; choose $x_n\in A\cap B_{
 For the second claim, if $A$ is closed and $x_n\in A$ converges to $x$, then $x\in A=\ol A$. Conversely, if every convergent sequence in $A$ stays in $A$, then the first part shows that every point of $\ol A$ already lies in $A$, hence $A$ is closed.
 
 \begin{thmbox}{Theorem 2.3: A subspace of a Banach space is complete iff it is closed}
-Let $Y$ be a subspace of a Banach space $X$. Then $Y$ is complete in the inherited norm if and only if $Y$ is closed in $X$.
+\thmSubspaceCompleteIffClosed
 \end{thmbox}
 
 \paragraph{Proof.}
@@ -180,7 +173,7 @@ x_n\to x_0 \implies f(x_n)\to f(x_0).
 \end{defbox}
 
 \begin{thmbox}{Theorem 2.4: Continuity via preimages of open sets}
-Let $f:X\to Y$ be a map between topological spaces. Then $f$ is continuous if and only if for every open set $U\subset Y$, the preimage $f^{-1}(U)$ is open in $X$.
+\thmContinuityPreimages
 \end{thmbox}
 
 \paragraph{Proof.}

@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+
+\newcommand{\StudyHeader}{Ancillary Note: Isometries}
+
+\input{study-note-style}
+
+\begin{document}
+
+\StudyTitleBlock{N1}{Ancillary Note}{Isometries, isometric embeddings, isometric isomorphisms, and related concepts}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This note is for quick memory support. It explains what an isometry is in the metric-space sense and in the linear-functional-analysis sense, and how this differs from being merely injective, surjective, bounded, or unitary.
+\end{focusbox}
+
+\tableofcontents
+
+\section{The Basic Idea}
+
+An isometry is a map that preserves distances exactly. In normed spaces this means it preserves the norm of differences, and for linear maps this reduces to preserving the norm of each vector.
+
+\begin{defbox}{Isometry between metric spaces}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A map $T:X\to Y$ is an \textbf{isometry} if
+\[
+d_Y(Tx,Ty)=d_X(x,y)
+\qquad \forall x,y\in X.
+\]
+\end{defbox}
+
+\begin{warningbox}{Important distinction}
+In a general metric-space setting, an isometry need not be linear. In functional analysis, when $X$ and $Y$ are normed spaces and $T$ is linear, one often says \textbf{linear isometry} to avoid confusion.
+\end{warningbox}
+
+\section{Linear Isometries In Normed Spaces}
+
+\begin{defbox}{Linear isometry}
+Let $X,Y$ be normed spaces and let $T\in\mathcal L(X,Y)$ be linear. Then $T$ is a \textbf{linear isometry} if
+\[
+\norm{Tx}_Y=\norm{x}_X
+\qquad \forall x\in X.
+\]
+\end{defbox}
+
+\begin{thmbox}{Equivalent formulation for linear maps}
+If $T:X\to Y$ is linear, then the following are equivalent:
+\begin{enumerate}
+\item $T$ is an isometry of metric spaces for the metrics induced by the norms;
+\item $\norm{Tx-Ty}_Y=\norm{x-y}_X$ for all $x,y\in X$;
+\item $\norm{Tx}_Y=\norm{x}_X$ for all $x\in X$.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Reason.}
+For linear maps,
+\[
+Tx-Ty=T(x-y),
+\]
+so preserving all distances is the same as preserving the norm of every vector.
+
+\begin{thmbox}{Immediate consequences}
+If $T:X\to Y$ is a linear isometry, then:
+\begin{enumerate}
+\item $T$ is injective;
+\item $T$ is continuous and $\norm{T}=1$ unless $X=\{0\}$;
+\item $T^{-1}:T(X)\to X$ is also an isometry.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Why injective?}
+If $Tx=0$, then
+\[
+0=\norm{Tx}=\norm{x},
+\]
+so $x=0$.
+
+\section{Isometric Embedding vs. Isometric Isomorphism}
+
+\begin{defbox}{Isometric embedding}
+A linear isometry $T:X\to Y$ is often called an \textbf{isometric embedding}. It identifies $X$ with the subspace $T(X)\subset Y$ without distorting norms.
+\end{defbox}
+
+\begin{defbox}{Isometric isomorphism}
+If, in addition, $T$ is surjective, then $T$ is an \textbf{isometric isomorphism}. In that case $X$ and $Y$ are the same as normed spaces up to relabeling of points.
+\end{defbox}
+
+\begin{focusbox}
+The slogan is:
+\begin{itemize}
+\item isometric embedding = norm-preserving copy of $X$ inside $Y$;
+\item isometric isomorphism = $X$ and $Y$ are exactly the same geometry.
+\end{itemize}
+\end{focusbox}
+
+\section{Related Concepts}
+
+\begin{defbox}{Contraction and nonexpansive map}
+A map $T:X\to Y$ between metric spaces is:
+\begin{itemize}
+\item \textbf{nonexpansive} if
+\[
+d_Y(Tx,Ty)\le d_X(x,y) \qquad \forall x,y\in X;
+\]
+\item a \textbf{contraction} if there exists $0\le q<1$ such that
+\[
+d_Y(Tx,Ty)\le q\,d_X(x,y) \qquad \forall x,y\in X.
+\]
+\end{itemize}
+An isometry is the extreme case where the distance is preserved with equality.
+\end{defbox}
+
+\begin{defbox}{Bounded below}
+A linear map $T\in\mathcal L(X,Y)$ is \textbf{bounded below} if there exists $c>0$ such that
+\[
+\norm{Tx}_Y\ge c\norm{x}_X \qquad \forall x\in X.
+\]
+Every linear isometry is bounded below with $c=1$, but the converse is false.
+\end{defbox}
+
+\begin{warningbox}{Do not confuse these notions}
+Being injective is weaker than being an isometry.
+
+Being surjective is weaker than being an isometry.
+
+Being bijective and bounded is weaker than being an isometric isomorphism.
+\end{warningbox}
+
+\section{Standard Examples}
+
+\begin{exbox}{Metric-space isometry that is not linear}
+On $\R$ with the usual distance,
+\[
+T(x)=x+1
+\]
+is an isometry because
+\[
+\abs{T(x)-T(y)}=\abs{(x+1)-(y+1)}=\abs{x-y}.
+\]
+But it is not linear.
+\end{exbox}
+
+\begin{exbox}{Rotation on $\R^2$}
+A rotation matrix
+\[
+R=\begin{pmatrix}
+\cos \theta & -\sin \theta\\
+\sin \theta & \cos \theta
+\end{pmatrix}
+\]
+is a linear isometry of $\R^2$ with the Euclidean norm. It is also surjective, so it is an isometric isomorphism.
+\end{exbox}
+
+\begin{exbox}{Canonical embedding into the second dual}
+For a normed space $X$, the canonical embedding
+\[
+J:X\to X^{**},
+\qquad
+(Jx)(\phi)=\phi(x)
+\]
+is a linear isometry. It need not be onto; it is onto exactly when $X$ is reflexive.
+\end{exbox}
+
+\begin{exbox}{Right shift on $\ell^2$}
+Define
+\[
+S(x_1,x_2,x_3,\dots)=(0,x_1,x_2,x_3,\dots).
+\]
+Then
+\[
+\norm{Sx}_{\ell^2}=\norm{x}_{\ell^2},
+\]
+so $S$ is a linear isometry. But it is not surjective, because no vector in its range has a nonzero first coordinate. So $S$ is an isometric embedding, not an isometric isomorphism.
+\end{exbox}
+
+\begin{exbox}{Fourier-coefficient map on a separable Hilbert space}
+If $H$ has a complete orthonormal system $(e_k)$, then
+\[
+T:H\to \ell^2,
+\qquad
+Tx=((x,e_k)_H)_{k\ge 1}
+\]
+is an isometric isomorphism. This is one concrete form of the statement that every separable Hilbert space is isometrically isomorphic to $\ell^2$.
+\end{exbox}
+
+\begin{exbox}{A bounded bijection that is not an isometry}
+The map
+\[
+T:\R^2\to\R^2,
+\qquad
+T(x,y)=(2x,y)
+\]
+is linear, bounded, bijective, and has a bounded inverse, but it is not an isometry because it changes lengths.
+\end{exbox}
+
+\section{Hilbert-Space Terminology}
+
+\begin{defbox}{Orthogonal and unitary operators}
+On a real Hilbert space, a surjective linear isometry is often called \textbf{orthogonal}.
+
+On a complex Hilbert space, a surjective linear isometry is called \textbf{unitary}.
+\end{defbox}
+
+\begin{thmbox}{Useful criterion in Hilbert spaces}
+Let $H$ be a Hilbert space and let $U\in\mathcal L(H)$. If $U$ is linear, then the following are equivalent:
+\begin{enumerate}
+\item $U$ is unitary (or orthogonal in the real case);
+\item $U$ is surjective and
+\[
+\norm{Ux}_H=\norm{x}_H \qquad \forall x\in H;
+\]
+\item
+\[
+(Ux,Uy)_H=(x,y)_H \qquad \forall x,y\in H,
+\]
+and $U$ is surjective;
+\item
+\[
+U^*U=UU^*=I.
+\]
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Why inner products appear.}
+In Hilbert spaces, preserving norms is equivalent to preserving inner products, via the polarization identity.
+
+\section{Typical Confusions}
+
+\begin{warningbox}{Common pitfalls}
+\begin{enumerate}
+\item A linear isometry need not be onto.
+\item An injective bounded operator need not preserve norms.
+\item A bijective bounded operator need not be an isometry.
+\item In a metric-space context, isometry does not imply linearity.
+\item In Hilbert spaces, ``unitary'' means more than bounded and invertible: it means exact preservation of the Hilbert geometry.
+\end{enumerate}
+\end{warningbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+If you forget everything else, remember:
+\begin{enumerate}
+\item isometry = preserves distance exactly;
+\item linear isometry = preserves norm exactly;
+\item isometric embedding = norm-preserving copy inside a bigger space;
+\item isometric isomorphism = onto isometry, so the two normed spaces are geometrically the same;
+\item unitary/orthogonal operator = surjective linear isometry on a Hilbert space.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

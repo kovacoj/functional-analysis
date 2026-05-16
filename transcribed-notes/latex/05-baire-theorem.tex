@@ -3,6 +3,7 @@
 \newcommand{\StudyHeader}{Lecture 5 Exam Study Notes}
 
 \input{study-note-style}
+\input{fa-theorems}
 
 \begin{document}
 
@@ -16,33 +17,36 @@ This lecture gives the category-theoretic backbone behind several major theorems
 
 \tableofcontents
 
+\section{Category Terminology}
+
+\begin{defbox}{Nowhere dense, meager, second category}
+Let $X$ be a metric space.
+\begin{itemize}
+\item A set $A\subset X$ is \textbf{nowhere dense} if the interior of $\ol A$ is empty.
+\item A set is \textbf{meager} (or of first category) if it is a countable union of nowhere dense sets.
+\item A set is of \textbf{second category} if it is not meager.
+\end{itemize}
+\end{defbox}
+
+\begin{focusbox}
+Baire's theorem says that a complete metric space is of second category in itself.
+\end{focusbox}
+
 \section{Cantor And Baire}
 
 \begin{thmbox}{Theorem 8.1: Cantor intersection theorem}
-Let $(X,d)$ be a complete metric space and let
-\[
-F_1\supset F_2\supset F_3\supset \cdots
-\]
-be nonempty closed sets such that
-\[
-\operatorname{diam}(F_n)\to 0.
-\]
-Then
-\[
-\bigcap_{n=1}^{\infty}F_n
-\]
-contains exactly one point.
+\thmCantorIntersection
 \end{thmbox}
 
 \paragraph{Proof idea.}
 Pick $x_n\in F_n$. Since diameters go to zero, $(x_n)$ is Cauchy. Completeness gives a limit $x$, and closedness plus nesting give $x\in F_n$ for all $n$. Uniqueness follows because two points in all $F_n$ must become arbitrarily close.
 
 \begin{thmbox}{Theorem 8.2: Baire category theorem}
-A complete metric space cannot be written as a countable union of nowhere dense sets. Equivalently, a countable intersection of dense open sets is dense.
+\thmBaireCategory
 \end{thmbox}
 
 \begin{thmbox}{Theorem 8.3: Variant of Baire's theorem}
-If a complete metric space is a countable union of closed sets, then at least one of those closed sets has nonempty interior.
+\thmBaireVariant
 \end{thmbox}
 
 \section{Meaning And Applications}
@@ -52,15 +56,32 @@ Baire's theorem is powerful because it forces a complete space to be \emph{large
 \end{focusbox}
 
 \begin{thmbox}{Theorem 8.4: No countable Hamel basis in infinite-dimensional Banach spaces}
-An infinite-dimensional Banach space cannot have a countable Hamel basis.
+\thmNoCountableHamelBasis
 \end{thmbox}
 
 \paragraph{Idea.}
-If $\{e_n\}$ were a countable Hamel basis, then the space would be a countable union of finite-dimensional subspaces, each closed and nowhere dense. Baire's theorem forbids this.
+If $\{e_n\}$ were a countable Hamel basis, then the space would be a countable union of the finite-dimensional subspaces
+\[
+E_n:=\operatorname{span}\{e_1,\dots,e_n\}.
+\]
+Each $E_n$ is closed. Since the Banach space is infinite-dimensional, each $E_n$ is a proper subspace, hence has empty interior. Therefore every $E_n$ is nowhere dense, contradicting Baire's theorem.
 
-\begin{warningbox}{Another standard application}
-The space of all polynomials cannot be equipped with a norm making it a Banach space while preserving the natural algebraic structure in the expected way. The reason is the same: it is a countable union of finite-dimensional pieces.
+\begin{warningbox}{Standard corollary}
+Any normed space with a countable Hamel basis cannot be Banach unless it is finite-dimensional. In particular, the vector space of all polynomials is countable-dimensional, so no norm can make it into an infinite-dimensional Banach space.
 \end{warningbox}
+
+\section{Why This Lecture Matters Later}
+
+\begin{exbox}{Baire as a hidden engine}
+The next lecture uses Baire's theorem to prove:
+\begin{itemize}
+\item the uniform boundedness principle;
+\item the open mapping theorem;
+\item the bounded inverse theorem;
+\item the closed graph theorem.
+\end{itemize}
+So this lecture is not isolated: it is the topological input behind the main structural theorems of functional analysis.
+\end{exbox}
 
 \section{What To Memorize Precisely}
 
@@ -68,7 +89,7 @@ The space of all polynomials cannot be equipped with a norm making it a Banach s
 Know by heart:
 \begin{enumerate}
 \item the statements of Theorems \textbf{8.1}, \textbf{8.2}, \textbf{8.3}, and \textbf{8.4};
-\item what ``nowhere dense'', ``meager'', and ``second category'' mean conceptually;
+\item the precise meanings of ``nowhere dense'', ``meager'', and ``second category'';
 \item why Baire's theorem applies only in complete metric spaces;
 \item the two hallmark applications: no countable Hamel basis, and no Banach structure on all polynomials.
 \end{enumerate}
