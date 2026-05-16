@@ -23,6 +23,10 @@ This lecture is one of the central exam blocks. These are the ``great theorems''
 \thmBanachSteinhaus
 \end{thmbox}
 
+\begin{warningbox}{Common trap}
+Banach--Steinhaus requires the domain space $X$ to be Banach. Pointwise boundedness alone is not enough on incomplete spaces.
+\end{warningbox}
+
 \begin{prooflevelbox}{SKETCH}
 Know the structure: pointwise bounded $\Rightarrow$ there exists a ball on which the family is uniformly bounded (Baire category) $\Rightarrow$ rescale to get a global bound.
 \end{prooflevelbox}
@@ -96,6 +100,10 @@ The operator is \textbf{closed} if its graph is closed.
 \begin{thmbox}{Theorem 8.10: Closed graph theorem}
 \thmClosedGraph
 \end{thmbox}
+
+\begin{warningbox}{Common trap}
+The closed graph theorem requires the operator to be defined on all of $X$. For partially defined operators, use the graph norm formulation instead.
+\end{warningbox}
 
 \begin{prooflevelbox}{SKETCH}
 Know how to define the graph norm and use completeness of the graph to apply the open mapping theorem to the projection onto the first coordinate.

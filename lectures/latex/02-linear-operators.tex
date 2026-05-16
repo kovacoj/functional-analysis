@@ -123,6 +123,10 @@ Thus $L$ is bounded.
 \thmDualIsBanach
 \end{thmbox}
 
+\begin{warningbox}{Common trap}
+In Theorem 3.3, $X$ does not need to be Banach. Only the target space $Y$ must be Banach.
+\end{warningbox}
+
 \begin{prooflevelbox}{FULL}
 Reproduce the Cauchy-sequence proof: define $Lx=\lim L_nx$ pointwise (using completeness of $Y$), prove linearity, boundedness (via uniform boundedness of $\norm{L_n}$), and norm convergence $\norm{L_n-L}\to 0$.
 \end{prooflevelbox}
@@ -146,6 +150,10 @@ so $L$ is bounded. Finally,
 which implies $\norm{L_n-L}\to 0$.
 
 \section{Canonical Examples Of Operators}
+
+\begin{warningbox}{Common trap}
+For a general infinite-dimensional operator, injective and surjective are not equivalent. This is exactly where infinite-dimensional linear algebra differs from matrix theory.
+\end{warningbox}
 
 \begin{exbox}{Examples worth memorizing}
 \begin{enumerate}

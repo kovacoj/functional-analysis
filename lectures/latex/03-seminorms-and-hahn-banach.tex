@@ -54,6 +54,10 @@ A sequence $(p_k)_{k\in\N}$ of seminorms on $X$ is \textbf{separating} if for ev
 \thmFrechetMetric
 \end{thmbox}
 
+\begin{warningbox}{Common trap}
+Separation of the seminorms is not needed for the triangle inequality of the generated distance. It is needed only for $d(x,y)=0\Rightarrow x=y$.
+\end{warningbox}
+
 \begin{prooflevelbox}{SKETCH}
 Know why each axiom holds. The triangle inequality uses subadditivity of $t/(1+t)$. Separation is needed only for $d(x,y)=0\Rightarrow x=y$.
 \end{prooflevelbox}
@@ -104,6 +108,10 @@ F(x)=U(x)-iU(ix).
 \begin{thmbox}{Theorem 6.2: Topological Hahn--Banach theorem}
 \thmHahnBanachNormed
 \end{thmbox}
+
+\begin{warningbox}{Common trap}
+Hahn--Banach extends continuous functionals with the same norm, but it does not say the extension is unique.
+\end{warningbox}
 
 \begin{prooflevelbox}{FULL}
 Know how to choose $p(x)=\norm{f}\norm{x}$ and apply the algebraic theorem. Verify that the extension satisfies $\abs{F(x)}\le\norm{f}\norm{x}$ and hence is bounded with the same norm.
