@@ -260,11 +260,11 @@ T:\K^N\to X,
 \qquad
 T(a_1,\dots,a_N)=\sum_{j=1}^N a_je_j.
 \]
-Then $T$ is a linear bijection. By Theorem 4.2, both $T$ and $T^{-1}$ are bounded, so $T$ is a topological isomorphism.
+Then $T$ is a linear bijection. By Theorem~\ref{thm:finite-dim-bounded}, both $T$ and $T^{-1}$ are bounded, so $T$ is a topological isomorphism.
 
 Since $\K^N$ is complete, every Cauchy sequence $(x_n)$ in $X$ gives a Cauchy sequence $(T^{-1}x_n)$ in $\K^N$, hence converges there; applying $T$ shows that $x_n$ converges in $X$. Thus $X$ is Banach.
 
-If $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are two norms on $X$, the identity map from $(X,\norm{\cdot}_1)$ to $(X,\norm{\cdot}_2)$ is linear, hence bounded by Theorem 4.2, and likewise in the opposite direction. Therefore the norms are equivalent.
+If $\norm{\cdot}_1$ and $\norm{\cdot}_2$ are two norms on $X$, the identity map from $(X,\norm{\cdot}_1)$ to $(X,\norm{\cdot}_2)$ is linear, hence bounded by Theorem~\ref{thm:finite-dim-bounded}, and likewise in the opposite direction. Therefore the norms are equivalent.
 \end{proof}
 
 \begin{theoremstmt}{4.4}
@@ -298,7 +298,7 @@ Conversely, if $K$ is complete and totally bounded, every sequence in $K$ has a 
 \end{theoremstmt}
 
 \begin{proof}
-If $X$ is finite-dimensional, then by Theorem 4.3 it is isomorphic to $\K^N$, where closed and bounded sets are compact. Hence $\Ball$ is compact.
+If $X$ is finite-dimensional, then by Theorem~\ref{thm:finite-dim-properties} it is isomorphic to $\K^N$, where closed and bounded sets are compact. Hence $\Ball$ is compact.
 
 Conversely, assume $\Ball$ is compact. If $X$ were infinite-dimensional, one constructs inductively a sequence $(x_n)\subset\Ball$ such that
 \[
@@ -372,7 +372,7 @@ Set $p(x):=\norm{f}_{V^*}\norm{x}_X$. Then $p$ is sublinear and for $v\in V$,
 \[
 f(v)\le \abs{f(v)}\le \norm{f}\norm{v}=p(v).
 \]
-By Theorem 6.1 or 6.1', $f$ extends to some linear $F:X\to\K$ with $\abs{F(x)}\le p(x)$ for all $x$. Hence $F$ is bounded and $\norm{F}\le \norm{f}$. Since $F$ extends $f$, the reverse inequality $\norm{f}\le \norm{F}$ is immediate. Therefore $\norm{F}=\norm{f}$.
+By Theorem~\ref{thm:hahn-banach-real} or~\ref{thm:hahn-banach-complex}, $f$ extends to some linear $F:X\to\K$ with $\abs{F(x)}\le p(x)$ for all $x$. Hence $F$ is bounded and $\norm{F}\le \norm{f}$. Since $F$ extends $f$, the reverse inequality $\norm{f}\le \norm{F}$ is immediate. Therefore $\norm{F}=\norm{f}$.
 \end{proof}
 
 \begin{theoremstmt}{6.3}
@@ -390,7 +390,7 @@ This is well-defined because $x_0\notin Y$. Also,
 =\operatorname{dist}(tx_0,Y)
 \le \norm{y+tx_0}.
 \]
-Hence $\norm{f}_{Y_0^*}\le 1$. Since $f(x_0)=\operatorname{dist}(x_0,Y)$, in fact $\norm{f}=1$. By Theorem 6.2, extend $f$ to $\phi\in X^*$ with the same norm. Then $\phi$ has the required properties.
+Hence $\norm{f}_{Y_0^*}\le 1$. Since $f(x_0)=\operatorname{dist}(x_0,Y)$, in fact $\norm{f}=1$. By Theorem~\ref{thm:hahn-banach-normed}, extend $f$ to $\phi\in X^*$ with the same norm. Then $\phi$ has the required properties.
 \end{proof}
 
 \begin{theoremstmt}{6.4}
@@ -398,7 +398,7 @@ Hence $\norm{f}_{Y_0^*}\le 1$. Since $f(x_0)=\operatorname{dist}(x_0,Y)$, in fac
 \end{theoremstmt}
 
 \begin{proof}
-Take $Y=\{0\}$ in Theorem 6.3. Then for $x\neq 0$ there exists $\phi\in X^*$ with $\norm{\phi}=1$ and $\phi(x)=\norm{x}\neq 0$.
+Take $Y=\{0\}$ in Theorem~\ref{thm:hahn-banach-separating}. Then for $x\neq 0$ there exists $\phi\in X^*$ with $\norm{\phi}=1$ and $\phi(x)=\norm{x}\neq 0$.
 
 If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x_n)\to \phi(x)$ and $\phi(x_n)\to \phi(y)$ for all $\phi\in X^*$. Hence $\phi(x-y)=0$ for all $\phi\in X^*$. By the first part, this implies $x-y=0$.
 \end{proof}
@@ -408,7 +408,7 @@ If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x_n)\to \phi(x)
 \end{theoremstmt}
 
 \begin{proof}
-The inequality $\abs{\phi(x)}\le \norm{\phi}\norm{x}$ shows the supremum is at most $\norm{x}$. If $x=0$, equality is trivial. If $x\neq 0$, Theorem 6.3 with $Y=\{0\}$ yields a functional $\phi$ with $\norm{\phi}=1$ and $\phi(x)=\norm{x}$. Hence the supremum is at least $\norm{x}$.
+The inequality $\abs{\phi(x)}\le \norm{\phi}\norm{x}$ shows the supremum is at most $\norm{x}$. If $x=0$, equality is trivial. If $x\neq 0$, Theorem~\ref{thm:hahn-banach-separating} with $Y=\{0\}$ yields a functional $\phi$ with $\norm{\phi}=1$ and $\phi(x)=\norm{x}$. Hence the supremum is at least $\norm{x}$.
 \end{proof}
 
 \begin{theoremstmt}{6.6}
@@ -420,7 +420,7 @@ Let $(\phi_n)$ be dense in the unit sphere of $X^*$. For each $n$, choose $x_n\i
 \[
 \abs{\phi_n(x_n)}\ge \frac12\norm{\phi_n}.
 \]
-Let $Y:=\ol{\operatorname{span}}\{x_n:n\in\N\}$. Then $Y$ is separable. If $Y\neq X$, by Theorem 6.3 there exists $\phi\in X^*$, $\phi\neq 0$, vanishing on $Y$. Choose $\phi_n\to\phi$. Since $x_n\in Y$,
+Let $Y:=\ol{\operatorname{span}}\{x_n:n\in\N\}$. Then $Y$ is separable. If $Y\neq X$, by Theorem~\ref{thm:hahn-banach-separating} there exists $\phi\in X^*$, $\phi\neq 0$, vanishing on $Y$. Choose $\phi_n\to\phi$. Since $x_n\in Y$,
 \[
 \norm{\phi-\phi_n}\ge \abs{(\phi-\phi_n)(x_n)}=\abs{\phi_n(x_n)}\ge \frac12\norm{\phi_n}.
 \]
@@ -443,7 +443,7 @@ Let $X$ be a Banach space.
 \end{namedstmt}
 
 \begin{proof}[Proof comments]
-Items 1 and 2 follow immediately from the definition and Theorem 6.4. Item 3 holds because all linear topologies on a finite-dimensional space compatible with the vector structure coincide. For item 4, if $(e_n)$ is orthonormal in a Hilbert space, then Bessel's inequality gives $(x,e_n)\to 0$ for every fixed $x$, hence $e_n\rightharpoonup 0$, while $\norm{e_n}=1$ for all $n$. Items 5 and 6 are lower semicontinuity of the norm. Item 7 follows from Banach-Steinhaus after applying functionals to the sequence.
+Items 1 and 2 follow immediately from the definition and Theorem~\ref{thm:dual-separates}. Item 3 holds because all linear topologies on a finite-dimensional space compatible with the vector structure coincide. For item 4, if $(e_n)$ is orthonormal in a Hilbert space, then Bessel's inequality gives $(x,e_n)\to 0$ for every fixed $x$, hence $e_n\rightharpoonup 0$, while $\norm{e_n}=1$ for all $n$. Items 5 and 6 are lower semicontinuity of the norm. Item 7 follows from Banach-Steinhaus after applying functionals to the sequence.
 \end{proof}
 
 \begin{theoremstmt}{7.1}
@@ -486,7 +486,7 @@ For a Banach space $X$, the following are equivalent:
 \end{namedstmt}
 
 \begin{proof}[Proof sketch]
-The implication 1 $\Rightarrow$ 2 is Theorem 7.2. The implication 2 $\Rightarrow$ 3 is the sequential part of Eberlein-Smulian. The implication 3 $\Rightarrow$ 1 is the deep converse: if every bounded sequence has a weakly convergent subsequence, then the unit ball is weakly sequentially compact, hence weakly compact, and James' theorem or the Eberlein-Smulian machinery yields reflexivity.
+The implication 1 $\Rightarrow$ 2 is Theorem~\ref{thm:reflexive-weakly-compact}. The implication 2 $\Rightarrow$ 3 is the sequential part of Eberlein-Smulian. The implication 3 $\Rightarrow$ 1 is the deep converse: if every bounded sequence has a weakly convergent subsequence, then the unit ball is weakly sequentially compact, hence weakly compact, and James' theorem or the Eberlein-Smulian machinery yields reflexivity.
 \end{proof}
 
 \section{Three Fundamental Theorems Based on Baire's Theorem}
@@ -615,7 +615,7 @@ The identity map
 \[
 I:(X,\norm{\cdot}_1)\to (X,\norm{\cdot}_2)
 \]
-is bounded by assumption and bijective. By Theorem 8.8, its inverse is bounded. Hence there exists $C'>0$ such that
+is bounded by assumption and bijective. By Theorem~\ref{thm:bounded-inverse}, its inverse is bounded. Hence there exists $C'>0$ such that
 \[
 \norm{x}_1\le C'\norm{x}_2 \qquad\text{for all }x\in X.
 \]
@@ -637,7 +637,7 @@ The identity map
 \[
 I:(X,\norm{\cdot}_G)\to (X,\norm{\cdot}_X)
 \]
-is continuous and bijective. By Theorem 8.8, its inverse is bounded. Hence there exists $C>0$ such that
+is continuous and bijective. By Theorem~\ref{thm:bounded-inverse}, its inverse is bounded. Hence there exists $C>0$ such that
 \[
 \norm{x}_G\le C\norm{x}_X.
 \]
@@ -809,7 +809,7 @@ The first term is orthogonal to each $e_k$, hence orthogonal to the second term.
 \end{theoremstmt}
 
 \begin{proof}
-Apply Theorem 10.4 with $c_k=(x,e_k)_H$ to the first $n$ basis vectors:
+Apply Theorem~\ref{thm:best-approx} with $c_k=(x,e_k)_H$ to the first $n$ basis vectors:
 \[
 \norm{x}_H^2=\norm{x-\sum_{k=1}^n(x,e_k)e_k}_H^2+\sum_{k=1}^n\abs{(x,e_k)_H}^2.
 \]
@@ -843,7 +843,7 @@ Thus the map is an isometry. Its range clearly contains finite linear combinatio
 \end{theoremstmt}
 
 \begin{proof}
-Items 1 and 3 are the same statement. If the span is dense and $x$ is orthogonal to every $e_k$, then $x$ is orthogonal to a dense subspace, hence to all of $H$, so $x=0$; thus 3 implies 2. If 2 holds and $M$ is the closed span, then any $x\in M^\perp$ is orthogonal to every $e_k$, hence $x=0$; therefore $M^\perp=\{0\}$ and $M=H$, so 2 implies 3. Equivalence with 4 follows from Theorem 10.5.
+Items 1 and 3 are the same statement. If the span is dense and $x$ is orthogonal to every $e_k$, then $x$ is orthogonal to a dense subspace, hence to all of $H$, so $x=0$; thus 3 implies 2. If 2 holds and $M$ is the closed span, then any $x\in M^\perp$ is orthogonal to every $e_k$, hence $x=0$; therefore $M^\perp=\{0\}$ and $M=H$, so 2 implies 3. Equivalence with 4 follows from Theorem~\ref{thm:bessel-parseval}.
 \end{proof}
 
 \begin{theoremstmt}{10.8}
@@ -859,13 +859,13 @@ Take a countable dense subset and discard zero and linearly dependent vectors. A
 \end{theoremstmt}
 
 \begin{proof}
-By Theorem 10.8, choose a complete orthonormal system $(e_k)$. Define
+By Theorem~\ref{thm:separable-hilbert-onb}, choose a complete orthonormal system $(e_k)$. Define
 \[
 T:H\to \ell^2,
 \qquad
 Tx=((x,e_k)_H)_{k\ge 1}.
 \]
-By Bessel, $Tx\in\ell^2$. By Parseval, $\norm{Tx}_{\ell^2}=\norm{x}_H$, so $T$ is an isometry. Surjectivity follows from Theorem 10.6, because every sequence in $\ell^2$ produces an element of $H$ with those Fourier coefficients.
+By Bessel, $Tx\in\ell^2$. By Parseval, $\norm{Tx}_{\ell^2}=\norm{x}_H$, so $T$ is an isometry. Surjectivity follows from Theorem~\ref{thm:ell-two-isometry}, because every sequence in $\ell^2$ produces an element of $H$ with those Fourier coefficients.
 \end{proof}
 
 \section{Projection, Direct Sum and Riesz Representation Theorems}
@@ -887,7 +887,7 @@ If $C=M$ is a subspace, consider $t\mapsto \norm{x-(y+tv)}^2$ for $v\in M$. Mini
 \end{theoremstmt}
 
 \begin{proof}
-For each $x\in H$, let $y\in M$ be its projection from Theorem 11.1. Then $x-y\in M^{\perp}$, so $x=y+(x-y)\in M+M^{\perp}$. If $x=y_1+z_1=y_2+z_2$ with $y_i\in M$, $z_i\in M^{\perp}$, then
+For each $x\in H$, let $y\in M$ be its projection from Theorem~\ref{thm:projection}. Then $x-y\in M^{\perp}$, so $x=y+(x-y)\in M+M^{\perp}$. If $x=y_1+z_1=y_2+z_2$ with $y_i\in M$, $z_i\in M^{\perp}$, then
 \[
 y_1-y_2=z_2-z_1\in M\cap M^{\perp}.
 \]
@@ -915,7 +915,7 @@ Thus $A^TAx=A^Tb$.
 \end{theoremstmt}
 
 \begin{proof}
-If $\phi=0$, take $a=0$. Otherwise let $M=\ker\phi$, a closed proper subspace. By Theorem 11.2,
+If $\phi=0$, take $a=0$. Otherwise let $M=\ker\phi$, a closed proper subspace. By Theorem~\ref{thm:direct-sum},
 \[
 H=M\oplus M^{\perp}.
 \]
@@ -998,7 +998,7 @@ Moreover,
 \[
 \operatorname{Re}(Au,u)=\operatorname{Re}B(u,u)\ge \beta\norm{u}^2.
 \]
-Thus $A$ satisfies Theorem 12.1, so it is bijective and $\norm{A^{-1}}\le 1/\beta$.
+Thus $A$ satisfies Theorem~\ref{thm:coercive-bijective}, so it is bijective and $\norm{A^{-1}}\le 1/\beta$.
 
 Now let $f\in H^*$. By Riesz there exists $g\in H$ such that $f(v)=(g,v)_H$ for all $v$. Since $A$ is surjective, there exists a unique $u\in H$ with $Au=g$. Then
 \[
@@ -1036,7 +1036,7 @@ So $T^*$ is bounded and $\norm{T^*}\le \norm{T}$. Applying the same to $(T^*)^*$
 \end{theoremstmt}
 
 \begin{proof}
-This is Theorem 9.3 specialized to Hilbert spaces.
+This is Theorem~\ref{thm:compact-weak-to-strong} specialized to Hilbert spaces.
 \end{proof}
 
 \begin{theoremstmt}{13.3}

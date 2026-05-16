@@ -1,26 +1,26 @@
 \newcommand{\thmNormInducesMetric}{%
 If $(X,\norm{\cdot})$ is a normed space, then
 $d(x,y):=\norm{x-y}$
-defines a metric on $X$.%
+defines a metric on $X$.\label{thm:norm-induces-metric}%
 }
 \newcommand{\thmClosureSequential}{%
 Let $(X,d)$ be a metric space and let $A\subset X$ be nonempty. Then:
 \begin{enumerate}
 \item $x\in\ol A$ if and only if there exists a sequence $(x_n)\subset A$ such that $x_n\to x$;
 \item $A$ is closed if and only if every convergent sequence in $A$ has its limit in $A$.
-\end{enumerate}%
+\end{enumerate}\label{thm:closure-sequential}%
 }
 \newcommand{\thmSubspaceCompleteIffClosed}{%
-Let $Y$ be a subspace of a Banach space $X$. Then $Y$ is complete with the inherited norm if and only if $Y$ is closed in $X$.%
+Let $Y$ be a subspace of a Banach space $X$. Then $Y$ is complete with the inherited norm if and only if $Y$ is closed in $X$.\label{thm:subspace-complete-iff-closed}%
 }
 \newcommand{\thmContinuityPreimages}{%
-Let $f:X\to Y$ be a map between topological spaces. Then $f$ is continuous if and only if $f^{-1}(U)$ is open in $X$ for every open set $U\subset Y$.%
+Let $f:X\to Y$ be a map between topological spaces. Then $f$ is continuous if and only if $f^{-1}(U)$ is open in $X$ for every open set $U\subset Y$.\label{thm:continuity-preimages}%
 }
 \newcommand{\thmOperatorNorm}{%
 Let $X,Y$ be normed spaces. For a linear map $L:X\to Y$, define
 $\norm{L}_{\mathcal L(X,Y)}:=\sup_{\norm{x}_X\le 1}\norm{Lx}_Y
 =\sup_{\norm{x}_X=1}\norm{Lx}_Y.$
-Then this defines a norm on the space $\mathcal L(X,Y)$ of bounded linear maps from $X$ to $Y$.%
+Then this defines a norm on the space $\mathcal L(X,Y)$ of bounded linear maps from $X$ to $Y$.\label{thm:operator-norm}%
 }
 \newcommand{\thmBoundedIffContinuous}{%
 For a linear map $L:X\to Y$ between normed spaces, the following are equivalent:
@@ -29,16 +29,16 @@ For a linear map $L:X\to Y$ between normed spaces, the following are equivalent:
 \item $L$ is continuous at $0$;
 \item $L$ is continuous at one point of $X$;
 \item $L$ is continuous on $X$.
-\end{enumerate}%
+\end{enumerate}\label{thm:bounded-iff-continuous}%
 }
 \newcommand{\thmDualIsBanach}{%
-If $Y$ is Banach, then $\bigl(\mathcal L(X,Y),\norm{\cdot}_{\mathcal L(X,Y)}\bigr)$ is Banach. In particular, for every normed space $X$, its dual $X^*=\mathcal L(X,\K)$ is Banach.%
+If $Y$ is Banach, then $\bigl(\mathcal L(X,Y),\norm{\cdot}_{\mathcal L(X,Y)}\bigr)$ is Banach. In particular, for every normed space $X$, its dual $X^*=\mathcal L(X,\K)$ is Banach.\label{thm:dual-is-banach}%
 }
 \newcommand{\thmFiniteDimRange}{%
-If $\dim X=n<\infty$ and $L:X\to Y$ is linear, then $\dim \operatorname{Ran}L\le n$.%
+If $\dim X=n<\infty$ and $L:X\to Y$ is linear, then $\dim \operatorname{Ran}L\le n$.\label{thm:finite-dim-range}%
 }
 \newcommand{\thmFiniteDimBounded}{%
-If $\dim X<\infty$, then every linear map $L:X\to Y$ is bounded.%
+If $\dim X<\infty$, then every linear map $L:X\to Y$ is bounded.\label{thm:finite-dim-bounded}%
 }
 \newcommand{\thmFiniteDimProperties}{%
 Let $X$ be a normed space with $\dim X=N<\infty$. Then:
@@ -46,13 +46,13 @@ Let $X$ be a normed space with $\dim X=N<\infty$. Then:
 \item $X$ is linearly homeomorphic to $\K^N$;
 \item $X$ is Banach;
 \item any two norms on $X$ are equivalent.
-\end{enumerate}%
+\end{enumerate}\label{thm:finite-dim-properties}%
 }
 \newcommand{\thmHamelBasis}{%
-Every vector space has a Hamel basis.%
+Every vector space has a Hamel basis.\label{thm:hamel-basis}%
 }
 \newcommand{\thmProperSubspace}{%
-If $X$ is finite-dimensional and $Y\subsetneq X$ is a proper subspace, then $\dim Y<\dim X$.%
+If $X$ is finite-dimensional and $Y\subsetneq X$ is a proper subspace, then $\dim Y<\dim X$.\label{thm:proper-subspace}%
 }
 \newcommand{\thmCompactEquivSequential}{%
 For a subset $K$ of a metric space, the following are equivalent:
@@ -60,85 +60,85 @@ For a subset $K$ of a metric space, the following are equivalent:
 \item $K$ is compact;
 \item every sequence in $K$ has a convergent subsequence with limit in $K$;
 \item $K$ is complete and totally bounded.
-\end{enumerate}%
+\end{enumerate}\label{thm:compact-equiv-sequential}%
 }
 \newcommand{\thmUnitBallCompactIffFiniteDim}{%
 A normed space $X$ is finite-dimensional if and only if its closed unit ball
 $\Ball=\{x\in X:\norm{x}\le 1\}$
-is compact.%
+is compact.\label{thm:unit-ball-compact-iff-finite-dim}%
 }
 \newcommand{\thmFrechetMetric}{%
 Let $(p_k)_{k\in\N}$ be a separating sequence of seminorms on a vector space $X$. Then
 $d(x,y):=\sum_{k=1}^{\infty}2^{-k}\frac{p_k(x-y)}{1+p_k(x-y)}$
-defines a metric on $X$. If this metric is complete, then $X$ is a Frechet space.%
+defines a metric on $X$. If this metric is complete, then $X$ is a Frechet space.\label{thm:frechet-metric}%
 }
 \newcommand{\thmHahnBanachReal}{%
-Let $X$ be a real vector space, let $p:X\to\R$ be sublinear, let $V\subset X$ be a subspace, and let $f:V\to\R$ be linear with $f(v)\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\R$ such that $F|_V=f$ and $F(x)\le p(x)$ for all $x\in X$.%
+Let $X$ be a real vector space, let $p:X\to\R$ be sublinear, let $V\subset X$ be a subspace, and let $f:V\to\R$ be linear with $f(v)\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\R$ such that $F|_V=f$ and $F(x)\le p(x)$ for all $x\in X$.\label{thm:hahn-banach-real}%
 }
 \newcommand{\thmHahnBanachComplex}{%
-Let $X$ be a complex vector space, let $p:X\to\R$ satisfy $p(x+y)\le p(x)+p(y)$ and $p(\lambda x)=\abs{\lambda}p(x)$, let $V\subset X$ be a subspace, and let $f:V\to\C$ be linear with $\abs{f(v)}\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\C$ such that $F|_V=f$ and $\abs{F(x)}\le p(x)$ for all $x\in X$.%
+Let $X$ be a complex vector space, let $p:X\to\R$ satisfy $p(x+y)\le p(x)+p(y)$ and $p(\lambda x)=\abs{\lambda}p(x)$, let $V\subset X$ be a subspace, and let $f:V\to\C$ be linear with $\abs{f(v)}\le p(v)$ for all $v\in V$. Then there exists a linear $F:X\to\C$ such that $F|_V=f$ and $\abs{F(x)}\le p(x)$ for all $x\in X$.\label{thm:hahn-banach-complex}%
 }
 \newcommand{\thmHahnBanachNormed}{%
-Let $V$ be a subspace of a normed space $X$ and let $f\in V^*$. Then there exists $F\in X^*$ such that $F|_V=f$ and $\norm{F}_{X^*}=\norm{f}_{V^*}$.%
+Let $V$ be a subspace of a normed space $X$ and let $f\in V^*$. Then there exists $F\in X^*$ such that $F|_V=f$ and $\norm{F}_{X^*}=\norm{f}_{V^*}$.\label{thm:hahn-banach-normed}%
 }
 \newcommand{\thmHahnBanachSeparating}{%
 Let $Y\subset X$ be a closed subspace of a normed space and let $x_0\notin Y$. Then there exists $\phi\in X^*$ such that
-$\phi|_Y=0, \qquad \phi(x_0)=\operatorname{dist}(x_0,Y), \qquad \norm{\phi}=1.$%
+$\phi|_Y=0, \qquad \phi(x_0)=\operatorname{dist}(x_0,Y), \qquad \norm{\phi}=1.$\label{thm:hahn-banach-separating}%
 }
 \newcommand{\thmDualSeparates}{%
-For every nonzero $x\in X$ there exists $\phi\in X^*$ such that $\phi(x)\ne 0$. Consequently weak convergence is well-defined.%
+For every nonzero $x\in X$ there exists $\phi\in X^*$ such that $\phi(x)\ne 0$. Consequently weak convergence is well-defined.\label{thm:dual-separates}%
 }
 \newcommand{\thmNormViaDual}{%
 For every $x$ in a normed space $X$,
-$\norm{x}=\sup\{\abs{\phi(x)}: \phi\in X^*,\ \norm{\phi}\le 1\}.$%
+$\norm{x}=\sup\{\abs{\phi(x)}: \phi\in X^*,\ \norm{\phi}\le 1\}.$\label{thm:norm-via-dual}%
 }
 \newcommand{\thmDualSeparableImpliesSeparable}{%
-If $X$ is Banach and $X^*$ is separable, then $X$ is separable.%
+If $X$ is Banach and $X^*$ is separable, then $X$ is separable.\label{thm:dual-separable-implies-separable}%
 }
 \newcommand{\thmBanachAlaoglu}{%
-Let $X$ be a normed space. The closed unit ball of $X^*$ is compact in the weak-* topology. In particular, if $X$ is separable, every bounded sequence in $X^*$ has a weak-* convergent subsequence.%
+Let $X$ be a normed space. The closed unit ball of $X^*$ is compact in the weak-* topology. In particular, if $X$ is separable, every bounded sequence in $X^*$ has a weak-* convergent subsequence.\label{thm:banach-alaoglu}%
 }
 \newcommand{\thmReflexiveWeaklyCompact}{%
-If $X$ is reflexive, then the closed unit ball of $X$ is weakly compact. Equivalently, every bounded sequence in $X$ has a weakly convergent subsequence.%
+If $X$ is reflexive, then the closed unit ball of $X$ is weakly compact. Equivalently, every bounded sequence in $X$ has a weakly convergent subsequence.\label{thm:reflexive-weakly-compact}%
 }
 \newcommand{\thmCantorIntersection}{%
-Let $(X,d)$ be complete and let $F_1\supset F_2\supset \cdots$ be nonempty closed sets with $\operatorname{diam}(F_n)\to 0$. Then $\bigcap_{n=1}^{\infty}F_n$ consists of exactly one point.%
+Let $(X,d)$ be complete and let $F_1\supset F_2\supset \cdots$ be nonempty closed sets with $\operatorname{diam}(F_n)\to 0$. Then $\bigcap_{n=1}^{\infty}F_n$ consists of exactly one point.\label{thm:cantor-intersection}%
 }
 \newcommand{\thmBaireCategory}{%
-A complete metric space cannot be a countable union of nowhere dense sets. Equivalently, a countable intersection of dense open sets is dense.%
+A complete metric space cannot be a countable union of nowhere dense sets. Equivalently, a countable intersection of dense open sets is dense.\label{thm:baire-category}%
 }
 \newcommand{\thmBaireVariant}{%
-If a complete metric space is the union of countably many closed sets, then at least one of those closed sets has nonempty interior.%
+If a complete metric space is the union of countably many closed sets, then at least one of those closed sets has nonempty interior.\label{thm:baire-variant}%
 }
 \newcommand{\thmNoCountableHamelBasis}{%
-An infinite-dimensional Banach space cannot have a countable Hamel basis.%
+An infinite-dimensional Banach space cannot have a countable Hamel basis.\label{thm:no-countable-hamel-basis}%
 }
 \newcommand{\thmBanachSteinhaus}{%
 Let $X$ be Banach, $Y$ normed, and $\mathcal F\subset\mathcal L(X,Y)$. If for every $x\in X$,
 $\sup_{L\in\mathcal F}\norm{Lx}_Y<\infty,$
 then
-$\sup_{L\in\mathcal F}\norm{L}_{\mathcal L(X,Y)}<\infty.$%
+$\sup_{L\in\mathcal F}\norm{L}_{\mathcal L(X,Y)}<\infty.$\label{thm:banach-steinhaus}%
 }
 \newcommand{\thmLimitOperatorBounded}{%
 Let $X$ be Banach, $Y$ normed, and let $(L_n)\subset \mathcal L(X,Y)$. If for every $x\in X$ the limit
 $Lx:=\lim_{n\to\infty}L_nx$
-exists, then $L\in\mathcal L(X,Y)$.%
+exists, then $L\in\mathcal L(X,Y)$.\label{thm:limit-operator-bounded}%
 }
 \newcommand{\thmOpenMapping}{%
-Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be surjective. Then $L$ maps open sets in $X$ onto open sets in $Y$.%
+Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be surjective. Then $L$ maps open sets in $X$ onto open sets in $Y$.\label{thm:open-mapping}%
 }
 \newcommand{\thmBoundedInverse}{%
-Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be bijective. Then $L^{-1}\in\mathcal L(Y,X)$.%
+Let $X,Y$ be Banach spaces and let $L\in\mathcal L(X,Y)$ be bijective. Then $L^{-1}\in\mathcal L(Y,X)$.\label{thm:bounded-inverse}%
 }
 \newcommand{\thmComparableNorms}{%
 Let $\norm{\cdot}_1$ and $\norm{\cdot}_2$ be norms on the same vector space $X$. Assume both $(X,\norm{\cdot}_1)$ and $(X,\norm{\cdot}_2)$ are Banach and that there exists $C>0$ with
 $\norm{x}_2\le C\norm{x}_1 \qquad\text{for all }x\in X.$
-Then the two norms are equivalent.%
+Then the two norms are equivalent.\label{thm:comparable-norms}%
 }
 \newcommand{\thmClosedGraph}{%
 Let $X,Y$ be Banach spaces and let $L:X\to Y$ be linear. If
 $\operatorname{Graph}(L)=\{(x,Lx):x\in X\}$
-is closed in $X\times Y$, then $L\in\mathcal L(X,Y)$.%
+is closed in $X\times Y$, then $L\in\mathcal L(X,Y)$.\label{thm:closed-graph}%
 }
 \newcommand{\thmClosedOperatorFacts}{%
 Let $D(L)\subset X$ and let $L:D(L)\to Y$ be linear.
@@ -146,35 +146,35 @@ Let $D(L)\subset X$ and let $L:D(L)\to Y$ be linear.
 \item $L$ is closed if and only if its graph is closed in $X\times Y$.
 \item If $D(L)$ is closed in $X$ and $L:D(L)\to Y$ is bounded with respect to the inherited norm on $D(L)$, then $L$ is closed.
 \item The assumption $D(L)=X$ is essential in the closed graph theorem.
-\end{enumerate}%
+\end{enumerate}\label{thm:closed-operator-facts}%
 }
 \newcommand{\thmAdjoint}{%
-Let $L\in\mathcal L(X,Y)$ and define $L^*:Y^*\to X^*$ by $L^*\psi=\psi\circ L$. Then $L^*$ is linear and bounded, $\norm{L^*}=\norm{L}$, and $(S\circ L)^*=L^*\circ S^*$ whenever the composition is defined.%
+Let $L\in\mathcal L(X,Y)$ and define $L^*:Y^*\to X^*$ by $L^*\psi=\psi\circ L$. Then $L^*$ is linear and bounded, $\norm{L^*}=\norm{L}$, and $(S\circ L)^*=L^*\circ S^*$ whenever the composition is defined.\label{thm:adjoint}%
 }
 \newcommand{\thmCompactLimit}{%
-If $K_n\in\mathcal L(X,Y)$ are compact and $K_n\to K$ in operator norm, then $K$ is compact.%
+If $K_n\in\mathcal L(X,Y)$ are compact and $K_n\to K$ in operator norm, then $K$ is compact.\label{thm:compact-limit}%
 }
 \newcommand{\thmCompactWeakToStrong}{%
-If $K\in\mathcal L(X,Y)$ is compact and $x_n\rightharpoonup x$ weakly in $X$, then $Kx_n\to Kx$ strongly in $Y$.%
+If $K\in\mathcal L(X,Y)$ is compact and $x_n\rightharpoonup x$ weakly in $X$, then $Kx_n\to Kx$ strongly in $Y$.\label{thm:compact-weak-to-strong}%
 }
 \newcommand{\thmSchauder}{%
-A bounded linear operator $K:X\to Y$ is compact if and only if its adjoint $K^*:Y^*\to X^*$ is compact.%
+A bounded linear operator $K:X\to Y$ is compact if and only if its adjoint $K^*:Y^*\to X^*$ is compact.\label{thm:schauder}%
 }
 \newcommand{\thmIntegralOperator}{%
 Let $k\in C([a,b]\times[a,b])$ and define
 $(Kf)(x):=\int_a^b k(x,y)f(y)\,dy \qquad (f\in C([a,b])).$
-Then $K:C([a,b])\to C([a,b])$ is compact.%
+Then $K:C([a,b])\to C([a,b])$ is compact.\label{thm:integral-operator}%
 }
 \newcommand{\thmInnerProductNorm}{%
-If $(\cdot,\cdot)_H$ is an inner product on a vector space $H$, then $\norm{x}_H:=\sqrt{(x,x)_H}$ defines a norm.%
+If $(\cdot,\cdot)_H$ is an inner product on a vector space $H$, then $\norm{x}_H:=\sqrt{(x,x)_H}$ defines a norm.\label{thm:inner-product-norm}%
 }
 \newcommand{\thmCauchySchwarz}{%
 For all $x,y\in H$,
-$\abs{(x,y)_H}\le \norm{x}_H\norm{y}_H.$%
+$\abs{(x,y)_H}\le \norm{x}_H\norm{y}_H.$\label{thm:cauchy-schwarz}%
 }
 \newcommand{\thmParallelogram}{%
 For all $x,y\in H$,
-$\norm{x+y}_H^2+\norm{x-y}_H^2=2\norm{x}_H^2+2\norm{y}_H^2.$%
+$\norm{x+y}_H^2+\norm{x-y}_H^2=2\norm{x}_H^2+2\norm{y}_H^2.$\label{thm:parallelogram}%
 }
 \newcommand{\thmBestApprox}{%
 Let $e_1,\dots,e_n$ be orthonormal in $H$. Then for every $x\in H$ and every scalars $c_1,\dots,c_n$,
@@ -182,7 +182,7 @@ $\norm{x-\sum_{k=1}^n c_ke_k}_H^2
 =
 \norm{x-\sum_{k=1}^n (x,e_k)_He_k}_H^2
 +\sum_{k=1}^n \abs{c_k-(x,e_k)_H}^2.$
-Hence $\sum_{k=1}^n (x,e_k)_He_k$ is the best approximation to $x$ from $\operatorname{span}\{e_1,\dots,e_n\}$.%
+Hence $\sum_{k=1}^n (x,e_k)_He_k$ is the best approximation to $x$ from $\operatorname{span}\{e_1,\dots,e_n\}$.\label{thm:best-approx}%
 }
 \newcommand{\thmBesselParseval}{%
 If $(e_k)_{k\ge 1}$ is orthonormal in $H$, then
@@ -191,12 +191,12 @@ for every $x\in H$.
 Equality for every $x$ holds if and only if $(e_k)$ is complete; then
 $x=\sum_{k=1}^{\infty}(x,e_k)_He_k,
 \qquad
-\norm{x}_H^2=\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2.$%
+\norm{x}_H^2=\sum_{k=1}^{\infty}\abs{(x,e_k)_H}^2.$\label{thm:bessel-parseval}%
 }
 \newcommand{\thmEllTwoIsometry}{%
 Let $(e_k)_{k\ge 1}$ be orthonormal in $H$. Then the map
 $\ell^2\ni (a_k)\longmapsto \sum_{k=1}^{\infty} a_ke_k$
-is an isometry onto $\ol{\operatorname{span}}\{e_k:k\in\N\}$.%
+is an isometry onto $\ol{\operatorname{span}}\{e_k:k\in\N\}$.\label{thm:ell-two-isometry}%
 }
 \newcommand{\thmOrthonormalCompleteEquiv}{%
 For an orthonormal system $(e_k)$ in $H$, the following are equivalent:
@@ -205,31 +205,31 @@ For an orthonormal system $(e_k)$ in $H$, the following are equivalent:
 \item if $(x,e_k)=0$ for all $k$, then $x=0$;
 \item the span of $(e_k)$ is dense in $H$;
 \item Parseval's identity holds for every $x\in H$.
-\end{enumerate}%
+\end{enumerate}\label{thm:orthonormal-complete-equiv}%
 }
 \newcommand{\thmSeparableHilbertONB}{%
-Every separable Hilbert space has a complete orthonormal system.%
+Every separable Hilbert space has a complete orthonormal system.\label{thm:separable-hilbert-onb}%
 }
 \newcommand{\thmSeparableHilbertIsomorphicEllTwo}{%
-Every separable Hilbert space is isometrically isomorphic to $\ell^2$.%
+Every separable Hilbert space is isometrically isomorphic to $\ell^2$.\label{thm:separable-hilbert-isomorphic-ell-two}%
 }
 \newcommand{\thmProjection}{%
 Let $H$ be a Hilbert space and let $C\subset H$ be nonempty, closed, and convex. Then for every $x\in H$ there exists a unique $y\in C$ such that
 $\norm{x-y}_H=\inf_{z\in C}\norm{x-z}_H.$
-If $C=M$ is a closed subspace, then this minimizer is characterized by $x-y\in M^{\perp}$.%
+If $C=M$ is a closed subspace, then this minimizer is characterized by $x-y\in M^{\perp}$.\label{thm:projection}%
 }
 \newcommand{\thmDirectSum}{%
 If $M$ is a closed subspace of a Hilbert space $H$, then
-$H=M\oplus M^{\perp}.$%
+$H=M\oplus M^{\perp}.$\label{thm:direct-sum}%
 }
 \newcommand{\thmLeastSquares}{%
 Let $A\in\R^{m\times n}$ and $b\in\R^m$. A vector $x\in\R^n$ minimizes $\norm{Ax-b}_2$ if and only if it solves the normal equations
-$A^TAx=A^Tb.$%
+$A^TAx=A^Tb.$\label{thm:least-squares}%
 }
 \newcommand{\thmRieszRepresentation}{%
 Let $H$ be a Hilbert space. For every $\phi\in H^*$ there exists a unique $a\in H$ such that
 $\phi(x)=(a,x)_H \qquad\text{for all }x\in H,$
-and $\norm{\phi}_{H^*}=\norm{a}_H$.%
+and $\norm{\phi}_{H^*}=\norm{a}_H$.\label{thm:riesz-representation}%
 }
 \newcommand{\thmLaxMilgramSymmetric}{%
 Let $H$ be a real Hilbert space, and let $B:H\times H\to\R$ be bounded, symmetric, and coercive:
@@ -237,64 +237,64 @@ $\abs{B(u,v)}\le C\norm{u}\norm{v}, \qquad B(u,u)\ge \beta\norm{u}^2.$
 Then for every $f\in H^*$ there exists a unique $u\in H$ with
 $B(u,v)=f(v) \qquad \forall v\in H.$
 Moreover $u$ is the unique minimizer of
-$J(v)=\frac12 B(v,v)-f(v).$%
+$J(v)=\frac12 B(v,v)-f(v).$\label{thm:lax-milgram-symmetric}%
 }
 \newcommand{\thmCoerciveBijective}{%
 Let $H$ be a Hilbert space and let $L\in\mathcal L(H)$. Assume there exists $\beta>0$ such that
 $\operatorname{Re}(Lu,u)_H\ge \beta\norm{u}_H^2 \qquad\text{for all }u\in H.$
 Then $L$ is bijective and
-$\norm{L^{-1}}\le \frac{1}{\beta}.$%
+$\norm{L^{-1}}\le \frac{1}{\beta}.$\label{thm:coercive-bijective}%
 }
 \newcommand{\thmLaxMilgramGeneral}{%
 Let $H$ be a Hilbert space over $\K$, let $B:H\times H\to\K$ be sesquilinear, bounded, and coercive:
 $\abs{B(u,v)}\le C\norm{u}\norm{v}, \qquad \operatorname{Re}B(u,u)\ge \beta\norm{u}^2.$
 Then for every $f\in H^*$ there exists a unique $u\in H$ such that
 $B(u,v)=f(v) \qquad \forall v\in H,$
-and $\norm{u}\le \beta^{-1}\norm{f}$.%
+and $\norm{u}\le \beta^{-1}\norm{f}$.\label{thm:lax-milgram-general}%
 }
 \newcommand{\thmHilbertAdjoint}{%
 Let $H$ be a Hilbert space and let $T\in\mathcal L(H)$. Then there exists a unique $T^*\in\mathcal L(H)$ such that
 $(Tx,y)_H=(x,T^*y)_H \qquad\text{for all }x,y\in H.$
-Moreover $\norm{T^*}=\norm{T}$ and $(ST)^*=T^*S^*$.%
+Moreover $\norm{T^*}=\norm{T}$ and $(ST)^*=T^*S^*$.\label{thm:hilbert-adjoint}%
 }
 \newcommand{\thmCompactWeakToStrongHilbert}{%
-If $K\in\mathcal L(H)$ is compact and $x_n\rightharpoonup x$ weakly in $H$, then $Kx_n\to Kx$ strongly in $H$.%
+If $K\in\mathcal L(H)$ is compact and $x_n\rightharpoonup x$ weakly in $H$, then $Kx_n\to Kx$ strongly in $H$.\label{thm:compact-weak-to-strong-hilbert}%
 }
 \newcommand{\thmFredholmAlternative}{%
 Let $H$ be a Hilbert space and let $K\in\mathcal L(H)$ be compact. Then the equation
 $(I-K)u=f$
 is solvable if and only if
 $(f,v)_H=0 \qquad\text{for all }v\in\ker(I-K^*).$
-Moreover either $\ker(I-K)=\{0\}$ and the solution exists uniquely for every $f$, or $\ker(I-K)$ is nontrivial.%
+Moreover either $\ker(I-K)=\{0\}$ and the solution exists uniquely for every $f$, or $\ker(I-K)$ is nontrivial.\label{thm:fredholm-alternative}%
 }
 \newcommand{\thmNeumannSeries}{%
 Let $T\in\mathcal L(X)$ with $\norm{T}<1$. Then $I-T$ is invertible and
 $(I-T)^{-1}=\sum_{n=0}^{\infty}T^n$
-with convergence in operator norm.%
+with convergence in operator norm.\label{thm:neumann-series}%
 }
 \newcommand{\thmResolventAnalytic}{%
 Let $X$ be a complex Banach space and $T\in\mathcal L(X)$. The resolvent set
 $\rho(T)=\{\lambda\in\C: \lambda I-T \text{ is invertible}\}$
-is open, and the resolvent map $\lambda\mapsto R(\lambda,T)=(\lambda I-T)^{-1}$ is analytic on $\rho(T)$.%
+is open, and the resolvent map $\lambda\mapsto R(\lambda,T)=(\lambda I-T)^{-1}$ is analytic on $\rho(T)$.\label{thm:resolvent-analytic}%
 }
 \newcommand{\thmSpectralRadius}{%
 Let $X\neq\{0\}$ be a complex Banach space and let $T\in\mathcal L(X)$. Then $\sigma(T)$ is nonempty and compact, and
 $r(T):=\sup_{\lambda\in\sigma(T)}\abs{\lambda}
 =\lim_{m\to\infty}\norm{T^m}^{1/m}.$
 If $\Gamma$ is a positively oriented contour surrounding $\sigma(T)$, then
-$T^j=\frac{1}{2\pi i}\int_{\Gamma}\lambda^jR(\lambda,T)\,d\lambda.$%
+$T^j=\frac{1}{2\pi i}\int_{\Gamma}\lambda^jR(\lambda,T)\,d\lambda.$\label{thm:spectral-radius}%
 }
 \newcommand{\thmCompactSpectrum}{%
-If $K\in\mathcal L(H)$ is compact on a Hilbert space $H$, then every nonzero point of $\sigma(K)$ is an eigenvalue. The set $\sigma(K)\setminus\{0\}$ is at most countable, each nonzero eigenvalue has finite multiplicity, and its only possible accumulation point is $0$.%
+If $K\in\mathcal L(H)$ is compact on a Hilbert space $H$, then every nonzero point of $\sigma(K)$ is an eigenvalue. The set $\sigma(K)\setminus\{0\}$ is at most countable, each nonzero eigenvalue has finite multiplicity, and its only possible accumulation point is $0$.\label{thm:compact-spectrum}%
 }
 \newcommand{\thmHellingerToeplitz}{%
-Every everywhere-defined symmetric linear operator on a Hilbert space is bounded.%
+Every everywhere-defined symmetric linear operator on a Hilbert space is bounded.\label{thm:hellinger-toeplitz}%
 }
 \newcommand{\thmSelfadjointSpectrumReal}{%
 If $T\in\mathcal L(H)$ is selfadjoint, then $\sigma(T)\subset\R$. More precisely,
-$\sigma(T)\subset [m,M], \quad m:=\inf_{\norm{x}=1}(Tx,x), \quad M:=\sup_{\norm{x}=1}(Tx,x).$%
+$\sigma(T)\subset [m,M], \quad m:=\inf_{\norm{x}=1}(Tx,x), \quad M:=\sup_{\norm{x}=1}(Tx,x).$\label{thm:selfadjoint-spectrum-real}%
 }
 \newcommand{\thmHilbertSchmidt}{%
 Let $T\in\mathcal L(H)$ be compact and selfadjoint. Then there exists an orthonormal basis $(e_n)$ of $H$ consisting of eigenvectors of $T$, with real eigenvalues $\lambda_n\to 0$, such that
-$Tx=\sum_{n=1}^{\infty}\lambda_n(x,e_n)e_n \qquad\text{for all }x\in H.$%
+$Tx=\sum_{n=1}^{\infty}\lambda_n(x,e_n)e_n \qquad\text{for all }x\in H.$\label{thm:hilbert-schmidt}%
 }

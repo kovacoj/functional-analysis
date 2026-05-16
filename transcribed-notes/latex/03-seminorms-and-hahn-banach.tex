@@ -107,14 +107,14 @@ The extension automatically satisfies $\abs{F(x)}\le \norm{f}\norm{x}$, hence is
 \end{thmbox}
 
 \paragraph{Proof idea.}
-Define a linear functional first on $Y+\operatorname{span}\{x_0\}$ by sending $y+tx_0$ to $t\,\operatorname{dist}(x_0,Y)$ and verify it is bounded by the norm. Then extend it with Theorem 6.2.
+Define a linear functional first on $Y+\operatorname{span}\{x_0\}$ by sending $y+tx_0$ to $t\,\operatorname{dist}(x_0,Y)$ and verify it is bounded by the norm. Then extend it with Theorem~\ref{thm:hahn-banach-normed}.
 
 \begin{thmbox}{Theorem 6.4: Separation of a nonzero element from the origin}
 \thmDualSeparates
 \end{thmbox}
 
 \paragraph{Reason.}
-Apply Theorem 6.3 with $Y=\{0\}$. If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x-y)=0$ for all $\phi\in X^*$, hence $x=y$.
+Apply Theorem~\ref{thm:hahn-banach-separating} with $Y=\{0\}$. If $x_n\rightharpoonup x$ and $x_n\rightharpoonup y$, then $\phi(x-y)=0$ for all $\phi\in X^*$, hence $x=y$.
 
 \begin{thmbox}{Theorem 6.5: Dual characterization of the norm}
 \thmNormViaDual
@@ -125,7 +125,7 @@ One inequality is immediate from
 \[
 \abs{\phi(x)}\le \norm{\phi}\norm{x}.
 \]
-For the reverse inequality, apply Theorem 6.3 to the one-point subspace $\{0\}$ to get a norm-one functional attaining $\norm{x}$ on $x$.
+For the reverse inequality, apply Theorem~\ref{thm:hahn-banach-separating} to the one-point subspace $\{0\}$ to get a norm-one functional attaining $\norm{x}$ on $x$.
 
 \begin{thmbox}{Theorem 6.6: If $X^*$ is separable, then $X$ is separable}
 \thmDualSeparableImpliesSeparable
