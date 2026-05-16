@@ -987,7 +987,26 @@ so $\norm{u}\le \beta^{-1}\norm{f}$, i.e. $\norm{L^{-1}}\le 1/\beta$.
 \begin{proof}
 By the Riesz representation theorem, for each fixed $u\in H$ there is a unique $Au\in H$ such that
 \[
-B(u,v)=(Au,v)_H \qquad \forall v\in H.
+B(v,u)=(v,Au)_H \qquad \forall v\in H.
+\]
+This defines a linear operator $A:H\to H$, and boundedness of $B$ gives
+\[
+\norm{Au}=\sup_{\norm{v}=1}\abs{(v,Au)}=
+\sup_{\norm{v}=1}\abs{B(v,u)}\le C\norm{u}.
+\]
+Moreover,
+\[
+\operatorname{Re}(Au,u)_H=\operatorname{Re}\ol{B(u,u)}=\operatorname{Re}B(u,u)\ge \beta\norm{u}^2.
+\]
+Thus $A$ satisfies Theorem~\ref{thm:coercive-bijective}, so it is bijective and $\norm{A^{-1}}\le 1/\beta$.
+
+Now let $f\in H^*$. By Riesz there exists $g\in H$ such that $f(v)=(v,g)_H$ for all $v$. Since $A$ is surjective, there exists a unique $u\in H$ with $Au=g$. Then
+\[
+B(v,u)=(v,Au)_H=(v,g)_H=f(v)
+\]
+for all $v$. Finally,
+\[
+\norm{u}\le \norm{A^{-1}}\norm{g}\le \beta^{-1}\norm{f}.
 \]
 This defines a linear operator $A:H\to H$, and boundedness of $B$ gives
 \[

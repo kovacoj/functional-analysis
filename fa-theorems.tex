@@ -246,11 +246,12 @@ Then $L$ is bijective and
 $\norm{L^{-1}}\le \frac{1}{\beta}.$\label{thm:coercive-bijective}%
 }
 \newcommand{\thmLaxMilgramGeneral}{%
-Let $H$ be a Hilbert space over $\K$, let $B:H\times H\to\K$ be sesquilinear, bounded, and coercive:
+Let $H$ be a Hilbert space over $\K$, let $B:H\times H\to\K$ be sesquilinear, bounded, and coercive, linear in the first argument and conjugate-linear in the second:
 $\abs{B(u,v)}\le C\norm{u}\norm{v}, \qquad \operatorname{Re}B(u,u)\ge \beta\norm{u}^2.$
 Then for every $f\in H^*$ there exists a unique $u\in H$ such that
-$B(u,v)=f(v) \qquad \forall v\in H,$
-and $\norm{u}\le \beta^{-1}\norm{f}$.\label{thm:lax-milgram-general}%
+$B(v,u)=f(v) \qquad \forall v\in H,$
+and $\norm{u}\le \beta^{-1}\norm{f}$.
+In the real case the convention issue disappears; in the complex case the order of the variables matters.\label{thm:lax-milgram-general}%
 }
 \newcommand{\thmHilbertAdjoint}{%
 Let $H$ be a Hilbert space and let $T\in\mathcal L(H)$. Then there exists a unique $T^*\in\mathcal L(H)$ such that

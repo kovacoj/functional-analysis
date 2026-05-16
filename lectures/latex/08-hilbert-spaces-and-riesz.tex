@@ -81,20 +81,20 @@ The Riesz map $H\to H^*$, $a\mapsto (x\mapsto (x,a)_H)$, is a conjugate-linear i
 \end{thmbox}
 
 \begin{thmbox}{Theorem 12.2: Lax--Milgram lemma}
-If $B:H\times H\to\K$ is bounded and coercive, then for every $f\in H^*$ there exists a unique $u\in H$ such that
+If $B:H\times H\to\K$ is sesquilinear (linear in the first argument), bounded and coercive, then for every $f\in H^*$ there exists a unique $u\in H$ such that
 \[
-B(u,v)=f(v) \qquad \forall v\in H.
+B(v,u)=f(v) \qquad \forall v\in H.
 \]
 \end{thmbox}
 
 \paragraph{Proof idea.}
-For fixed $u$, the map $v\mapsto B(u,v)$ is in $H^*$. By Riesz, there is a unique operator $A\in\mathcal L(H)$ such that
+For fixed $u$, the map $v\mapsto B(v,u)$ is in $H^*$ (linear in $v$). By Riesz, there is a unique operator $A\in\mathcal L(H)$ such that
 \[
-B(u,v)=(Au,v)_H.
+B(v,u)=(v,Au)_H.
 \]
 Coercivity gives
 \[
-\operatorname{Re}(Au,u)_H\ge \beta\norm{u}_H^2,
+\operatorname{Re}(Au,u)_H=\operatorname{Re}\ol{B(u,u)}=\operatorname{Re}B(u,u)\ge \beta\norm{u}_H^2,
 \]
 so Theorem \textbf{12.1} implies $A$ is invertible. Then solve $Au=g$, where $g\in H$ represents $f$ by Riesz.
 
