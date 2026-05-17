@@ -7,6 +7,8 @@ LEC_SRCS    := $(wildcard $(LEC_DIR)/[0-9]*.tex)
 LEC_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(LEC_SRCS))
 APP_SRCS    := $(wildcard $(LEC_DIR)/appendix-*.tex)
 APP_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(APP_SRCS))
+ANC_SRCS    := $(wildcard $(LEC_DIR)/ancillary-*.tex)
+ANC_PDFS    := $(patsubst $(LEC_DIR)/%.tex,$(LEC_PDF)/%.pdf,$(ANC_SRCS))
 ORAL_DIR    := oral/latex
 ORAL_PDF    := oral/pdf
 ORAL_SRCS   := $(wildcard $(ORAL_DIR)/[0-9]*.tex)
@@ -25,14 +27,14 @@ LATEX_AUX_EXTENSIONS = \
 
 .PHONY: all theorems lectures oral clean clean-latex
 
-all: theorems lectures
+all: theorems lectures oral
 
 theorems: $(THM_DIR)/theorems.pdf
 
 $(THM_DIR)/theorems.pdf: $(THM_DIR)/theorems.tex fa-macros.tex fa-theorems.tex
 	cd $(THM_DIR) && $(LATEX) theorems.tex && $(LATEX) theorems.tex
 
-lectures: $(LEC_PDFS) $(APP_PDFS)
+lectures: $(LEC_PDFS) $(APP_PDFS) $(ANC_PDFS)
 
 $(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex $(LEC_DIR)/study-note.cls fa-macros.tex fa-theorems.tex
 	$(LATEXMK) -cd -output-directory=$(abspath $(LEC_PDF)) $<
