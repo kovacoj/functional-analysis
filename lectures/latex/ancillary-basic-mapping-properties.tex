@@ -1,0 +1,263 @@
+\documentclass[header={Ancillary Note: Basic Mappings},notheorems]{study-note}
+
+\begin{document}
+
+\StudyTitleBlock{N2}{Ancillary Note}{Injective, surjective, bijective, inverse maps, and related basic concepts}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This note collects the basic map vocabulary that appears everywhere in linear algebra and functional analysis. The point is not just the words themselves, but how they interact with kernels, images, inverses, and solving equations.
+\end{focusbox}
+
+\tableofcontents
+
+\section{The Basic Setup}
+
+Let $T:X\to Y$ be a map between sets, vector spaces, or normed spaces, depending on context.
+
+\begin{defbox}{Domain, codomain, image}
+For a map $T:X\to Y$:
+\begin{itemize}
+\item $X$ is the \textbf{domain};
+\item $Y$ is the \textbf{codomain};
+\item the \textbf{image} is
+\[
+T(X):=\{Tx:x\in X\}\subset Y.
+\]
+\end{itemize}
+\end{defbox}
+
+\begin{warningbox}{Image vs. codomain}
+Do not confuse the image $T(X)$ with the codomain $Y$.
+
+A map can land in $Y$ without hitting every point of $Y$.
+\end{warningbox}
+
+\section{Injective, Surjective, Bijective}
+
+\begin{defbox}{Injective map}
+A map $T:X\to Y$ is \textbf{injective} if
+\[
+Tx_1=Tx_2 \Longrightarrow x_1=x_2.
+\]
+\end{defbox}
+
+\begin{defbox}{Surjective map}
+A map $T:X\to Y$ is \textbf{surjective} if
+\[
+T(X)=Y.
+\]
+Equivalently, for every $y\in Y$ there exists $x\in X$ such that $Tx=y$.
+\end{defbox}
+
+\begin{defbox}{Bijective map}
+A map is \textbf{bijective} if it is both injective and surjective.
+\end{defbox}
+
+\begin{focusbox}
+Quick memory aid:
+\begin{itemize}
+\item injective = no collisions;
+\item surjective = nothing in the codomain is missed;
+\item bijective = perfect matching between domain and codomain.
+\end{itemize}
+\end{focusbox}
+
+\section{Inverse Maps}
+
+\begin{defbox}{Inverse map}
+If $T:X\to Y$ is bijective, then the \textbf{inverse map}
+\[
+T^{-1}:Y\to X
+\]
+is defined by
+\[
+T^{-1}(Tx)=x,
+\qquad
+T(T^{-1}y)=y.
+\]
+\end{defbox}
+
+\begin{thmbox}{When the inverse exists}
+A map $T:X\to Y$ has an inverse $T^{-1}:Y\to X$ if and only if it is bijective.
+\end{thmbox}
+
+\begin{exbox}{Inverse on the image}
+Even if $T$ is not surjective onto all of $Y$, an injective map still has an inverse on its image:
+\[
+T^{-1}:T(X)\to X.
+\]
+\end{exbox}
+
+\section{Preimage}
+
+\begin{defbox}{Preimage of a set}
+If $A\subset Y$, then the \textbf{preimage} of $A$ under $T$ is
+\[
+T^{-1}(A):=\{x\in X:Tx\in A\}.
+\]
+\end{defbox}
+
+\begin{warningbox}{Two meanings of $T^{-1}$}
+The notation $T^{-1}$ can mean:
+\begin{enumerate}
+\item the inverse map, when $T$ is bijective;
+\item the preimage of a set, which makes sense for every map.
+\end{enumerate}
+Context decides which one is meant.
+\end{warningbox}
+
+\section{Linear Maps: Kernel And Range}
+
+\begin{defbox}{Kernel and range}
+If $T:X\to Y$ is linear, define
+\[
+\ker T:=\{x\in X:Tx=0\},
+\qquad
+\operatorname{Ran}(T):=T(X).
+\]
+\end{defbox}
+
+\begin{thmbox}{Injectivity and the kernel}
+For a linear map $T:X\to Y$,
+\[
+T \text{ is injective } \Longleftrightarrow \ker T=\{0\}.
+\]
+\end{thmbox}
+
+\begin{thmbox}{Surjectivity and solvability}
+For a linear map $T:X\to Y$,
+\[
+T \text{ is surjective } \Longleftrightarrow \forall y\in Y\ \exists x\in X\text{ such that }Tx=y.
+\]
+\end{thmbox}
+
+\begin{focusbox}
+So:
+\begin{itemize}
+\item injectivity is about uniqueness of solutions;
+\item surjectivity is about existence of solutions;
+\item bijectivity is about existence and uniqueness for every right-hand side.
+\end{itemize}
+\end{focusbox}
+
+\section{Left Inverse And Right Inverse}
+
+\begin{defbox}{Left inverse}
+A map $L:Y\to X$ is a \textbf{left inverse} of $T:X\to Y$ if
+\[
+L\circ T=I_X.
+\]
+This forces $T$ to be injective.
+\end{defbox}
+
+\begin{defbox}{Right inverse}
+A map $R:Y\to X$ is a \textbf{right inverse} of $T:X\to Y$ if
+\[
+T\circ R=I_Y.
+\]
+This forces $T$ to be surjective.
+\end{defbox}
+
+\begin{warningbox}{Do not overclaim}
+Having a left inverse does not by itself imply surjectivity.
+
+Having a right inverse does not by itself imply injectivity.
+
+Only when both occur do you get a true inverse and hence bijectivity.
+\end{warningbox}
+
+\section{Examples}
+
+\begin{exbox}{Injective but not surjective}
+The map
+\[
+T:\R\to\R,
+\qquad
+T(x)=e^x
+\]
+is injective, but not surjective onto $\R$, because it never takes negative values.
+\end{exbox}
+
+\begin{exbox}{Surjective but not injective}
+The map
+\[
+T:\R\to[0,\infty),
+\qquad
+T(x)=x^2
+\]
+is surjective, but not injective because $T(1)=T(-1)=1$.
+\end{exbox}
+
+\begin{exbox}{Bijective map}
+The map
+\[
+T:\R\to\R,
+\qquad
+T(x)=x+3
+\]
+is bijective. Its inverse is $T^{-1}(y)=y-3$.
+\end{exbox}
+
+\begin{exbox}{Linear example: right shift on sequences}
+Define
+\[
+S:\ell^2\to\ell^2,
+\qquad
+S(x_1,x_2,\dots)=(0,x_1,x_2,\dots).
+\]
+Then $S$ is injective but not surjective.
+\end{exbox}
+
+\begin{exbox}{Linear example: left shift on sequences}
+Define
+\[
+L:\ell^2\to\ell^2,
+\qquad
+L(x_1,x_2,x_3,\dots)=(x_2,x_3,\dots).
+\]
+Then $L$ is surjective but not injective.
+\end{exbox}
+
+\begin{exbox}{Invertible matrix}
+If $A\in\R^{n\times n}$ has nonzero determinant, then
+\[
+T_A:\R^n\to\R^n,
+\qquad
+T_Ax=Ax
+\]
+is bijective. In finite dimensions, injectivity, surjectivity, and invertibility are equivalent for square matrices.
+\end{exbox}
+
+\section{Functional-Analytic Perspective}
+
+\begin{thmbox}{Bounded inverse theorem context}
+If $X,Y$ are Banach spaces and $T\in\mathcal L(X,Y)$ is bijective, then
+\[
+T^{-1}\in\mathcal L(Y,X).
+\]
+\end{thmbox}
+
+\paragraph{Why this matters.}
+For arbitrary sets, bijectivity only gives existence of an inverse map. In functional analysis, one also wants the inverse to be continuous or bounded.
+
+\begin{warningbox}{Another common confusion}
+Bijective linear map does not automatically mean topological isomorphism unless you know extra hypotheses.
+\end{warningbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+If you want the shortest summary:
+\begin{enumerate}
+\item injective = uniqueness;
+\item surjective = existence;
+\item bijective = existence plus uniqueness;
+\item for linear maps, injective means $\ker T=\{0\}$;
+\item for linear maps, surjective means $\operatorname{Ran}(T)=Y$;
+\item inverse exists exactly for bijections.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

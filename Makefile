@@ -34,7 +34,7 @@ $(THM_DIR)/theorems.pdf: $(THM_DIR)/theorems.tex fa-macros.tex fa-theorems.tex
 
 lectures: $(LEC_PDFS) $(APP_PDFS)
 
-$(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex fa-macros.tex fa-theorems.tex
+$(LEC_PDF)/%.pdf: $(LEC_DIR)/%.tex $(LEC_DIR)/study-note-style.tex $(LEC_DIR)/study-note.cls fa-macros.tex fa-theorems.tex
 	$(LATEXMK) -cd -output-directory=$(abspath $(LEC_PDF)) $<
 
 oral: $(ORAL_PDFS)

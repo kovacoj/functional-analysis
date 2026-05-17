@@ -1,0 +1,109 @@
+\documentclass[header={Ancillary Note: Weak vs Weak-*},notheorems]{study-note}
+
+\begin{document}
+
+\StudyTitleBlock{N6}{Ancillary Note}{Weak convergence vs. weak-* convergence}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+Weak and weak-* convergence are easy to confuse because the definitions look almost identical. The real difference is: which functionals are allowed to test convergence.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Weak Convergence}
+
+\begin{defbox}{Weak convergence in $X$}
+Let $X$ be a normed space. A sequence $(x_n)$ converges \textbf{weakly} to $x\in X$, written
+\[
+x_n\rightharpoonup x,
+\]
+if
+\[
+\phi(x_n)\to \phi(x)
+\qquad \forall \phi\in X^*.
+\]
+\end{defbox}
+
+\section{Weak-* Convergence}
+
+\begin{defbox}{Weak-* convergence in $X^*$}
+A sequence $(\phi_n)$ in $X^*$ converges \textbf{weak-*} to $\phi\in X^*$, written
+\[
+\phi_n \overset{*}{\rightharpoonup} \phi,
+\]
+if
+\[
+\phi_n(x)\to \phi(x)
+\qquad \forall x\in X.
+\]
+\end{defbox}
+
+\begin{warningbox}{Main difference}
+Weak convergence in $X^*$ tests against all elements of $X^{**}$.
+
+Weak-* convergence in $X^*$ tests only against elements of $X$.
+
+So weak-* convergence is generally a weaker notion.
+\end{warningbox}
+
+\section{Why The Definitions Differ}
+
+\begin{focusbox}
+For elements of $X$, weak convergence is tested by functionals from $X^*$.
+
+For elements of $X^*$, weak convergence is tested by functionals from $X^{**}$, while weak-* convergence is tested only by the canonical copy of $X$ inside $X^{**}$.
+\end{focusbox}
+
+\section{Relations Between Them}
+
+\begin{thmbox}{Implication}
+If $\phi_n\rightharpoonup \phi$ weakly in $X^*$, then
+\[
+\phi_n \overset{*}{\rightharpoonup} \phi.
+\]
+\end{thmbox}
+
+\paragraph{Reason.}
+Every $x\in X$ defines an element of $X^{**}$ by the canonical embedding, so weak convergence in $X^*$ gives the weak-* testing identities automatically.
+
+\begin{warningbox}{Converse fails in general}
+Weak-* convergence does not in general imply weak convergence in $X^*$.
+\end{warningbox}
+
+\section{Why Weak-* Is Useful}
+
+\begin{thmbox}{Banach--Alaoglu idea}
+The closed unit ball of $X^*$ is compact in the weak-* topology.
+\end{thmbox}
+
+\paragraph{Meaning.}
+Weak-* convergence is designed so that bounded sets in the dual space have compactness properties that are often false for the weak topology.
+
+\section{Hilbert-Space Simplification}
+
+\begin{exbox}{Hilbert spaces}
+If $H$ is a Hilbert space, then $H\cong H^*$ by Riesz representation. This makes weak convergence easier to visualize:
+\[
+x_n\rightharpoonup x
+\Longleftrightarrow
+(x_n,y)_H\to (x,y)_H
+\quad \forall y\in H.
+\]
+\end{exbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+Quick summary:
+\begin{enumerate}
+\item weak convergence in $X$ is tested by $X^*$;
+\item weak convergence in $X^*$ is tested by $X^{**}$;
+\item weak-* convergence in $X^*$ is tested only by $X$;
+\item weak convergence implies weak-* convergence in the dual;
+\item Banach--Alaoglu is the main reason weak-* convergence matters.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

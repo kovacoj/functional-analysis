@@ -1,7 +1,23 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{study-note}[2026/05/16 Study note class for FA lecture notes]
+\ProvidesClass{study-note}[2026/05/17 Study note class for FA lecture notes]
 
 \LoadClass[11pt]{article}
 
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+  family=sn,
+  prefix=sn@,
+}
+
+\DeclareStringOption[Study Notes]{header}
+\DeclareBoolOption[true]{theorems}
+
+\ProcessKeyvalOptions*
+
 \input{study-note-style}
-\input{../../fa-theorems}
+
+\ifsn@theorems
+  \input{../../fa-theorems}
+\fi
+
+\newcommand{\StudyHeader}{\sn@header}

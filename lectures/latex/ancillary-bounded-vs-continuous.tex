@@ -1,0 +1,108 @@
+\documentclass[header={Ancillary Note: Bounded vs Continuous},notheorems]{study-note}
+
+\begin{document}
+
+\StudyTitleBlock{N5}{Ancillary Note}{Bounded vs. continuous linear maps}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+One of the first recurring facts in functional analysis is that for linear maps between normed spaces, boundedness and continuity are equivalent. This note isolates that fact clearly.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Definitions}
+
+\begin{defbox}{Bounded linear map}
+Let $T:X\to Y$ be linear between normed spaces. Then $T$ is \textbf{bounded} if there exists $C\ge 0$ such that
+\[
+\norm{Tx}_Y\le C\norm{x}_X
+\qquad \forall x\in X.
+\]
+\end{defbox}
+
+\begin{defbox}{Continuous map at a point}
+A map $T:X\to Y$ is \textbf{continuous at} $x_0\in X$ if for every $\varepsilon>0$ there exists $\delta>0$ such that
+\[
+\norm{x-x_0}_X<\delta
+\Longrightarrow
+\norm{Tx-Tx_0}_Y<\varepsilon.
+\]
+\end{defbox}
+
+\section{Main Equivalence}
+
+\begin{thmbox}{Boundedness equals continuity for linear maps}
+Let $T:X\to Y$ be linear between normed spaces. Then the following are equivalent:
+\begin{enumerate}
+\item $T$ is bounded;
+\item $T$ is continuous everywhere;
+\item $T$ is continuous at one point;
+\item $T$ is continuous at $0$.
+\end{enumerate}
+\end{thmbox}
+
+\paragraph{Why continuity at one point is enough.}
+Linearity lets you shift everything back to the origin. Once you understand continuity at $0$, you understand continuity everywhere.
+
+\begin{exbox}{Proof sketch: bounded implies continuous}
+If
+\[
+\norm{Tx}\le C\norm{x},
+\]
+then
+\[
+\norm{Tx-Ty}=\norm{T(x-y)}\le C\norm{x-y}.
+\]
+So $T$ is even Lipschitz continuous.
+\end{exbox}
+
+\begin{exbox}{Proof sketch: continuity at $0$ implies bounded}
+If $T$ is continuous at $0$, then there exists $\delta>0$ such that
+\[
+\norm{x}<\delta \Longrightarrow \norm{Tx}<1.
+\]
+For $x\neq 0$, apply this to
+\[
+z=\frac{\delta}{2\norm{x}}x.
+\]
+Then $\norm{z}<\delta$, so $\norm{Tz}<1$, which gives
+\[
+\norm{Tx}<\frac{2}{\delta}\norm{x}.
+\]
+Thus $T$ is bounded.
+\end{exbox}
+
+\section{Operator Norm}
+
+\begin{defbox}{Operator norm}
+For a bounded linear map $T:X\to Y$, define
+\[
+\norm{T}_{\mathcal L(X,Y)}:=\sup_{\norm{x}_X\le 1}\norm{Tx}_Y.
+\]
+\end{defbox}
+
+\begin{thmbox}{Equivalent formula}
+For $T\neq 0$,
+\[
+\norm{T}=\sup_{x\neq 0}\frac{\norm{Tx}}{\norm{x}}.
+\]
+\end{thmbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+Quick summary:
+\begin{enumerate}
+\item for linear maps, bounded = continuous;
+\item it is enough to check continuity at $0$;
+\item bounded linear maps are automatically Lipschitz;
+\item the operator norm is the best constant in the inequality
+\[
+\norm{Tx}\le C\norm{x}.
+\]
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

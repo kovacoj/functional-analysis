@@ -1,0 +1,121 @@
+\documentclass[header={Ancillary Note: Basic Topology},notheorems]{study-note}
+
+\begin{document}
+
+\StudyTitleBlock{N3}{Ancillary Note}{Dense, open, closed, compact, and related topological concepts}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+These words appear constantly in analysis. This note is a quick reference for the basic topological vocabulary used throughout functional analysis.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Open And Closed Sets}
+
+\begin{defbox}{Open set}
+A subset $U$ of a metric space $X$ is \textbf{open} if for every $x\in U$ there exists $r>0$ such that
+\[
+B(x,r)\subset U.
+\]
+\end{defbox}
+
+\begin{defbox}{Closed set}
+A subset $F\subset X$ is \textbf{closed} if its complement $X\setminus F$ is open.
+Equivalently, every limit of a convergent sequence in $F$ still belongs to $F$.
+\end{defbox}
+
+\begin{warningbox}{Common pitfall}
+A set can be neither open nor closed, and it can also be both open and closed. In a connected space, the only clopen sets are the empty set and the whole space.
+\end{warningbox}
+
+\section{Closure, Interior, Boundary}
+
+\begin{defbox}{Closure}
+The \textbf{closure} of $A\subset X$ is the smallest closed set containing $A$, denoted by $\ol A$.
+\end{defbox}
+
+\begin{defbox}{Interior}
+The \textbf{interior} of $A$ is the largest open set contained in $A$, denoted by $A^{\circ}$.
+\end{defbox}
+
+\begin{defbox}{Boundary}
+The \textbf{boundary} of $A$ is
+\[
+\partial A:=\ol A\setminus A^{\circ}.
+\]
+\end{defbox}
+
+\section{Dense Sets}
+
+\begin{defbox}{Dense set}
+A subset $A\subset X$ is \textbf{dense} in $X$ if
+\[
+\ol A=X.
+\]
+\end{defbox}
+
+\begin{thmbox}{Equivalent viewpoint}
+$A$ is dense in $X$ if and only if every nonempty open set in $X$ intersects $A$.
+\end{thmbox}
+
+\begin{exbox}{Standard examples}
+\begin{itemize}
+\item The rational numbers are dense in $\R$.
+\item Polynomials are dense in many function spaces, but not equal to them.
+\item Finite linear combinations of basis vectors are dense in $\ell^2$, but they are not all of $\ell^2$.
+\end{itemize}
+\end{exbox}
+
+\section{Compactness}
+
+\begin{defbox}{Compact set}
+A subset $K$ of a metric space is \textbf{compact} if every open cover has a finite subcover.
+\end{defbox}
+
+\begin{thmbox}{Sequential form in metric spaces}
+For metric spaces, $K$ is compact if and only if every sequence in $K$ has a convergent subsequence whose limit lies in $K$.
+\end{thmbox}
+
+\begin{thmbox}{Compactness in metric spaces}
+For a subset $K$ of a metric space, the following are equivalent:
+\begin{enumerate}
+\item $K$ is compact;
+\item $K$ is sequentially compact;
+\item $K$ is complete and totally bounded.
+\end{enumerate}
+\end{thmbox}
+
+\begin{warningbox}{Infinite-dimensional warning}
+In infinite-dimensional normed spaces, closed and bounded does \emph{not} imply compact. This is one of the main differences from finite-dimensional Euclidean spaces.
+\end{warningbox}
+
+\section{Nowhere Dense And Meager}
+
+\begin{defbox}{Nowhere dense}
+A set $A\subset X$ is \textbf{nowhere dense} if the interior of $\ol A$ is empty.
+\end{defbox}
+
+\begin{defbox}{Meager set}
+A set is \textbf{meager} if it is a countable union of nowhere dense sets.
+\end{defbox}
+
+\begin{focusbox}
+These notions are important because Baire's theorem says a complete metric space is not meager in itself.
+\end{focusbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+Quick summary:
+\begin{enumerate}
+\item open = contains a little ball around each point;
+\item closed = contains all its limit points;
+\item dense = closure is everything;
+\item compact in metric spaces = every sequence has a convergent subsequence;
+\item in infinite-dimensional spaces, closed and bounded is usually not compact.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}

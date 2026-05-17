@@ -1,0 +1,107 @@
+\documentclass[header={Ancillary Note: Kernel And Range},notheorems]{study-note}
+
+\begin{document}
+
+\StudyTitleBlock{N4}{Ancillary Note}{Kernel, image, range, cokernel, and rank-type ideas}
+
+\vspace{0.8em}
+
+\begin{focusbox}
+This note explains the standard algebraic objects attached to a linear map and why they matter for solving equations.
+\end{focusbox}
+
+\tableofcontents
+
+\section{Core Definitions}
+
+\begin{defbox}{Kernel}
+For a linear map $T:X\to Y$,
+\[
+\ker T:=\{x\in X:Tx=0\}.
+\]
+\end{defbox}
+
+\begin{defbox}{Image and range}
+For a linear map $T:X\to Y$,
+\[
+\operatorname{Im}(T)=\operatorname{Ran}(T):=T(X).
+\]
+In this note, image and range mean the same subset of $Y$.
+\end{defbox}
+
+\begin{defbox}{Cokernel}
+The \textbf{cokernel} of $T:X\to Y$ is the quotient space
+\[
+\operatorname{coker}(T):=Y/\operatorname{Ran}(T).
+\]
+It measures how far $T$ is from being surjective.
+\end{defbox}
+
+\section{Why They Matter}
+
+\begin{focusbox}
+For the equation
+\[
+Tx=y,
+\]
+the kernel controls uniqueness, and the range controls existence.
+\end{focusbox}
+
+\begin{thmbox}{Injectivity and surjectivity}
+For a linear map $T:X\to Y$:
+\begin{enumerate}
+\item $T$ is injective if and only if $\ker T=\{0\}$;
+\item $T$ is surjective if and only if $\operatorname{Ran}(T)=Y$;
+\item $T$ is bijective if and only if both hold.
+\end{enumerate}
+\end{thmbox}
+
+\begin{exbox}{Interpretation of the cokernel}
+If $\operatorname{Ran}(T)\neq Y$, then some right-hand sides are not reachable. The quotient space
+\[
+Y/\operatorname{Ran}(T)
+\]
+records exactly the missing directions.
+\end{exbox}
+
+\section{Finite-Dimensional Picture}
+
+\begin{thmbox}{Rank-nullity theorem}
+If $X$ is finite-dimensional and $T:X\to Y$ is linear, then
+\[
+\dim X=\dim(\ker T)+\dim(\operatorname{Ran}(T)).
+\]
+\end{thmbox}
+
+\begin{focusbox}
+In finite dimensions, loss of dimension splits into two parts:
+\begin{itemize}
+\item collapse inside the domain, measured by the kernel;
+\item missing directions in the codomain, measured by failure of surjectivity.
+\end{itemize}
+\end{focusbox}
+
+\section{Functional-Analysis Context}
+
+\begin{warningbox}{Closed range matters}
+In Banach and Hilbert spaces, the range of a bounded operator need not be closed. This is one reason infinite-dimensional operator theory is subtler than finite-dimensional linear algebra.
+\end{warningbox}
+
+\begin{exbox}{Fredholm viewpoint}
+In Fredholm theory one studies operators for which the kernel and cokernel are finite-dimensional. Then the defects of injectivity and surjectivity are both finite-dimensional and can be compared using the index.
+\end{exbox}
+
+\section{What To Remember Quickly}
+
+\begin{focusbox}
+Quick summary:
+\begin{enumerate}
+\item kernel = vectors sent to zero;
+\item range = vectors that are actually hit;
+\item kernel controls uniqueness;
+\item range controls existence;
+\item cokernel measures failure of surjectivity.
+\end{enumerate}
+\end{focusbox}
+
+\end{document}
