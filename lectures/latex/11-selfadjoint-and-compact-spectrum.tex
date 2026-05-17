@@ -8,6 +8,10 @@
 
 \begin{focusbox}
 This lecture specializes spectral theory to Hilbert spaces, especially compact and selfadjoint operators. For the exam, this is where the spectral theorem becomes concrete.
+
+\medskip
+
+The inner-product convention is the same as in Lecture 8: $(\cdot,\cdot)_H$ is linear in the first argument and conjugate-linear in the second.
 \end{focusbox}
 
 \tableofcontents
@@ -60,15 +64,19 @@ then $(x,y)_H=0$.
 \end{thmbox}
 
 \begin{prooflevelbox}{FULL}
-Reproduce the calculation: $\lambda(x,y)_H=(Tx,y)_H=(x,Ty)_H=\mu(x,y)_H$, so $(\lambda-\mu)(x,y)_H=0$.
+Reproduce the calculation with the convention linear in the first variable:
+\[
+\lambda(x,y)_H=(Tx,y)_H=(x,Ty)_H=\overline{\mu}(x,y)_H.
+\]
+Since eigenvalues of a selfadjoint operator are real by Theorem~\textbf{14.6}, this becomes $(\lambda-\mu)(x,y)_H=0$.
 \end{prooflevelbox}
 
 \paragraph{Reason.}
 Since $T=T^*$,
 \[
-\lambda(x,y)_H=(Tx,y)_H=(x,Ty)_H=\mu(x,y)_H.
+\lambda(x,y)_H=(Tx,y)_H=(x,Ty)_H=\overline{\mu}(x,y)_H.
 \]
-Thus $(\lambda-\mu)(x,y)_H=0$, so $(x,y)_H=0$.
+Eigenvalues of a selfadjoint operator are real, so $\overline{\mu}=\mu$. Hence $(\lambda-\mu)(x,y)_H=0$, and if $\lambda\neq\mu$ then $(x,y)_H=0$.
 
 \begin{thmbox}{Theorem 14.5: Hellinger--Toeplitz theorem}
 \thmHellingerToeplitz
@@ -103,9 +111,9 @@ then
 This is the infinite-dimensional analogue of the fact that eigenvalues of a real symmetric matrix are real and lie between the extremal Rayleigh quotients.
 \end{exbox}
 
-\section{Hilbert--Schmidt Theorem}
+\section{Spectral Theorem For Compact Selfadjoint Operators}
 
-\begin{thmbox}{Theorem 14.7: Hilbert--Schmidt theorem}
+\begin{thmbox}{Theorem 14.7: Spectral theorem for compact selfadjoint operators}
 \thmHilbertSchmidt
 \end{thmbox}
 
@@ -114,7 +122,7 @@ Know the statement precisely and the representation $Tx=\sum_n\lambda_n(x,e_n)e_
 \end{prooflevelbox}
 
 \paragraph{Meaning.}
-Compact selfadjoint operators admit a full diagonalization by an orthonormal basis. This is the infinite-dimensional analogue of diagonalizing a symmetric matrix.
+In the separable case, compact selfadjoint operators admit a full diagonalization by a countable orthonormal basis. This is the infinite-dimensional analogue of diagonalizing a symmetric matrix.
 
 \paragraph{Important details.}
 The eigenvalues are real, the nonzero eigenspaces are finite-dimensional, eigenvectors for different eigenvalues are orthogonal, and the only possible accumulation point of the eigenvalues is $0$.
