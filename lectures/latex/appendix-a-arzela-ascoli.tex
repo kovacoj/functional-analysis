@@ -78,6 +78,67 @@ When using Arzel\`a--Ascoli, do not try to prove compactness directly. Instead v
 \end{enumerate}
 \end{warningbox}
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise A.1: Equicontinuity checklist}
+Let
+\[
+\mathcal F=\{f\in C^1([0,1]): \norm{f}_{\infty}\le 1,\ \norm{f'}_{\infty}\le 1\}.
+\]
+Prove that $\mathcal F$ is relatively compact in $C([0,1])$.
+
+\paragraph{Solution pattern.}
+Uniform boundedness is given. Equicontinuity follows from the mean value estimate
+\[
+\abs{f(x)-f(y)}\le \abs{x-y}.
+\]
+Then apply Arzel\`a--Ascoli.
+\end{exbox}
+
+\begin{exbox}{Exercise A.2: Bounded but not equicontinuous}
+Let
+\[
+f_n(x)=x^n, \qquad x\in[0,1].
+\]
+Show that $(f_n)$ is uniformly bounded in $C([0,1])$ but has no uniformly convergent subsequence. Identify which Arzel\`a--Ascoli hypothesis fails.
+
+\paragraph{Solution pattern.}
+The sequence is bounded by $1$, but its pointwise limit is discontinuous, so no subsequence can converge uniformly. The missing hypothesis is equicontinuity, which fails near $x=1$.
+\end{exbox}
+
+\begin{exbox}{Exercise A.3: Compactness of an integral operator}
+Let $k\in C([0,1]^2)$ and define
+\[
+(Kf)(x)=\int_0^1 k(x,y)f(y)\,dy.
+\]
+Prove that $K:C([0,1])\to C([0,1])$ is compact using Arzel\`a--Ascoli.
+
+\paragraph{Solution pattern.}
+Show that $K(B_1)$ is uniformly bounded and equicontinuous. Boundedness uses $\norm{k}_{\infty}$, while equicontinuity follows from uniform continuity of $k$ on the compact square.
+\end{exbox}
+
+\begin{exbox}{Exercise A.4: A compact embedding of H\"older functions}
+Let $0<\alpha\le 1$ and consider
+\[
+\mathcal F=\{f\in C^{0,\alpha}([0,1]): \norm{f}_{\infty}\le 1,\ [f]_{C^{0,\alpha}}\le 1\}.
+\]
+Prove that $\mathcal F$ is relatively compact in $C([0,1])$.
+
+\paragraph{Solution pattern.}
+Uniform boundedness is built in. Equicontinuity follows from
+\[
+\abs{f(x)-f(y)}\le \abs{x-y}^{\alpha}.
+\]
+Then apply Arzel\`a--Ascoli.
+\end{exbox}
+
+\begin{exbox}{Exercise A.5: Why closedness matters for compactness}
+Give an example of a relatively compact subset of $C([0,1])$ that is not compact.
+
+\paragraph{Solution pattern.}
+Take the open unit ball inside the one-dimensional subspace of constant functions. Its closure is compact because it lies in a finite-dimensional space, so it is relatively compact, but it is not compact because it is not closed.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}

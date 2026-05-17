@@ -186,6 +186,91 @@ Let $K\in\mathcal L(H)$ be compact.
 Think of a square matrix $A$. The system $Ax=b$ is solvable exactly when $b$ is orthogonal to all vectors in $\ker(A^*)$, and uniqueness fails exactly when $\ker(A)\neq\{0\}$. Fredholm theory says that $I-K$ with $K$ compact behaves in the same spirit.
 \end{exbox}
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise 9.1: Fredholm compatibility condition}
+Let $H$ be a Hilbert space, let $K\in\mathcal L(H)$ be compact, and suppose that
+\[
+\ker(I-K^*)=\operatorname{span}\{v_1,\dots,v_m\}.
+\]
+State necessary and sufficient conditions on $f\in H$ for the equation
+\[
+(I-K)u=f
+\]
+to be solvable.
+
+\paragraph{Solution pattern.}
+Use
+\[
+\operatorname{Ran}(I-K)=\ker(I-K^*)^{\perp}.
+\]
+Therefore solvability is equivalent to
+\[
+(f,v_j)_H=0 \qquad j=1,\dots,m.
+\]
+\end{exbox}
+
+\begin{exbox}{Exercise 9.2: Uniqueness versus kernel}
+Let $K\in\mathcal L(H)$ be compact. Prove that if $\ker(I-K)=\{0\}$, then $(I-K)u=f$ has a unique solution for every $f\in H$.
+
+\paragraph{Solution pattern.}
+Fredholm theory says injectivity and surjectivity are linked for $I-K$. Trivial kernel gives uniqueness, and the Fredholm alternative gives solvability for every $f$. Then $(I-K)$ is bijective.
+\end{exbox}
+
+\begin{exbox}{Exercise 9.3: Nonuniqueness of solutions}
+Assume $(I-K)u=f$ has one solution $u_0$ and $\ker(I-K)\neq\{0\}$. Describe all solutions.
+
+\paragraph{Solution pattern.}
+Show that every solution has the form
+\[
+u_0+w,
+\qquad w\in\ker(I-K).
+\]
+Subtract two solutions to prove the converse inclusion.
+\end{exbox}
+
+\begin{exbox}{Exercise 9.4: A finite-rank Fredholm example}
+Let $H=L^2(0,1)$ and define
+\[
+(Kf)(x)=\left(\int_0^1 f(t)\,dt\right)\cdot 1.
+\]
+\begin{enumerate}
+\item Show that $K$ is compact.
+\item Compute $K^*$.
+\item Solve the homogeneous equation $(I-K)u=0$.
+\item Determine for which $f\in L^2(0,1)$ the equation $(I-K)u=f$ is solvable.
+\end{enumerate}
+
+\paragraph{Solution pattern.}
+$K$ has rank one, so it is compact. It is selfadjoint because it is defined by orthogonal projection onto constants up to scaling. The homogeneous equation gives $u=Ku$, so $u$ must be constant. The solvability condition is
+\[
+f\perp 1,
+\]
+that is,
+\[
+\int_0^1 f(t)\,dt=0.
+\]
+\end{exbox}
+
+\begin{exbox}{Exercise 9.5: Relation to eigenvalues}
+Show that $(I-K)u=0$ has a nonzero solution if and only if $1$ is an eigenvalue of $K$.
+
+\paragraph{Solution pattern.}
+Simply rewrite
+\[
+(I-K)u=0
+\iff
+Ku=u.
+\]
+\end{exbox}
+
+\begin{exbox}{Exercise 9.6: Why compactness matters}
+Give an example of a bounded operator $T$ on an infinite-dimensional Hilbert space such that $I-T$ is injective but not surjective.
+
+\paragraph{Solution pattern.}
+Take the unilateral right shift $S$ on $\ell^2$. Then $I-S$ is injective because $x=Sx$ forces $x=0$, but it is not surjective: for example, $e_1$ has no preimage in $\ell^2$ because solving $(I-S)x=e_1$ gives the non-square-summable sequence $(1,1,1,\dots)$.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}

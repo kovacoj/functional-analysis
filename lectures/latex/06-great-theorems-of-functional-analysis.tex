@@ -125,6 +125,79 @@ This is the right framework for operators that are not defined on all of $X$. Th
 One oral exam topic asks for the use of the closed graph theorem in the proof of the Hellinger--Toeplitz theorem: an everywhere-defined symmetric operator on a Hilbert space is bounded.
 \end{warningbox}
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise 6.1: Weakly convergent sequences are bounded}
+Let $X$ be a Banach space and suppose $x_n\rightharpoonup x$ in $X$. Prove that $(x_n)$ is bounded in norm.
+
+\paragraph{Solution pattern.}
+For each $n$, define $T_n:X^*\to\K$ by $T_n(\varphi)=\varphi(x_n)$. For fixed $\varphi$, the scalar sequence $T_n(\varphi)$ converges, hence is bounded. Apply Banach--Steinhaus to $(T_n)\subset (X^*)^*$, then identify $\norm{T_n}$ with $\norm{x_n}$ through the canonical embedding.
+\end{exbox}
+
+\begin{exbox}{Exercise 6.2: Pointwise limit of bounded operators}
+Let $X$ be Banach, $Y$ normed, and let $(T_n)\subset\mathcal L(X,Y)$. Assume that for every $x\in X$, the limit
+\[
+Tx:=\lim_{n\to\infty}T_nx
+\]
+exists in $Y$. Prove that $T\in\mathcal L(X,Y)$.
+
+\paragraph{Solution pattern.}
+Linearity follows by passing to the limit. Use Banach--Steinhaus to get $\sup_n\norm{T_n}<\infty$, then estimate
+\[
+\norm{Tx}_Y\le \sup_n\norm{T_n}\,\norm{x}_X.
+\]
+\end{exbox}
+
+\begin{exbox}{Exercise 6.3: Bounded inverse theorem in action}
+Let $X,Y$ be Banach spaces and let $T\in\mathcal L(X,Y)$ be bijective. Prove that there exists $C>0$ such that
+\[
+\norm{x}_X\le C\norm{Tx}_Y
+\qquad \forall x\in X.
+\]
+
+\paragraph{Solution pattern.}
+Apply the bounded inverse theorem to $T^{-1}$ and write
+\[
+\norm{x}_X=\norm{T^{-1}Tx}_X\le \norm{T^{-1}}\norm{Tx}_Y.
+\]
+\end{exbox}
+
+\begin{exbox}{Exercise 6.4: Equivalence of two comparable complete norms}
+Let $\norm{\cdot}_1$ and $\norm{\cdot}_2$ be norms on the same vector space $X$. Assume both normed spaces are Banach and
+\[
+\norm{x}_2\le C\norm{x}_1 \qquad \forall x\in X.
+\]
+Prove that the norms are equivalent.
+
+\paragraph{Solution pattern.}
+Consider the identity map from $(X,\norm{\cdot}_1)$ to $(X,\norm{\cdot}_2)$. It is bounded and bijective, so the bounded inverse theorem makes the inverse bounded as well.
+\end{exbox}
+
+\begin{exbox}{Exercise 6.5: Closed graph criterion}
+Let $X,Y$ be Banach spaces and let $T:X\to Y$ be linear. Suppose that whenever $x_n\to x$ in $X$ and $Tx_n\to y$ in $Y$, then $y=Tx$. Prove that $T$ is bounded.
+
+\paragraph{Solution pattern.}
+The assumption says exactly that the graph of $T$ is closed in $X\times Y$. Then apply the closed graph theorem.
+\end{exbox}
+
+\begin{exbox}{Exercise 6.6: Every bounded operator is closed}
+Let $X,Y$ be normed spaces and let $T\in\mathcal L(X,Y)$. Prove that $T$ is closed.
+
+\paragraph{Solution pattern.}
+If $(x_n,Tx_n)\to (x,y)$ in $X\times Y$, then continuity of $T$ gives $Tx_n\to Tx$. Uniqueness of limits in $Y$ implies $y=Tx$.
+\end{exbox}
+
+\begin{exbox}{Exercise 6.7: Why the full-domain assumption matters}
+Give an example of a bounded linear map on a non-closed subspace whose graph is not closed as a subset of the ambient product.
+
+\paragraph{Solution pattern.}
+Take $X=Y=\R$, domain $D$ equal to the rational numbers, and define $Tq=q$. The map is bounded on $D$, but its graph
+\[
+\{(q,q): q \text{ rational}\}
+\]
+is not closed in $\R^2$.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}

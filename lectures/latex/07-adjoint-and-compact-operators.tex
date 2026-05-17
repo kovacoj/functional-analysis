@@ -108,6 +108,89 @@ Know that Arzel\`a--Ascoli is the engine: show boundedness and equicontinuity of
 \paragraph{Proof idea.}
 Show that $K$ sends the unit ball of $C([a,b])$ to a bounded and equicontinuous family, then apply Arzel\`a--Ascoli.
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise 7.1: Finite-rank operators are compact}
+Let $X,Y$ be normed spaces and let $K\in\mathcal L(X,Y)$ have finite-dimensional range. Prove that $K$ is compact.
+
+\paragraph{Solution pattern.}
+If $(x_n)$ is bounded, then $(Kx_n)$ is bounded in the finite-dimensional space $\operatorname{Ran}K$. Closed bounded sets are compact in finite dimensions, so $(Kx_n)$ has a convergent subsequence.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.2: Compactness by Arzel\`a--Ascoli}
+Define $T:C([0,1])\to C([0,1])$ by
+\[
+(Tf)(x)=\int_0^x f(t)\,dt.
+\]
+Prove that $T$ is compact.
+
+\paragraph{Solution pattern.}
+For $\norm{f}_{\infty}\le 1$, show uniform boundedness and equicontinuity:
+\[
+\abs{(Tf)(x)-(Tf)(y)}\le \abs{x-y}.
+\]
+Then apply Arzel\`a--Ascoli.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.3: Integral operator with continuous kernel}
+Let $k\in C([0,1]^2)$ and define
+\[
+(Kf)(x)=\int_0^1 k(x,y)f(y)\,dy
+\]
+on $C([0,1])$. Prove that $K$ is bounded and compact.
+
+\paragraph{Solution pattern.}
+Boundedness comes from
+\[
+\norm{Kf}_{\infty}\le \norm{k}_{\infty}\norm{f}_{\infty}.
+\]
+Compactness again uses Arzel\`a--Ascoli: uniform boundedness is immediate, and equicontinuity follows from uniform continuity of $k$ on the compact square.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.4: A noncompact operator}
+Show that the identity operator $I:C([0,1])\to C([0,1])$ is not compact.
+
+\paragraph{Solution pattern.}
+Use that the closed unit ball of an infinite-dimensional normed space is compact only in finite dimensions, or exhibit a bounded sequence in the unit ball with no uniformly convergent subsequence.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.5: Compact operators send weak convergence to strong convergence}
+Let $K\in\mathcal L(X,Y)$ be compact and let $x_n\rightharpoonup x$ weakly in $X$. Prove that $Kx_n\to Kx$ strongly in $Y$.
+
+\paragraph{Solution pattern.}
+The sequence $(x_n)$ is bounded, so $(Kx_n)$ is relatively compact. Every subsequence has a norm-convergent subsequence; its limit must be $Kx$ because functionals still see the weak limit after composition with $K^*$. Hence the whole sequence converges to $Kx$ in norm.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.6: Compute an adjoint}
+Let $M_g:L^2(0,1)\to L^2(0,1)$ be multiplication by a bounded function $g\in L^{\infty}(0,1)$. Compute its Hilbert-space adjoint.
+
+\paragraph{Solution pattern.}
+Compute the inner product directly:
+\[
+(M_g f,h)=\int_0^1 g f\overline{h}.
+\]
+Under the standard convention, this equals
+\[
+(f,M_{\overline g}h),
+\]
+so $M_g^*=M_{\overline g}$. For real-valued $g$, the operator is selfadjoint.
+\end{exbox}
+
+\begin{exbox}{Exercise 7.7: A finite-sampling operator}
+Let $p_0,p_1,p_2\in C([0,1])$ be fixed and define
+\[
+(Lf)(x)=f(0)p_0(x)+f(1/2)p_1(x)+f(1)p_2(x).
+\]
+Show that $L:C([0,1])\to C([0,1])$ is bounded and compact.
+
+\paragraph{Solution pattern.}
+Estimate by $\norm{f}_{\infty}$ for boundedness. Compactness follows because
+\[
+\operatorname{Ran}L\subset \operatorname{span}\{p_0,p_1,p_2\},
+\]
+so the range is finite-dimensional.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}

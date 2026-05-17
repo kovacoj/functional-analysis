@@ -122,6 +122,95 @@ x_n\rightharpoonup x \quad \Longleftrightarrow \quad (x_n,y)_H\to (x,y)_H \text{
 This is just Riesz representation applied to all continuous linear functionals.
 \end{focusbox}
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise 8.1: Orthogonal complement is closed}
+Let $M\subset H$ be a linear subspace of a Hilbert space. Prove that $M^{\perp}$ is a closed subspace of $H$.
+
+\paragraph{Solution pattern.}
+Linearity is immediate. If $x_n\in M^{\perp}$ and $x_n\to x$, then for every $m\in M$,
+\[
+(x,m)_H=\lim_{n\to\infty}(x_n,m)_H=0,
+\]
+so $x\in M^{\perp}$.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.2: Projection theorem in the subspace case}
+Let $M$ be a closed subspace of a Hilbert space $H$. Prove that for every $x\in H$ there is a unique $m\in M$ such that $x-m\in M^{\perp}$.
+
+\paragraph{Solution pattern.}
+Use the projection theorem to find the unique nearest point $P_Mx\in M$. Orthogonality of the error term gives $x-P_Mx\in M^{\perp}$, and uniqueness follows from uniqueness of the minimizer.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.3: Riesz representation in a concrete case}
+Let $H=L^2(0,1)$ and let $g\in L^2(0,1)$. Define
+\[
+\varphi(f)=\int_0^1 f(x)\overline{g(x)}\,dx.
+\]
+Prove that $\varphi\in H^*$, identify its representing vector, and show that $\norm{\varphi}=\norm{g}_2$.
+
+\paragraph{Solution pattern.}
+Use Cauchy--Schwarz for boundedness. Under the convention used here,
+\[
+\varphi(f)=(f,g)_H,
+\]
+so the representing vector is $g$. Equality of norms follows by testing on $f=g/\norm{g}_2$ when $g\neq 0$.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.4: Orthonormal sequence converges weakly to zero}
+Let $(e_n)$ be an orthonormal sequence in a Hilbert space $H$. Prove that $e_n\rightharpoonup 0$, but $e_n$ does not converge strongly to $0$.
+
+\paragraph{Solution pattern.}
+For fixed $y\in H$, Bessel's inequality implies $(e_n,y)_H\to 0$. But strong convergence fails because $\norm{e_n}_H=1$ for every $n$.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.5: Lax--Milgram in finite dimensions}
+Let $H=\R^n$ and let $A$ be a real symmetric positive definite matrix. Define
+\[
+B(u,v)=u^TAv.
+\]
+Show that for every linear functional $f$, there is a unique $u$ such that $B(u,v)=f(v)$ for all $v$.
+
+\paragraph{Solution pattern.}
+Write $f(v)=b^Tv$ for some $b\in\R^n$. Then the equation $B(u,v)=f(v)$ for all $v$ is equivalent to $Au=b$. Positive definiteness gives invertibility of $A$.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.6: Lax--Milgram estimate}
+Let $B:H\times H\to\R$ be bounded and coercive with constant $\alpha>0$. If $u$ solves
+\[
+B(v,u)=f(v) \qquad \forall v\in H,
+\]
+prove that
+\[
+\norm{u}_H\le \alpha^{-1}\norm{f}_{H^*}.
+\]
+
+\paragraph{Solution pattern.}
+Test with $v=u$ and use coercivity:
+\[
+\alpha\norm{u}_H^2\le B(u,u)=f(u)\le \norm{f}_{H^*}\norm{u}_H.
+\]
+Then divide by $\norm{u}_H$ if $u\neq 0$.
+\end{exbox}
+
+\begin{exbox}{Exercise 8.7: Weak solution of a model Dirichlet problem}
+Let $H=H_0^1(0,1)$ and define
+\[
+B(u,v)=\int_0^1 u'(x)v'(x)\,dx,
+\qquad
+f(v)=\int_0^1 h(x)v(x)\,dx,
+\]
+where $h\in L^2(0,1)$. State what Lax--Milgram gives and identify the corresponding weak boundary value problem.
+
+\paragraph{Solution pattern.}
+Boundedness comes from Cauchy--Schwarz, coercivity from Poincar\'e on $H_0^1(0,1)$. Hence there exists a unique $u\in H_0^1(0,1)$ such that
+\[
+\int_0^1 v'(x)u'(x)\,dx=\int_0^1 h(x)v(x)\,dx
+\qquad \forall v\in H_0^1(0,1),
+\]
+which is the weak form of $-u''=h$ with $u(0)=u(1)=0$.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}

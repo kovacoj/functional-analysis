@@ -94,6 +94,68 @@ The next lecture uses Baire's theorem to prove:
 So this lecture is not isolated: it is the topological input behind the main structural theorems of functional analysis.
 \end{exbox}
 
+\section{Exam-Style Exercises}
+
+\begin{exbox}{Exercise 5.1: Cantor intersection theorem}
+Let $(X,d)$ be a complete metric space and let
+\[
+F_1\supset F_2\supset \cdots
+\]
+be nonempty closed sets such that $\operatorname{diam}(F_n)\to 0$. Prove that
+\[
+\bigcap_{n=1}^{\infty}F_n
+\]
+contains exactly one point.
+
+\paragraph{Solution pattern.}
+Choose $x_n\in F_n$. Show $(x_n)$ is Cauchy from the diameter condition, use completeness to get a limit $x$, then use closedness and nesting to prove $x\in F_n$ for all $n$. Uniqueness follows because two points lying in every $F_n$ must become arbitrarily close.
+\end{exbox}
+
+\begin{exbox}{Exercise 5.2: Baire theorem in the closed-set form}
+Prove that if $X$ is a complete metric space and
+\[
+X=\bigcup_{n=1}^{\infty}F_n
+\]
+with every $F_n$ closed, then at least one $F_n$ has nonempty interior.
+
+\paragraph{Solution pattern.}
+Argue by contradiction: if each $F_n$ had empty interior, then each complement $X\setminus F_n$ would be open and dense. Apply the dense-open form of Baire to the intersection of these complements.
+\end{exbox}
+
+\begin{exbox}{Exercise 5.3: No countable Hamel basis}
+Let $X$ be an infinite-dimensional Banach space. Prove that $X$ cannot have a countable Hamel basis.
+
+\paragraph{Solution pattern.}
+Assume $X=\operatorname{span}\{e_1,e_2,\dots\}$ and define
+\[
+X_n:=\operatorname{span}\{e_1,\dots,e_n\}.
+\]
+Each $X_n$ is finite-dimensional, hence closed. Each $X_n$ is a proper subspace, hence has empty interior. Since $X=\bigcup_n X_n$, Baire gives a contradiction.
+\end{exbox}
+
+\begin{exbox}{Exercise 5.4: Why completeness is necessary}
+Give an example of an incomplete metric space which is a countable union of closed sets with empty interior.
+
+\paragraph{Solution pattern.}
+Take the rational numbers with the usual metric. They are a countable union of singletons, each singleton is closed in the subspace topology and has empty interior, but the space is not complete.
+\end{exbox}
+
+\begin{exbox}{Exercise 5.5: Baire setup for Banach--Steinhaus}
+Let $X$ be Banach, $Y$ normed, and let $\mathcal F\subset\mathcal L(X,Y)$ be pointwise bounded. Define
+\[
+E_n:=\left\{x\in X:\sup_{T\in\mathcal F}\norm{Tx}_Y\le n\right\}.
+\]
+Prove that:
+\begin{enumerate}
+\item every $E_n$ is closed;
+\item $X=\bigcup_n E_n$;
+\item some $E_N$ contains a nonempty open ball.
+\end{enumerate}
+
+\paragraph{Solution pattern.}
+Closedness comes from continuity of each $T\in\mathcal F$. Pointwise boundedness gives the union statement. Then apply the closed-set form of Baire to conclude that one $E_N$ has nonempty interior. This is the exact Baire step in Banach--Steinhaus.
+\end{exbox}
+
 \section{What To Memorize Precisely}
 
 \begin{focusbox}
