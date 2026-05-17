@@ -1,4 +1,3 @@
-LATEX       := pdflatex
 LATEXMK     := latexmk -pdf
 THM_DIR     := theorems
 LEC_DIR     := lectures/latex
@@ -27,12 +26,12 @@ LATEX_AUX_EXTENSIONS = \
 
 .PHONY: all theorems lectures oral clean clean-latex
 
-all: theorems lectures oral
+all: theorems lectures oral oral
 
 theorems: $(THM_DIR)/theorems.pdf
 
 $(THM_DIR)/theorems.pdf: $(THM_DIR)/theorems.tex fa-macros.tex fa-theorems.tex
-	cd $(THM_DIR) && $(LATEX) theorems.tex && $(LATEX) theorems.tex
+	$(LATEXMK) -cd -output-directory=$(abspath $(THM_DIR)) $(THM_DIR)/theorems.tex
 
 lectures: $(LEC_PDFS) $(APP_PDFS) $(ANC_PDFS)
 
